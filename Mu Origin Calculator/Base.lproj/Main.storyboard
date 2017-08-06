@@ -114,7 +114,7 @@
         <!--Dark Wizard-->
         <scene sceneID="6Ya-ck-Bqk">
             <objects>
-                <viewController id="hu7-I9-Qxs" userLabel="Dark Wizard" sceneMemberID="viewController">
+                <viewController id="hu7-I9-Qxs" userLabel="Dark Wizard" customClass="DarkWizardViewController" customModule="Mu_Origin_Calculator" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Bh7-8b-OvE"/>
                         <viewControllerLayoutGuide type="bottom" id="tGt-VV-bQp"/>
@@ -183,6 +183,9 @@
                                             <constraint firstAttribute="height" constant="30" id="qny-0D-Mgb"/>
                                         </constraints>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateButton:" destination="hu7-I9-Qxs" eventType="touchUpInside" id="oEZ-Ad-xaQ"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sum of fruit stats:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B4y-k5-QSJ">
                                         <rect key="frame" x="60" y="130" width="145" height="30"/>
@@ -395,6 +398,19 @@
                             <constraint firstItem="rlw-3d-j4f" firstAttribute="top" secondItem="Bh7-8b-OvE" secondAttribute="bottom" id="xLz-t7-dmP"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="agiField" destination="q9L-ht-hut" id="HZ4-WQ-hBb"/>
+                        <outlet property="calculateButtonOutlet" destination="5Gf-WW-Pnh" id="zSc-X5-7lT"/>
+                        <outlet property="engField" destination="gVz-iu-KMB" id="V3j-UH-rKr"/>
+                        <outlet property="fruitStatsInput" destination="gxB-4h-Umm" id="jn5-TI-WAo"/>
+                        <outlet property="inputStatsView" destination="1yc-Jr-O96" id="ctZ-fd-c0f"/>
+                        <outlet property="levelInput" destination="NNz-TJ-ZRs" id="hG6-el-lg9"/>
+                        <outlet property="rebirthInput" destination="lhi-Ab-kKa" id="kvt-G6-c17"/>
+                        <outlet property="showStatsView" destination="SYK-y4-5PF" id="iwZ-8y-W1P"/>
+                        <outlet property="staField" destination="Dwm-Gg-rf0" id="7cJ-f2-dIP"/>
+                        <outlet property="statsWithoutCreatons" destination="Vza-Cd-idd" id="GbP-Ss-9NO"/>
+                        <outlet property="totalStats" destination="vLE-cP-TDb" id="ooC-dw-nQn"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbW-2n-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -472,6 +488,9 @@
                                             <constraint firstAttribute="height" constant="30" id="szR-wQ-9S6"/>
                                         </constraints>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateButton:" destination="ZaE-4d-mqX" eventType="touchUpInside" id="8TF-5L-NbO"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sum of fruit stats:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VAh-bu-GxF">
                                         <rect key="frame" x="60" y="130" width="145" height="30"/>
@@ -691,6 +710,19 @@
                             <constraint firstItem="4Tj-lO-dfB" firstAttribute="top" secondItem="Aeu-34-1gx" secondAttribute="bottom" constant="10" id="yZI-MJ-hN7"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="agiField" destination="fHl-wI-ujW" id="6PV-Mb-GOa"/>
+                        <outlet property="calculateButtonOutlet" destination="4nG-re-hkH" id="JHW-Vm-yEn"/>
+                        <outlet property="fruitStatsInput" destination="A0s-xK-AbI" id="yoi-bM-ne7"/>
+                        <outlet property="inputStatsView" destination="Wno-YJ-giu" id="wMz-IU-5Vg"/>
+                        <outlet property="levelInput" destination="eiT-Z5-tar" id="0LD-kq-bm3"/>
+                        <outlet property="rebirthInput" destination="el2-oM-J6U" id="IUS-tz-LWO"/>
+                        <outlet property="showStatsView" destination="4Tj-lO-dfB" id="Eex-sg-htG"/>
+                        <outlet property="staField" destination="P4H-7I-R84" id="aJ0-Ib-buJ"/>
+                        <outlet property="statsWithoutCreatons" destination="YBQ-hz-NrT" id="RzG-EL-fyb"/>
+                        <outlet property="strField" destination="J1H-s5-Fog" id="w8b-5J-5Uv"/>
+                        <outlet property="totalStats" destination="ngk-Hd-sou" id="gKJ-FL-Dbc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y8y-Kw-Ztn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -768,6 +800,9 @@
                                             <constraint firstAttribute="height" constant="30" id="ybY-vF-EOS"/>
                                         </constraints>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateButton:" destination="Oqq-Hb-UkK" eventType="touchUpInside" id="2zZ-Qx-TB6"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sum of fruit stats:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfp-qF-KnA">
                                         <rect key="frame" x="60" y="130" width="145" height="30"/>
@@ -1011,6 +1046,20 @@
                             <constraint firstAttribute="trailing" secondItem="PiL-ft-SoO" secondAttribute="trailing" id="yPy-48-Ddm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="agiField" destination="Ijx-I0-YRg" id="hRK-Y8-FkC"/>
+                        <outlet property="calculateButtonOutlet" destination="u5u-cr-TN8" id="DOg-Bi-JbW"/>
+                        <outlet property="engField" destination="c4R-dQ-Po4" id="kB8-Bw-gfF"/>
+                        <outlet property="fruitStatsInput" destination="hcl-Kv-in2" id="Wlg-wX-UfO"/>
+                        <outlet property="inputStatsView" destination="kp1-z8-9nl" id="Vp9-ji-Z7H"/>
+                        <outlet property="levelInput" destination="MOY-hD-chb" id="4EL-sj-a01"/>
+                        <outlet property="rebirthInput" destination="hR7-ga-pYa" id="KcO-vo-Lva"/>
+                        <outlet property="showStatsView" destination="PiL-ft-SoO" id="ybt-mF-b3S"/>
+                        <outlet property="staField" destination="E0X-2R-BO9" id="8zs-E2-OrF"/>
+                        <outlet property="statsWithoutCreatons" destination="o4D-aX-bfa" id="UEK-x9-usT"/>
+                        <outlet property="strField" destination="g9v-1f-e57" id="tRt-Ge-Iif"/>
+                        <outlet property="totalStats" destination="ysg-Lb-GnA" id="2Fl-Ow-UGs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXk-mH-3zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1088,6 +1137,9 @@
                                             <constraint firstAttribute="width" constant="120" id="DwL-MV-FS7"/>
                                         </constraints>
                                         <state key="normal" title="Calculate"/>
+                                        <connections>
+                                            <action selector="calculateButton:" destination="eeY-A7-zso" eventType="touchUpInside" id="vGr-Kh-d1y"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sum of fruit stats:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Wl-td-cyH">
                                         <rect key="frame" x="60" y="130" width="145" height="30"/>
@@ -1307,6 +1359,19 @@
                             <constraint firstItem="b2Q-73-hBa" firstAttribute="leading" secondItem="0RE-3R-xlO" secondAttribute="leading" id="jXK-jH-I1z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="agiField" destination="WzJ-dK-4ga" id="2O1-3v-cS7"/>
+                        <outlet property="calculateButtonOutlet" destination="eYi-UZ-VCD" id="KyL-Uh-hZv"/>
+                        <outlet property="fruitStatsInput" destination="uD8-qy-Fvd" id="DiT-BF-BoV"/>
+                        <outlet property="inputStatsView" destination="IXj-rp-M9U" id="nBK-vp-sNf"/>
+                        <outlet property="levelInput" destination="IRA-Sx-elu" id="Ugw-P1-xQj"/>
+                        <outlet property="rebirthInput" destination="Hv3-Sc-eo9" id="6El-tX-VcO"/>
+                        <outlet property="showStatsView" destination="b2Q-73-hBa" id="ePy-SN-8fT"/>
+                        <outlet property="staField" destination="mPj-ge-1p8" id="UiG-cl-GGu"/>
+                        <outlet property="statsWithoutCreatons" destination="sOQ-LS-Xum" id="TY9-PQ-shy"/>
+                        <outlet property="strField" destination="hqw-Xz-lbR" id="lBv-On-Cqz"/>
+                        <outlet property="totalStats" destination="xna-P6-rSf" id="Bi6-mR-1Wj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xj-xQ-o3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

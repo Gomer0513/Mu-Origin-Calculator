@@ -16,6 +16,7 @@
 		E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */; };
 		E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */; };
 		E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */; };
+		E481ADC61F17B11300F22ECA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC51F17B11300F22ECA /* Character.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElfViewController.swift; sourceTree = "<group>"; };
 		E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicKnightViewController.swift; sourceTree = "<group>"; };
 		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
+		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E481ADC41F17B0E900F22ECA /* Models */,
 				E481ADB91F14F83B00F22ECA /* ViewControllers */,
 				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
 				E481ADAB1F14E6FD00F22ECA /* Main.storyboard */,
@@ -82,6 +85,14 @@
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E481ADC41F17B0E900F22ECA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E481ADC51F17B11300F22ECA /* Character.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -159,6 +170,7 @@
 			files = (
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
+				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
 				E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */,
 				E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */,
