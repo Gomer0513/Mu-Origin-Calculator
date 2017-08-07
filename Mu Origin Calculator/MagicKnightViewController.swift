@@ -37,6 +37,9 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     private var agi = 0
     private var sta = 0
     
+    // MARK: - Constants
+    private let alerts = Alert.sharedInstance
+    
     // MARK: - Actions
     @IBAction func calculateButton(_ sender: Any) {
         
@@ -150,6 +153,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! && self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) && validationForCreatons(self.fruitStatsInput.text) {
             self.calculateButtonOutlet.isEnabled = true
         } else {
+            alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
             self.calculateButtonOutlet.isEnabled = false
         }
         
@@ -237,7 +241,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        let format = "[0-9]{1,2}"
+        let format = "[0-9]{1}||10"
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }

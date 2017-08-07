@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -45,6 +47,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E421EA4F1F38F9DB0088C40F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E421EA501F38FA040088C40F /* Alert.swift */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 		E481AD9B1F14E6FD00F22ECA = {
 			isa = PBXGroup;
 			children = (
@@ -64,6 +74,7 @@
 		E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E421EA4F1F38F9DB0088C40F /* Helpers */,
 				E481ADC41F17B0E900F22ECA /* Models */,
 				E481ADB91F14F83B00F22ECA /* ViewControllers */,
 				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
@@ -174,6 +185,7 @@
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
 				E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */,
 				E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */,
+				E421EA511F38FA040088C40F /* Alert.swift in Sources */,
 				E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

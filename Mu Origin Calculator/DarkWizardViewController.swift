@@ -36,6 +36,9 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
     private var agi = 0
     private var sta = 0
     
+    // MARK: - Constants
+    private let alerts = Alert.sharedInstance
+    
     // MARK: - Actions
     @IBAction func calculateButton(_ sender: Any) {
         
@@ -146,6 +149,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
                 self.engField.text = String(self.totalPoint)
                 self.updateStats(self.engField.text, stat: .eng)
             } else {
+                alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
                 self.updateStats(self.engField.text, stat: .eng)
             }
         } else if (self.engField.text?.isEmpty)! || self.engField.text == "0" {
@@ -211,7 +215,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        let format = "[0-9]{1,2}"
+        let format = "[0-9]{1}||10"
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }
