@@ -141,7 +141,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        if !((self.strField.text?.isEmpty)!) && self.strField.resignFirstResponder() {
+        if !((self.strField.text?.isEmpty)!) && self.strField.resignFirstResponder() && validationForCreatons(self.strField.text) {
             if Int(self.strField.text!)! > self.totalPoint {
                 self.strField.text = String(self.totalPoint)
                 self.updateStats(self.strField.text, stat: .str)
@@ -152,7 +152,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.updateStats("0", stat: .str)
         }
         
-        if !((self.agiField.text?.isEmpty)!) && self.agiField.resignFirstResponder() {
+        if !((self.agiField.text?.isEmpty)!) && self.agiField.resignFirstResponder() && validationForCreatons(self.agiField.text) {
             if Int(self.agiField.text!)! > self.totalPoint {
                 self.agiField.text = String(self.totalPoint)
                 self.updateStats(self.agiField.text, stat: .agi)
@@ -163,7 +163,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.updateStats("0", stat: .agi)
         }
         
-        if !((self.staField.text?.isEmpty)!) && self.staField.resignFirstResponder() {
+        if !((self.staField.text?.isEmpty)!) && self.staField.resignFirstResponder() && validationForCreatons(self.staField.text) {
             if Int(self.staField.text!)! > self.totalPoint {
                 self.staField.text = String(self.totalPoint)
                 self.updateStats(self.staField.text, stat: .sta)

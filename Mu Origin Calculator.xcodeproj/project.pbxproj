@@ -299,6 +299,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MW5NN26C7T;
 				INFOPLIST_FILE = "Mu Origin Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -312,6 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MW5NN26C7T;
 				INFOPLIST_FILE = "Mu Origin Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";

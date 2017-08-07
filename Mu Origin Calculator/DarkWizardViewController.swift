@@ -141,7 +141,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
         }
         
         
-        if !((self.engField.text?.isEmpty)!) && self.engField.resignFirstResponder() {
+        if !((self.engField.text?.isEmpty)!) && self.engField.resignFirstResponder() && validationForCreatons(self.engField.text) {
             if Int(self.engField.text!)! > self.totalPoint {
                 self.engField.text = String(self.totalPoint)
                 self.updateStats(self.engField.text, stat: .eng)
@@ -152,7 +152,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
             self.updateStats("0", stat: .eng)
         }
         
-        if !((self.agiField.text?.isEmpty)!) && self.agiField.resignFirstResponder() {
+        if !((self.agiField.text?.isEmpty)!) && self.agiField.resignFirstResponder() && validationForCreatons(self.agiField.text) {
             if Int(self.agiField.text!)! > self.totalPoint {
                 self.agiField.text = String(self.totalPoint)
                 self.updateStats(self.agiField.text, stat: .agi)
@@ -163,7 +163,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
             self.updateStats("0", stat: .agi)
         }
         
-        if !((self.staField.text?.isEmpty)!) && self.staField.resignFirstResponder() {
+        if !((self.staField.text?.isEmpty)!) && self.staField.resignFirstResponder() && validationForCreatons(self.staField.text) {
             if Int(self.staField.text!)! > self.totalPoint {
                 self.staField.text = String(self.totalPoint)
                 self.updateStats(self.staField.text, stat: .sta)
