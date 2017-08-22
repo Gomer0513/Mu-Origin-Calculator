@@ -22,10 +22,13 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalStats: UILabel!
     @IBOutlet weak var statsWithoutCreatons: UILabel!
     
+    @IBOutlet weak var enterStatsView: UIView!
     @IBOutlet weak var showStatsView: UIView!
     @IBOutlet weak var inputStatsView: UIView!
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     //MARK: - Variables
     var character = Character()
@@ -72,7 +75,47 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
         self.engField.delegate = self
         self.agiField.delegate = self
         self.staField.delegate = self
-
+        
+        let tapper = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
+        tapper.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapper)
+        
+        self.registerForNotifications()
+        
+    }
+    
+    deinit {
+        self.deregisterFromNotifications()
+    }
+    
+    func endEdit(_ sedner: UIGestureRecognizer) {
+        self.enterStatsView.endEditing(true)
+        self.inputStatsView.endEditing(true)
+    }
+    
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func deregisterFromNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                let contentInset = UIEdgeInsetsMake(64.0, 0.0, keyboardSize.height,  0.0)
+                
+                self.scrollView.contentInset = contentInset
+                self.scrollView.scrollIndicatorInsets = contentInset
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {
@@ -140,6 +183,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! && self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) && validationForCreatons(self.fruitStatsInput.text) {
             self.calculateButtonOutlet.isEnabled = true
         } else {
+            alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
             self.calculateButtonOutlet.isEnabled = false
         }
         
@@ -149,7 +193,6 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
                 self.engField.text = String(self.totalPoint)
                 self.updateStats(self.engField.text, stat: .eng)
             } else {
-                alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
                 self.updateStats(self.engField.text, stat: .eng)
             }
         } else if (self.engField.text?.isEmpty)! || self.engField.text == "0" {
@@ -241,5 +284,4 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }
-
 }
