@@ -23,8 +23,10 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var totalStats: UILabel!
     @IBOutlet weak var statsWithoutCreatons: UILabel!
     
+    @IBOutlet weak var enterStatsView: UIView!
     @IBOutlet weak var showStatsView: UIView!
     @IBOutlet weak var inputStatsView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
     
@@ -75,6 +77,45 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         self.agiField.delegate = self
         self.staField.delegate = self
         
+        let tapper = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
+        tapper.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tapper)
+        
+        self.registerForNotifications()
+    }
+    
+    deinit {
+        self.deregisterFromNotifications()
+    }
+    
+    func endEdit(_ sedner: UIGestureRecognizer) {
+        self.enterStatsView.endEditing(true)
+        self.inputStatsView.endEditing(true)
+    }
+    
+    private func registerForNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    private func deregisterFromNotifications() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func keyboardWillShow(notification: NSNotification) {
+        if let userInfo = notification.userInfo {
+            if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                let contentInset = UIEdgeInsetsMake(64.0, 0.0, keyboardSize.height,  0.0)
+                
+                self.scrollView.contentInset = contentInset
+                self.scrollView.scrollIndicatorInsets = contentInset
+            }
+        }
+    }
+    
+    func keyboardWillHide(notification: NSNotification) {
+        self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {
