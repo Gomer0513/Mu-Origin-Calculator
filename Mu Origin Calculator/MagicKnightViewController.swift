@@ -47,18 +47,21 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         
         self.character = Character(rebirth: Int(self.rebirthInput.text!), level: Int(self.levelInput.text!), fruits: Int(self.fruitStatsInput.text!))
         
-        if self.showStatsView.isHidden {
+        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {//&& validationForCreatons(self.fruitStatsInput.text) {
             self.showStatsView.isHidden = false
-        }
-        if self.inputStatsView.isHidden {
             self.inputStatsView.isHidden = false
+            
+            self.totalPoint = self.character.calculateFullStats()
+            self.points = self.character.calculateStats()
+            
+            self.statsWithoutCreatons.text = String(self.points)
+            self.totalStats.text = String(self.totalPoint)
+        } else {
+            self.showStatsView.isHidden = true
+            self.inputStatsView.isHidden = true
+            
+            alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
         }
-        
-        self.totalPoint = self.character.calculateFullStats()
-        self.points = self.character.calculateStats()
-        
-        self.statsWithoutCreatons.text = String(self.points)
-        self.totalStats.text = String(self.totalPoint)
     }
     
     override func viewDidLoad() {
@@ -191,10 +194,9 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! && self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) && validationForCreatons(self.fruitStatsInput.text) {
+        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
             self.calculateButtonOutlet.isEnabled = true
         } else {
-            alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
             self.calculateButtonOutlet.isEnabled = false
         }
         
