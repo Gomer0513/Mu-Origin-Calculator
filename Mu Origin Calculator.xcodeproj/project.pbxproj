@@ -11,13 +11,13 @@
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
-		E481ADB21F14E6FD00F22ECA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADB01F14E6FD00F22ECA /* LaunchScreen.storyboard */; };
 		E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADBA1F14FC5200F22ECA /* DarkKnightViewController.swift */; };
 		E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */; };
 		E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */; };
 		E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */; };
 		E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */; };
 		E481ADC61F17B11300F22ECA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC51F17B11300F22ECA /* Character.swift */; };
+		E48703921F9E66FE00562F5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703911F9E66FE00562F5F /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,7 +26,6 @@
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E481ADB11F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E481ADB31F14E6FD00F22ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E481ADBA1F14FC5200F22ECA /* DarkKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkKnightViewController.swift; sourceTree = "<group>"; };
 		E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkWizardViewController.swift; sourceTree = "<group>"; };
@@ -34,6 +33,7 @@
 		E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicKnightViewController.swift; sourceTree = "<group>"; };
 		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E48703911F9E66FE00562F5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +51,7 @@
 			isa = PBXGroup;
 			children = (
 				E421EA501F38FA040088C40F /* Alert.swift */,
+				E48703911F9E66FE00562F5F /* Colors.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -80,7 +81,6 @@
 				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
 				E481ADAB1F14E6FD00F22ECA /* Main.storyboard */,
 				E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */,
-				E481ADB01F14E6FD00F22ECA /* LaunchScreen.storyboard */,
 				E481ADB31F14E6FD00F22ECA /* Info.plist */,
 			);
 			path = "Mu Origin Calculator";
@@ -166,7 +166,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E481ADB21F14E6FD00F22ECA /* LaunchScreen.storyboard in Resources */,
 				E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */,
 				E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */,
 			);
@@ -180,6 +179,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
+				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
@@ -199,14 +199,6 @@
 				E481ADAC1F14E6FD00F22ECA /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		E481ADB01F14E6FD00F22ECA /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E481ADB11F14E6FD00F22ECA /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -309,9 +301,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = MuLauchImages;
 				DEVELOPMENT_TEAM = MW5NN26C7T;
 				INFOPLIST_FILE = "Mu Origin Calculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -323,9 +316,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = MuLauchImages;
 				DEVELOPMENT_TEAM = MW5NN26C7T;
 				INFOPLIST_FILE = "Mu Origin Calculator/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
