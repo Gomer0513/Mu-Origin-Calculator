@@ -17,6 +17,13 @@ enum Stats: Point {
     case sta
 }
 
+enum Classes: String {
+    case dk = "Dark Knight"
+    case dw = "Dark Wizard"
+    case elf = "Elf"
+    case mg = "Magic Knight"
+}
+
 class Character {
     var level: Int = 1
     var rebirth: Int = 0

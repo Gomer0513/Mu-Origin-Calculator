@@ -26,3 +26,5 @@ extension UIColor {
         )
     }
 }
+
+let backgroundColor = UIColor(rgb: 0x1C1C1C)

@@ -11,9 +11,19 @@ import UIKit
 class DarkKnightViewController: UIViewController, UITextFieldDelegate {
 
     // MARK: - Outlets
+    
+    @IBOutlet weak var inputTitleLabel: LabelWhiteColorClass!
+    @IBOutlet weak var rebirthInputLabel: LabelWhiteColorClass!
+    @IBOutlet weak var currentLevelLabel: LabelWhiteColorClass!
+    @IBOutlet weak var creatonInputLabel: LabelWhiteColorClass!
+    
     @IBOutlet weak var rebirthInput: UITextField!
     @IBOutlet weak var levelInput: UITextField!
     @IBOutlet weak var fruitStatsInput: UITextField!
+    
+    @IBOutlet weak var strLabel: LabelWhiteColorClass!
+    @IBOutlet weak var agiLabel: LabelWhiteColorClass!
+    @IBOutlet weak var staLabel: LabelWhiteColorClass!
     
     @IBOutlet weak var strField: UITextField!
     @IBOutlet weak var agiField: UITextField!
@@ -21,11 +31,14 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var totalStats: UILabel!
     @IBOutlet weak var statsWithoutCreatons: UILabel!
+    @IBOutlet weak var totalStatsLabel: LabelWhiteColorClass!
+    @IBOutlet weak var statsWithoutCreatonsLabel: LabelWhiteColorClass!
     
     @IBOutlet weak var enterStatsView: UIView!
     @IBOutlet weak var showStatsView: UIView!
     @IBOutlet weak var inputStatsView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
     
@@ -37,7 +50,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate {
     private var eng = 0
     private var agi = 0
     private var sta = 0
-    
+    var subject = String()
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
     
@@ -46,7 +59,11 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate {
         
         self.character = Character(rebirth: Int(self.rebirthInput.text!), level: Int(self.levelInput.text!), fruits: Int(self.fruitStatsInput.text!))
         
-        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {//&& validationForCreatons(self.fruitStatsInput.text) {
+        self.strField.text = ""
+        self.agiField.text = ""
+        self.staField.text = ""
+        
+        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {
             self.showStatsView.isHidden = false
             self.inputStatsView.isHidden = false
             
@@ -59,16 +76,35 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate {
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
             
-            alerts.errorAlert(title: "Incorrect Data", message: "Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", viewController: self)
+            alerts.errorAlert(title: NSLocalizedString("Incorrect Data", comment: ""), message: NSLocalizedString("Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", comment: ""), viewController: self)
         }
+    }
+    
+    private func initialSetup() {
+        self.navigationController?.navigationBar.tintColor = .orange
+        self.navigationItem.title = self.subject
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!]
+        self.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!], for: .normal)
+        self.scrollView.backgroundColor = backgroundColor.withAlphaComponent(0.90)
+        self.containerView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        self.enterStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        self.showStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        self.inputStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        
+        self.calculateButtonOutlet.setTitle(NSLocalizedString("Calculate", comment: "Calculate Button"), for: .normal)
+        
+        self.levelInput.placeholder = "1"
+        self.levelInput.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
+        
+        self.showStatsView.isHidden = true
+        self.inputStatsView.isHidden = true
+        self.calculateButtonOutlet.isEnabled = false
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.showStatsView.isHidden = true
-        self.inputStatsView.isHidden = true
-        self.calculateButtonOutlet.isEnabled = false
+        self.initialSetup()
         
         self.rebirthInput.delegate = self
         self.levelInput.delegate = self
@@ -185,6 +221,8 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         } else {
             self.calculateButtonOutlet.isEnabled = false
+            self.showStatsView.isHidden = true
+            self.inputStatsView.isHidden = true
         }
         
         

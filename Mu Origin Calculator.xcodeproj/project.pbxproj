@@ -18,6 +18,10 @@
 		E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */; };
 		E481ADC61F17B11300F22ECA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC51F17B11300F22ECA /* Character.swift */; };
 		E48703921F9E66FE00562F5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703911F9E66FE00562F5F /* Colors.swift */; };
+		E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703931F9FAE2100562F5F /* MenuButton.swift */; };
+		E48703961FA03F1100562F5F /* TextClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703951FA03F1100562F5F /* TextClass.swift */; };
+		E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */; };
+		E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +38,10 @@
 		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E48703911F9E66FE00562F5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		E48703931F9FAE2100562F5F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		E48703951FA03F1100562F5F /* TextClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClass.swift; sourceTree = "<group>"; };
+		E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWhiteColorClass.swift; sourceTree = "<group>"; };
+		E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelOrangeColorClass.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +102,10 @@
 				E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */,
 				E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */,
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
+				E48703931F9FAE2100562F5F /* MenuButton.swift */,
+				E48703951FA03F1100562F5F /* TextClass.swift */,
+				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
+				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -178,13 +190,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
+				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
+				E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */,
 				E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */,
 				E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */,
+				E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */,
 				E421EA511F38FA040088C40F /* Alert.swift in Sources */,
 				E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */,
 			);
