@@ -110,6 +110,12 @@ class Character {
                 } else {
                     overalStats = overalStats + 99*15
                 }
+            case 11:
+                if i == self.rebirth {
+                    overalStats = overalStats + (self.level - 1)*16
+                } else {
+                    overalStats = overalStats + 99*16
+                }
             default:
                 print("unknown rebirth")
             }

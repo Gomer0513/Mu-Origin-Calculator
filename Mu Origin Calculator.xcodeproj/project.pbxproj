@@ -22,6 +22,7 @@
 		E48703961FA03F1100562F5F /* TextClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703951FA03F1100562F5F /* TextClass.swift */; };
 		E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */; };
 		E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */; };
+		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		E48703951FA03F1100562F5F /* TextClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClass.swift; sourceTree = "<group>"; };
 		E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWhiteColorClass.swift; sourceTree = "<group>"; };
 		E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelOrangeColorClass.swift; sourceTree = "<group>"; };
+		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				E48703951FA03F1100562F5F /* TextClass.swift */,
 				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
 				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
+				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -193,6 +196,7 @@
 				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
+				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,
 				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,

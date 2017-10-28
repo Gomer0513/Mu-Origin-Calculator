@@ -69,6 +69,106 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    @IBAction func minusRebirth(_ sender: Any) {
+        if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
+            if self.validationForRebirth(text) == true  {
+                let rebirth: Int = Int(text)!
+                if rebirth == 0 {
+                    self.rebirthInput.text = "0"
+                } else {
+                    self.rebirthInput.text! = String(rebirth - 1)
+                }
+            } else {
+                self.rebirthInput.text = "11"
+            }
+        } else {
+            self.rebirthInput.text = "0"
+        }
+        
+        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
+            self.calculateButtonOutlet.isEnabled = true
+        }
+    }
+    @IBAction func plusRebirth(_ sender: Any) {
+        if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
+            if self.validationForRebirth(text) == true  {
+                let rebirth: Int = Int(text)!
+                if rebirth >= 11 {
+                    self.rebirthInput.text = "11"
+                } else {
+                    self.rebirthInput.text! = String(rebirth + 1)
+                }
+            } else {
+                self.rebirthInput.text = "11"
+            }
+        } else {
+            self.rebirthInput.text = "1"
+        }
+        
+        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
+            self.calculateButtonOutlet.isEnabled = true
+        }
+    }
+    @IBAction func minusLevel(_ sender: Any) {
+        if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
+            if self.validationForLevels(text) == true  {
+                let level: Int = Int(text)!
+                if level == 1 {
+                    self.levelInput.text = "1"
+                } else {
+                    self.levelInput.text! = String(level - 1)
+                }
+            } else {
+                self.levelInput.text = "100"
+            }
+        } else {
+            self.levelInput.text = "1"
+        }
+        
+        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
+            self.calculateButtonOutlet.isEnabled = true
+        }
+    }
+    @IBAction func plusLevel(_ sender: Any) {
+        if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
+            if self.validationForLevels(text) == true  {
+                let level: Int = Int(text)!
+                if level >= 100 {
+                    self.levelInput.text = "100"
+                } else {
+                    self.levelInput.text! = String(level + 1)
+                }
+            } else {
+                self.levelInput.text = "100"
+            }
+        } else {
+            self.levelInput.text = "1"
+        }
+        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
+            self.calculateButtonOutlet.isEnabled = true
+        }
+    }
+    @IBAction func minusCreaton(_ sender: Any) {
+        if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
+            let creatons: Int = Int(text)!
+            if creatons == 0 {
+                self.fruitStatsInput.text = "0"
+            } else {
+                self.fruitStatsInput.text! = String(creatons - 1)
+            }
+        } else {
+            self.fruitStatsInput.text = "0"
+        }
+    }
+    @IBAction func plusCreaton(_ sender: Any) {
+        if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
+            let creatons: Int = Int(text)!
+            self.fruitStatsInput.text! = String(creatons + 1)
+        } else {
+            self.fruitStatsInput.text = "1"
+        }
+    }
+    
     private func initialSetup() {
         self.navigationController?.navigationBar.tintColor = .orange
         self.navigationItem.title = self.subject
@@ -285,7 +385,7 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         
-        let format = "[0-9]{1}||10"
+        let format = "[0-9]{1}|10|11"
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }
