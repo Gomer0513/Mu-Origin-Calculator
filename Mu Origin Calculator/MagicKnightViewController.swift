@@ -67,7 +67,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
             
-            alerts.errorAlert(title: NSLocalizedString("Incorrect Data", comment: ""), message: NSLocalizedString("Please check that the data is correct:\nRebirth shouldn't be more than 10.\nLevel shouldn't be more than 100.", comment: ""), viewController: self)
+            alerts.errorAlert(title: NSLocalizedString("Incorrect Data", comment: ""), message: NSLocalizedString("Please check that the data is correct:\nRebirth should be less than \(rebirthMaxValue).\nLevel should be less than \(levelMaxValue).", comment: ""), viewController: self)
         }
     }
     
@@ -76,15 +76,15 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             if self.validationForRebirth(text) == true  {
                 let rebirth: Int = Int(text)!
                 if rebirth == 0 {
-                    self.rebirthInput.text = "0"
+                    self.rebirthInput.text = rebirthMinValue
                 } else {
                     self.rebirthInput.text! = String(rebirth - 1)
                 }
             } else {
-                self.rebirthInput.text = "11"
+                self.rebirthInput.text = rebirthMaxValue
             }
         } else {
-            self.rebirthInput.text = "0"
+            self.rebirthInput.text = rebirthMinValue
         }
         
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
@@ -96,12 +96,12 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             if self.validationForRebirth(text) == true  {
                 let rebirth: Int = Int(text)!
                 if rebirth >= 11 {
-                    self.rebirthInput.text = "11"
+                    self.rebirthInput.text = rebirthMaxValue
                 } else {
                     self.rebirthInput.text! = String(rebirth + 1)
                 }
             } else {
-                self.rebirthInput.text = "11"
+                self.rebirthInput.text = rebirthMaxValue
             }
         } else {
             self.rebirthInput.text = "1"
@@ -116,15 +116,15 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             if self.validationForLevels(text) == true  {
                 let level: Int = Int(text)!
                 if level == 1 {
-                    self.levelInput.text = "1"
+                    self.levelInput.text = levelMinValue
                 } else {
                     self.levelInput.text! = String(level - 1)
                 }
             } else {
-                self.levelInput.text = "100"
+                self.levelInput.text = levelMaxValue
             }
         } else {
-            self.levelInput.text = "1"
+            self.levelInput.text = levelMinValue
         }
         
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
@@ -136,15 +136,15 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             if self.validationForLevels(text) == true  {
                 let level: Int = Int(text)!
                 if level >= 100 {
-                    self.levelInput.text = "100"
+                    self.levelInput.text = levelMaxValue
                 } else {
                     self.levelInput.text! = String(level + 1)
                 }
             } else {
-                self.levelInput.text = "100"
+                self.levelInput.text = levelMaxValue
             }
         } else {
-            self.levelInput.text = "1"
+            self.levelInput.text = levelMinValue
         }
         
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
@@ -185,8 +185,8 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         
         self.calculateButtonOutlet.setTitle(NSLocalizedString("Calculate", comment: "Calculate Button"), for: .normal)
         
-        self.levelInput.placeholder = "1"
-        self.levelInput.attributedPlaceholder = NSAttributedString(string: "1", attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
+        self.levelInput.placeholder = levelMinValue
+        self.levelInput.attributedPlaceholder = NSAttributedString(string: levelMinValue, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
         
         self.showStatsView.isHidden = true
         self.inputStatsView.isHidden = true
@@ -329,6 +329,13 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.inputStatsView.isHidden = true
         }
         
+        if !(self.validationForRebirth(self.rebirthInput.text)) && !(self.rebirthInput.text?.isEmpty == true) {
+            self.rebirthInput.text = rebirthMaxValue
+        }
+        
+        if !(self.validationForLevels(self.levelInput.text)) && !(self.levelInput.text?.isEmpty == true) {
+            self.levelInput.text = levelMaxValue
+        }
         
         if !((self.strField.text?.isEmpty)!) && self.strField.resignFirstResponder() && validationForCreatons(self.strField.text) {
             if Int(self.strField.text!)! > self.totalPoint {

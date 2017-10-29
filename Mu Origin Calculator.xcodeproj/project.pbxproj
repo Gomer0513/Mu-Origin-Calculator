@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
+		E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DD0B01FA5F0AF00DF6462 /* Constants.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E43DD0B01FA5F0AF00DF6462 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				E421EA501F38FA040088C40F /* Alert.swift */,
 				E48703911F9E66FE00562F5F /* Colors.swift */,
+				E43DD0B01FA5F0AF00DF6462 /* Constants.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
 				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,
 				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
+				E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,

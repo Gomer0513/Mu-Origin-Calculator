@@ -19,6 +19,17 @@ class Alert {
     // MARK: - Methods
     func errorAlert(title: String, message: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: NSLocalizedString(message, comment: ""), preferredStyle: .alert)
+        let attributedTitle = NSAttributedString(string: title, attributes: [
+            NSFontAttributeName : UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!,
+            NSForegroundColorAttributeName : UIColor.orange
+            ])
+        let attributedMessage = NSAttributedString(string: message, attributes: [
+            NSFontAttributeName : UIFont(name: "AppleSDGothicNeo-Regular", size: 15.0)!,
+            NSForegroundColorAttributeName : UIColor.darkGray
+            ])
+        alert.setValue(attributedTitle, forKey: "attributedTitle")
+        alert.setValue(attributedMessage, forKey: "attributedMessage")
+        alert.view.tintColor = UIColor.black.withAlphaComponent(1)
         let action = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
         alert.addAction(action)
         viewController.present(alert, animated: true, completion: nil)
