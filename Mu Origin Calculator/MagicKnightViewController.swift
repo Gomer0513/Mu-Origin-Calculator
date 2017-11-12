@@ -66,8 +66,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
-            
-            alerts.errorAlert(title: NSLocalizedString("Incorrect Data", comment: ""), message: NSLocalizedString("Please check that the data is correct:\nRebirth should be less than \(rebirthMaxValue).\nLevel should be less than \(levelMaxValue).", comment: ""), viewController: self)
         }
     }
     
