@@ -13,3 +13,15 @@ let rebirthMaxValue = "11"
 
 let levelMinValue = "1"
 let levelMaxValue = "100"
+
+enum InputStats: String {
+    case rebirth
+    case level
+    case creaton
+    
+    var key: String {
+        get {
+            return self.rawValue
+        }
+    }
+}

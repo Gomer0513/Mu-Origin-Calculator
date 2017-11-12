@@ -40,13 +40,16 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     private var agi = 0
     private var sta = 0
     var subject = String()
+    private var isCalculated: Bool = false
     
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
+    private let saveStats = SaveStats(character: Classes.mg.rawValue)
     
     // MARK: - Actions
     @IBAction func calculateButton(_ sender: Any) {
         
+        self.isCalculated = true
         self.character = Character(rebirth: Int(self.rebirthInput.text!), level: Int(self.levelInput.text!), fruits: Int(self.fruitStatsInput.text!))
         
         self.strField.text = ""
@@ -196,6 +199,14 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         
         self.initialSetup()
         
+        self.rebirthInput.text = saveStats.getData(key: InputStats.rebirth.key)
+        self.levelInput.text = saveStats.getData(key: InputStats.level.key)
+        self.fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
+        
+        if !(self.rebirthInput.text?.isEmpty)! || !(self.levelInput.text?.isEmpty)! {
+            self.calculateButtonOutlet.isEnabled = true
+        }
+        
         self.rebirthInput.delegate = self
         self.levelInput.delegate = self
         self.fruitStatsInput.delegate = self
@@ -214,6 +225,12 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     
     deinit {
         self.deregisterFromNotifications()
+        
+        if self.isCalculated == true {
+            saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
+            saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
+            saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+        }
     }
     
     func endEdit(_ sedner: UIGestureRecognizer) {
@@ -325,6 +342,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = false
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
+            self.isCalculated = false
         }
         
         if !(self.validationForRebirth(self.rebirthInput.text)) && !(self.rebirthInput.text?.isEmpty == true) {
@@ -332,7 +350,11 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         }
         
         if !(self.validationForLevels(self.levelInput.text)) && !(self.levelInput.text?.isEmpty == true) {
-            self.levelInput.text = levelMaxValue
+            if self.levelInput.text == "0" {
+                self.levelInput.text = levelMinValue
+            } else {
+                self.levelInput.text = levelMaxValue
+            }
         }
         
         if !((self.strField.text?.isEmpty)!) && self.strField.resignFirstResponder() && validationForCreatons(self.strField.text) {
