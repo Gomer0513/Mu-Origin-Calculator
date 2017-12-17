@@ -18,6 +18,41 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var elfButton: UIButton!
     @IBOutlet weak var magicKnightButton: UIButton!
     
+    var delegate: MenuViewControllerDelegate?
+    
+    @IBAction func darkKnightButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "DarkKinght", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(0)
+        }
+    }
+    @IBAction func darkWizardButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "DarkWizard", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(1)
+        }
+    }
+    @IBAction func elfButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "Elf", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(2)
+        }
+    }
+    @IBAction func magicKnightButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "MagicKnight", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(3)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,4 +96,8 @@ class MainMenuViewController: UIViewController {
             }
         }
     }
+}
+
+protocol MenuViewControllerDelegate {
+    func segue(_ index: Int)
 }

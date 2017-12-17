@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p19-vm-o4g">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="p19-vm-o4g">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -14,6 +14,97 @@
         </array>
     </customFonts>
     <scenes>
+        <!--iPad View Controller-->
+        <scene sceneID="uFz-Md-k1L">
+            <objects>
+                <viewController storyboardIdentifier="MainPadController" id="IJD-ms-TGn" customClass="IPadViewController" customModule="Mu_Origin_Calculator" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fUm-JX-PpF"/>
+                        <viewControllerLayoutGuide type="bottom" id="tWK-PY-bR5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Qt4-yA-FR9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aiZ-vd-vLy" userLabel="Menu Container View">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="hxp-z9-Fw0"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="p19-vm-o4g" kind="embed" identifier="menusForIpad" id="xr4-qH-3yV"/>
+                                </connections>
+                            </containerView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pV3-9w-Bak" userLabel="Separate Line">
+                                <rect key="frame" x="320" y="0.0" width="1" height="667"/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="DTi-X0-zaw"/>
+                                </constraints>
+                            </view>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2lg-Wu-rn8" userLabel="Content Container DarkKnight">
+                                <rect key="frame" x="321" y="0.0" width="54" height="667"/>
+                                <connections>
+                                    <segue destination="Zmb-1D-A0e" kind="embed" identifier="DarkKnightIPad" id="q1P-t5-dEA"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="doN-a0-Euh" userLabel="Content Container DarkWizard">
+                                <rect key="frame" x="321" y="0.0" width="54" height="667"/>
+                                <connections>
+                                    <segue destination="AuT-RH-dxY" kind="embed" identifier="DarkWizardIPad" id="hU2-Lh-Cp0"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5cO-mr-QZ7" userLabel="Content Container Elf">
+                                <rect key="frame" x="321" y="0.0" width="54" height="667"/>
+                                <connections>
+                                    <segue destination="tTE-or-Mt0" kind="embed" identifier="ElfIPad" id="u81-33-eyw"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAy-0b-uqI" userLabel="Content Container Magic Knight">
+                                <rect key="frame" x="321" y="0.0" width="54" height="667"/>
+                                <connections>
+                                    <segue destination="tSc-6p-H55" kind="embed" identifier="MagicKnightIPad" id="Tln-h2-jlb"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aiZ-vd-vLy" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="4IA-u2-upw"/>
+                            <constraint firstItem="pV3-9w-Bak" firstAttribute="leading" secondItem="aiZ-vd-vLy" secondAttribute="trailing" id="51m-4X-Zrm"/>
+                            <constraint firstItem="2lg-Wu-rn8" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="5Fl-Gu-eAS"/>
+                            <constraint firstItem="doN-a0-Euh" firstAttribute="leading" secondItem="pV3-9w-Bak" secondAttribute="trailing" id="5Yw-TB-bZc"/>
+                            <constraint firstAttribute="bottom" secondItem="doN-a0-Euh" secondAttribute="bottom" id="9qi-0f-Njy"/>
+                            <constraint firstItem="2lg-Wu-rn8" firstAttribute="leading" secondItem="pV3-9w-Bak" secondAttribute="trailing" id="BTY-vs-SYK"/>
+                            <constraint firstAttribute="trailing" secondItem="rAy-0b-uqI" secondAttribute="trailing" id="CrT-op-2tx"/>
+                            <constraint firstItem="aiZ-vd-vLy" firstAttribute="leading" secondItem="Qt4-yA-FR9" secondAttribute="leading" id="F4Y-o3-D2Y"/>
+                            <constraint firstAttribute="bottom" secondItem="5cO-mr-QZ7" secondAttribute="bottom" id="ISj-rG-rTl"/>
+                            <constraint firstItem="tWK-PY-bR5" firstAttribute="top" secondItem="rAy-0b-uqI" secondAttribute="bottom" id="Jq9-Zg-h7i"/>
+                            <constraint firstItem="pV3-9w-Bak" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="K2W-ed-bJ3"/>
+                            <constraint firstItem="rAy-0b-uqI" firstAttribute="leading" secondItem="pV3-9w-Bak" secondAttribute="trailing" id="SBn-Gz-XK5"/>
+                            <constraint firstAttribute="trailing" secondItem="5cO-mr-QZ7" secondAttribute="trailing" id="T7X-qx-HmX"/>
+                            <constraint firstItem="tWK-PY-bR5" firstAttribute="top" secondItem="2lg-Wu-rn8" secondAttribute="bottom" id="dHX-4V-GuI"/>
+                            <constraint firstAttribute="bottom" secondItem="pV3-9w-Bak" secondAttribute="bottom" id="eeT-WD-l00"/>
+                            <constraint firstItem="5cO-mr-QZ7" firstAttribute="leading" secondItem="pV3-9w-Bak" secondAttribute="trailing" id="gHa-HW-aZa"/>
+                            <constraint firstItem="rAy-0b-uqI" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="lVY-1e-0aq"/>
+                            <constraint firstAttribute="trailing" secondItem="2lg-Wu-rn8" secondAttribute="trailing" id="mHn-6M-Spp"/>
+                            <constraint firstItem="doN-a0-Euh" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="rBq-Zy-fPN"/>
+                            <constraint firstAttribute="trailing" secondItem="doN-a0-Euh" secondAttribute="trailing" id="u5j-5t-6Lg"/>
+                            <constraint firstItem="tWK-PY-bR5" firstAttribute="top" secondItem="aiZ-vd-vLy" secondAttribute="bottom" id="v8P-1A-a4G"/>
+                            <constraint firstItem="5cO-mr-QZ7" firstAttribute="top" secondItem="Qt4-yA-FR9" secondAttribute="top" id="xHg-iI-ZrL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="darkWizardContainer" destination="doN-a0-Euh" id="J9a-Ee-EX7"/>
+                        <outlet property="elfContainer" destination="5cO-mr-QZ7" id="n0w-rY-Jl0"/>
+                        <outlet property="leftContainer" destination="aiZ-vd-vLy" id="uah-26-qVY"/>
+                        <outlet property="magicKnightContainer" destination="rAy-0b-uqI" id="nMI-of-EvS"/>
+                        <outlet property="rightContainer" destination="2lg-Wu-rn8" id="Mr5-qG-rL9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7r0-hC-ooU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-534" y="-518"/>
+        </scene>
         <!--Main Menu-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -23,14 +114,14 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0yG-Ou-jSq">
-                                <rect key="frame" x="10" y="158.5" width="355" height="350"/>
+                                <rect key="frame" x="10" y="158.5" width="300" height="350"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Character:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbX-nl-srS">
-                                        <rect key="frame" x="10" y="10" width="335" height="45"/>
+                                        <rect key="frame" x="10" y="10" width="280" height="45"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="45" id="iwt-TD-b7m"/>
                                         </constraints>
@@ -38,40 +129,40 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-aa-ys1" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="75" width="255" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOd-aa-ys1" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="75" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="xZa-mO-iWP"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="eeY-A7-zso" kind="show" identifier="DarkKinght" id="fCZ-I5-wnI"/>
+                                            <action selector="darkKnightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iXa-Po-4Wt"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E95-aA-qUk" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="145" width="255" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E95-aA-qUk" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="145" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="EjD-hm-Mh4"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="hu7-I9-Qxs" kind="show" identifier="DarkWizard" id="9UU-AH-U69"/>
+                                            <action selector="darkWizardButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RDu-KM-Wfj"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJ7-8Y-yuW" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="285" width="255" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TJ7-8Y-yuW" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="285" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="zAk-Rk-xMc"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="Oqq-Hb-UkK" kind="show" identifier="MagicKnight" id="7Dn-Sy-ftC"/>
+                                            <action selector="magicKnightButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8Dx-dS-Jgz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxx-on-n6E" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                        <rect key="frame" x="50" y="215" width="255" height="50"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xxx-on-n6E" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="215" width="200" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="mqI-oa-HF1"/>
                                         </constraints>
                                         <connections>
-                                            <segue destination="ZaE-4d-mqX" kind="show" identifier="Elf" id="Ua5-6i-Cvg"/>
+                                            <action selector="elfButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OJ7-LE-TJK"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -115,6 +206,10 @@
                         <outlet property="elfButton" destination="Xxx-on-n6E" id="hSE-mb-iZA"/>
                         <outlet property="magicKnightButton" destination="TJ7-8Y-yuW" id="8T6-Jr-0cN"/>
                         <outlet property="mainMenuView" destination="0yG-Ou-jSq" id="Bqu-1b-63d"/>
+                        <segue destination="eeY-A7-zso" kind="show" identifier="DarkKinght" id="XAr-Do-C8I"/>
+                        <segue destination="hu7-I9-Qxs" kind="show" identifier="DarkWizard" id="zsA-x7-8Sa"/>
+                        <segue destination="ZaE-4d-mqX" kind="show" identifier="Elf" id="sRh-uP-N1O"/>
+                        <segue destination="Oqq-Hb-UkK" kind="show" identifier="MagicKnight" id="hWy-q0-N3M"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -130,17 +225,17 @@
                         <viewControllerLayoutGuide type="bottom" id="tGt-VV-bQp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="eeU-c2-Hse">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dhj-RD-DUy">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yEk-LW-lEl">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1yc-Jr-O96" userLabel="EvaluateStatsView">
-                                                <rect key="frame" x="0.0" y="340" width="375" height="130"/>
+                                                <rect key="frame" x="0.0" y="340" width="320" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENG:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="diX-Le-rcY" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="50" height="30"/>
@@ -163,7 +258,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gVz-iu-KMB" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="TKQ-3H-Xv7"/>
                                                             <constraint firstAttribute="height" constant="30" id="TWe-Lb-maK"/>
@@ -173,7 +268,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q9L-ht-hut" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="3es-X8-QLk"/>
                                                             <constraint firstAttribute="height" constant="30" id="eXa-fE-QC5"/>
@@ -183,7 +278,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dwm-Gg-rf0" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="3ZW-0W-bvT"/>
                                                             <constraint firstAttribute="width" constant="60" id="B4Y-Al-MCI"/>
@@ -224,7 +319,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYK-y4-5PF" userLabel="ShowResutsVIew">
-                                                <rect key="frame" x="0.0" y="230" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="230" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x58-68-SML" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="180" height="30"/>
@@ -247,7 +342,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vLE-cP-TDb" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="4G5-Zi-GfH"/>
                                                             <constraint firstAttribute="height" constant="30" id="qlf-ns-3aY"/>
@@ -257,7 +352,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vza-Cd-idd" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="D3O-mv-acQ"/>
                                                             <constraint firstAttribute="height" constant="30" id="e7H-Sf-RcC"/>
@@ -287,10 +382,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlw-3d-j4f" userLabel="EnterStatsView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zGV-tX-4i8" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="355" height="30"/>
+                                                        <rect key="frame" x="10" y="10" width="300" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Plf-S1-6sf"/>
                                                         </constraints>
@@ -319,7 +414,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lhi-Ab-kKa" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="UBt-NW-BjE"/>
                                                             <constraint firstAttribute="height" constant="30" id="pIk-uR-kW1"/>
@@ -329,7 +424,7 @@
                                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NNz-TJ-ZRs" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="70Z-E3-i9f"/>
                                                             <constraint firstAttribute="height" constant="30" id="u9R-ig-ZvS"/>
@@ -339,7 +434,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Gf-WW-Pnh" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="127" y="190" width="120" height="30"/>
+                                                        <rect key="frame" x="127" y="190" width="65" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="QWz-tc-mjY"/>
                                                         </constraints>
@@ -358,7 +453,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gxB-4h-Umm" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="130" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="130" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Xmd-JP-DWk"/>
                                                             <constraint firstAttribute="width" constant="60" id="rkX-uc-z4R"/>
@@ -368,7 +463,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYP-e3-Tl5" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="53" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="53" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="iuu-tJ-htV"/>
                                                             <constraint firstAttribute="height" constant="25" id="k08-uQ-xnL"/>
@@ -379,7 +474,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ag-Mb-SL6">
-                                                        <rect key="frame" x="239" y="54" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="54" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="e8u-Hq-ms1"/>
                                                             <constraint firstAttribute="height" constant="25" id="eC9-pW-GXp"/>
@@ -393,7 +488,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7M-Xe-4nL" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="93" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="93" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="35p-UG-y30"/>
                                                             <constraint firstAttribute="height" constant="25" id="kkj-zc-1eM"/>
@@ -404,7 +499,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s0z-r7-0ww">
-                                                        <rect key="frame" x="239" y="94" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="94" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="ABZ-o8-drA"/>
                                                             <constraint firstAttribute="width" constant="25" id="nkL-hM-3qf"/>
@@ -418,7 +513,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i8G-dU-ugz">
-                                                        <rect key="frame" x="239" y="134" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="134" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="Q3M-2P-7xO"/>
                                                             <constraint firstAttribute="width" constant="25" id="yuh-Be-TXV"/>
@@ -432,7 +527,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="raf-ip-ejt" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="133" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="133" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="Da7-Gp-my2"/>
                                                             <constraint firstAttribute="height" constant="25" id="mxp-oT-GFQ"/>
@@ -517,6 +612,7 @@
                             <constraint firstItem="dhj-RD-DUy" firstAttribute="centerY" secondItem="eeU-c2-Hse" secondAttribute="centerY" id="hhW-M6-sze"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="A2j-QD-Tmx"/>
                     <connections>
                         <outlet property="agiField" destination="q9L-ht-hut" id="HZ4-WQ-hBb"/>
                         <outlet property="calculateButtonOutlet" destination="5Gf-WW-Pnh" id="zSc-X5-7lT"/>
@@ -536,7 +632,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MbW-2n-aMx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061.5999999999999" y="-69.715142428785612"/>
+            <point key="canvasLocation" x="1496" y="12"/>
         </scene>
         <!--Elf-->
         <scene sceneID="ZJC-ax-plv">
@@ -547,17 +643,17 @@
                         <viewControllerLayoutGuide type="bottom" id="DIV-er-n5B"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Xdi-Rf-yxX">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66B-Tr-yTr">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yoo-i3-zYl" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Tj-lO-dfB" userLabel="ShowResutsVIew">
-                                                <rect key="frame" x="0.0" y="230" width="375" height="100"/>
+                                                <rect key="frame" x="0.0" y="230" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zVB-rW-Vya" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="180" height="30"/>
@@ -580,7 +676,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngk-Hd-sou" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="4p2-Kz-G75"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="sQ7-6X-b2e"/>
@@ -590,7 +686,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YBQ-hz-NrT" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="8sD-Tj-MOs"/>
                                                             <constraint firstAttribute="height" constant="30" id="R4O-9u-EJH"/>
@@ -620,10 +716,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Aeu-34-1gx" userLabel="EnterStatsView">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wvE-Ih-wTu" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="355" height="30"/>
+                                                        <rect key="frame" x="10" y="10" width="300" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="TXy-0D-ZPG"/>
                                                         </constraints>
@@ -652,7 +748,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="el2-oM-J6U" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Lbo-4S-Jy1"/>
                                                             <constraint firstAttribute="width" constant="60" id="W3X-9u-Ufz"/>
@@ -662,7 +758,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="eiT-Z5-tar" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="302-N2-UIA"/>
                                                             <constraint firstAttribute="height" constant="30" id="Eld-14-GNl"/>
@@ -672,7 +768,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4nG-re-hkH" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="127" y="190" width="120" height="30"/>
+                                                        <rect key="frame" x="99.5" y="190" width="120" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="ZW1-dP-jYB"/>
                                                             <constraint firstAttribute="width" constant="120" id="jGu-NW-eJj"/>
@@ -692,7 +788,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="A0s-xK-AbI" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="130" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="130" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="SLm-qj-eaz"/>
                                                             <constraint firstAttribute="width" constant="60" id="vhs-hj-Y2P"/>
@@ -702,7 +798,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQZ-gh-zYJ" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="53" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="53" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="ZDV-BI-WjY"/>
                                                             <constraint firstAttribute="height" constant="25" id="iZf-RX-a26"/>
@@ -713,7 +809,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R6O-mR-YHS">
-                                                        <rect key="frame" x="239" y="54" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="54" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="aRK-9O-lXW"/>
                                                             <constraint firstAttribute="width" constant="25" id="pC1-QV-xbd"/>
@@ -727,7 +823,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MQU-jX-r9B" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="93" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="93" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="bBG-rJ-3Ia"/>
                                                             <constraint firstAttribute="width" constant="25" id="cHC-uT-20C"/>
@@ -738,7 +834,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icy-Pb-QzA">
-                                                        <rect key="frame" x="239" y="94" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="94" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="Kea-oY-cbV"/>
                                                             <constraint firstAttribute="width" constant="25" id="TbO-6V-E3F"/>
@@ -752,7 +848,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KAo-K5-cDx">
-                                                        <rect key="frame" x="239" y="134" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="134" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="9AP-k9-qT4"/>
                                                             <constraint firstAttribute="height" constant="25" id="jlk-my-JGB"/>
@@ -766,7 +862,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehB-PX-DHr" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="326" y="133" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="133" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="858-Nc-JCa"/>
                                                             <constraint firstAttribute="width" constant="25" id="a4L-9Q-KUe"/>
@@ -820,7 +916,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wno-YJ-giu" userLabel="EvaluateStatsView">
-                                                <rect key="frame" x="0.0" y="340" width="375" height="130"/>
+                                                <rect key="frame" x="0.0" y="340" width="320" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STR:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lvN-mn-v12" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="50" height="30"/>
@@ -843,7 +939,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="J1H-s5-Fog" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="f7s-lI-4qn"/>
                                                             <constraint firstAttribute="width" constant="60" id="q65-oB-xue"/>
@@ -853,7 +949,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fHl-wI-ujW" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="K7z-CK-cEW"/>
                                                             <constraint firstAttribute="height" constant="30" id="evx-kW-zyP"/>
@@ -863,7 +959,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P4H-7I-R84" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="265" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="6Zl-1w-TuL"/>
                                                             <constraint firstAttribute="width" constant="60" id="LY9-Sr-CCr"/>
@@ -910,7 +1006,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="667" id="9hI-si-D6B"/>
                                             <constraint firstItem="Aeu-34-1gx" firstAttribute="top" secondItem="Yoo-i3-zYl" secondAttribute="top" id="DLE-Jv-c4a"/>
                                             <constraint firstAttribute="trailing" secondItem="Wno-YJ-giu" secondAttribute="trailing" id="SSS-rE-tAp"/>
                                             <constraint firstItem="Wno-YJ-giu" firstAttribute="leading" secondItem="Yoo-i3-zYl" secondAttribute="leading" id="VoI-ks-ty8"/>
@@ -924,6 +1019,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="Yoo-i3-zYl" firstAttribute="centerY" secondItem="66B-Tr-yTr" secondAttribute="centerY" id="1OH-Cf-zAn"/>
                                     <constraint firstAttribute="bottom" secondItem="Yoo-i3-zYl" secondAttribute="bottom" id="Fgn-wv-2gL"/>
                                     <constraint firstItem="Yoo-i3-zYl" firstAttribute="centerX" secondItem="66B-Tr-yTr" secondAttribute="centerX" id="U4h-nL-NG1"/>
                                     <constraint firstItem="Yoo-i3-zYl" firstAttribute="top" secondItem="66B-Tr-yTr" secondAttribute="top" id="ggj-kH-QwP"/>
@@ -934,12 +1030,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="66B-Tr-yTr" firstAttribute="centerY" secondItem="Xdi-Rf-yxX" secondAttribute="centerY" id="CKL-r6-53K"/>
                             <constraint firstAttribute="trailing" secondItem="66B-Tr-yTr" secondAttribute="trailing" id="Fsl-b1-tkx"/>
                             <constraint firstItem="66B-Tr-yTr" firstAttribute="leading" secondItem="Xdi-Rf-yxX" secondAttribute="leading" id="Pg0-GU-mnm"/>
                             <constraint firstItem="66B-Tr-yTr" firstAttribute="top" secondItem="kTu-Gi-u3d" secondAttribute="bottom" constant="-64" id="pxd-cE-O6M"/>
-                            <constraint firstItem="DIV-er-n5B" firstAttribute="top" secondItem="66B-Tr-yTr" secondAttribute="bottom" id="uuj-Ba-EPf"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="zLV-EM-vSJ"/>
                     <connections>
                         <outlet property="agiField" destination="fHl-wI-ujW" id="6PV-Mb-GOa"/>
                         <outlet property="calculateButtonOutlet" destination="4nG-re-hkH" id="JHW-Vm-yEn"/>
@@ -970,17 +1067,17 @@
                         <viewControllerLayoutGuide type="bottom" id="ThP-iv-vVN"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MaC-vW-FL5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHv-2X-Zds">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hH4-Mh-TJb" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiL-ft-SoO" userLabel="ShowResutsVIew">
-                                                <rect key="frame" x="0.0" y="230" width="374" height="100"/>
+                                                <rect key="frame" x="0.0" y="230" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaj-87-jYw" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="180" height="30"/>
@@ -1003,7 +1100,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ysg-Lb-GnA" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="mKx-fA-FGb"/>
                                                             <constraint firstAttribute="height" constant="30" id="q0H-cl-xmy"/>
@@ -1013,7 +1110,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o4D-aX-bfa" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="EVI-1A-rFa"/>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Le0-lM-4dV"/>
@@ -1043,10 +1140,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mXQ-xe-j2e" userLabel="EnterStatsView">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IuE-7C-8bC" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="354" height="30"/>
+                                                        <rect key="frame" x="10" y="10" width="300" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="mCu-dB-e5h"/>
                                                         </constraints>
@@ -1075,7 +1172,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hR7-ga-pYa" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Edi-9n-yzv"/>
                                                             <constraint firstAttribute="width" constant="60" id="G0p-j2-hrc"/>
@@ -1085,7 +1182,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MOY-hD-chb" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="H7Z-yc-eWB"/>
                                                             <constraint firstAttribute="width" constant="60" id="QbY-BO-tSn"/>
@@ -1095,7 +1192,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5u-cr-TN8" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="127" y="190" width="120" height="30"/>
+                                                        <rect key="frame" x="100" y="190" width="120" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="4DN-yU-yPi"/>
                                                             <constraint firstAttribute="height" constant="30" id="YR6-fA-Hqq"/>
@@ -1115,7 +1212,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hcl-Kv-in2" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="130" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="130" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="cNc-Cz-Y1T"/>
                                                             <constraint firstAttribute="width" constant="60" id="pV8-y0-pBy"/>
@@ -1125,7 +1222,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YS3-Hd-Ezl" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="325" y="53" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="53" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="YPC-e3-dab"/>
                                                             <constraint firstAttribute="width" constant="25" id="Z19-zb-O8w"/>
@@ -1136,7 +1233,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QDR-BA-3wo">
-                                                        <rect key="frame" x="238" y="54" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="54" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="4U0-iz-Nlp"/>
                                                             <constraint firstAttribute="width" constant="25" id="j7A-cb-37X"/>
@@ -1150,7 +1247,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wCp-Mu-8WW" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="325" y="93" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="93" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="VwA-DL-MVe"/>
                                                             <constraint firstAttribute="height" constant="25" id="fCw-66-Se0"/>
@@ -1161,7 +1258,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hLp-ss-MWV">
-                                                        <rect key="frame" x="238" y="94" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="94" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="cgw-y7-yTC"/>
                                                             <constraint firstAttribute="width" constant="25" id="nJF-rP-v6v"/>
@@ -1175,7 +1272,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ISE-Dr-od8">
-                                                        <rect key="frame" x="238" y="134" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="134" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="NqE-SX-rkP"/>
                                                             <constraint firstAttribute="height" constant="25" id="T5r-eh-Ij0"/>
@@ -1189,7 +1286,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0cu-HW-reh" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="325" y="133" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="133" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="CLl-mb-Hc0"/>
                                                             <constraint firstAttribute="width" constant="25" id="c5W-zp-idT"/>
@@ -1243,7 +1340,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kp1-z8-9nl" userLabel="EvaluateStatsView">
-                                                <rect key="frame" x="0.0" y="340" width="374" height="180"/>
+                                                <rect key="frame" x="0.0" y="340" width="320" height="180"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STR:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hex-Kt-sgw" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="50" height="30"/>
@@ -1266,7 +1363,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9v-1f-e57" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="R1l-Gf-8oo"/>
                                                             <constraint firstAttribute="width" constant="60" id="gPC-Tf-akX"/>
@@ -1276,7 +1373,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="c4R-dQ-Po4" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="Q6l-B3-Esz"/>
                                                             <constraint firstAttribute="height" constant="30" id="t6h-E9-aXe"/>
@@ -1286,7 +1383,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ijx-I0-YRg" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="OKI-aF-tVf"/>
                                                             <constraint firstAttribute="width" constant="60" id="YnO-E2-XBa"/>
@@ -1316,7 +1413,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E0X-2R-BO9" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="264" y="130" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="130" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="MRl-2o-Ua1"/>
                                                             <constraint firstAttribute="width" constant="60" id="iqd-sZ-Qve"/>
@@ -1390,6 +1487,7 @@
                             <constraint firstItem="eHv-2X-Zds" firstAttribute="top" secondItem="VkS-7B-YeG" secondAttribute="bottom" constant="-64" id="ULf-DV-L9l"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="qCE-7I-k5I"/>
                     <connections>
                         <outlet property="agiField" destination="Ijx-I0-YRg" id="hRK-Y8-FkC"/>
                         <outlet property="calculateButtonOutlet" destination="u5u-cr-TN8" id="DOg-Bi-JbW"/>
@@ -1410,7 +1508,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SXk-mH-3zl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061.5999999999999" y="1354.2728635682161"/>
+            <point key="canvasLocation" x="1061" y="1333"/>
         </scene>
         <!--Dark Knight-->
         <scene sceneID="gIr-Au-JSF">
@@ -1421,17 +1519,17 @@
                         <viewControllerLayoutGuide type="bottom" id="uIF-iA-CeS"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="0RE-3R-xlO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ido-q3-MR1">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pFx-g4-DSX" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="376" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b2Q-73-hBa" userLabel="ShowResutsVIew">
-                                                <rect key="frame" x="0.0" y="230" width="376" height="100"/>
+                                                <rect key="frame" x="0.0" y="230" width="320" height="100"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4KT-D2-Nw0" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="200" height="30"/>
@@ -1454,7 +1552,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xna-P6-rSf" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="Eud-5t-tPC"/>
                                                             <constraint firstAttribute="height" constant="30" id="PQ0-XD-tGJ"/>
@@ -1464,7 +1562,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOQ-LS-Xum" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="60" id="YwP-dr-B1H"/>
                                                             <constraint firstAttribute="height" constant="30" id="Zon-FA-46r"/>
@@ -1494,10 +1592,10 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7df-mR-iBI" userLabel="EnterStatsView">
-                                                <rect key="frame" x="0.0" y="0.0" width="376" height="220"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please enter:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoB-Al-3dn" customClass="LabelOrangeColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="10" width="356" height="30"/>
+                                                        <rect key="frame" x="10" y="10" width="300" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Qel-xJ-7Kh"/>
                                                         </constraints>
@@ -1526,7 +1624,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hv3-Sc-eo9" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="rWk-yA-SKG"/>
                                                             <constraint firstAttribute="height" constant="30" id="wle-ud-Db6"/>
@@ -1536,7 +1634,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IRA-Sx-elu" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="MiK-vb-3Px"/>
                                                             <constraint firstAttribute="width" constant="60" id="Ziz-c4-AYK"/>
@@ -1546,7 +1644,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-UZ-VCD" customClass="MenuButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="128" y="190" width="120" height="30"/>
+                                                        <rect key="frame" x="100" y="190" width="120" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="120" id="O4m-t9-T3H"/>
                                                             <constraint firstAttribute="height" constant="30" id="fju-cv-FkA"/>
@@ -1566,7 +1664,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uD8-qy-Fvd" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="130" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="130" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="A0s-hp-hCd"/>
                                                             <constraint firstAttribute="width" constant="60" id="NbT-bI-aQZ"/>
@@ -1576,7 +1674,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K19-Hd-G0w" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="327" y="53" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="53" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="25" id="XwF-jP-QwH"/>
                                                             <constraint firstAttribute="width" constant="25" id="ly0-5B-cTC"/>
@@ -1587,7 +1685,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="faN-8q-0jO">
-                                                        <rect key="frame" x="240" y="54" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="54" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="cYo-zC-fED"/>
                                                             <constraint firstAttribute="height" constant="25" id="pr8-We-eoF"/>
@@ -1601,7 +1699,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRJ-FK-51y" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="327" y="93" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="93" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="6Ph-3l-ESd"/>
                                                             <constraint firstAttribute="height" constant="25" id="KDg-Pt-wAf"/>
@@ -1612,7 +1710,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dGw-vA-F1w">
-                                                        <rect key="frame" x="240" y="94" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="94" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="6oL-0N-olE"/>
                                                             <constraint firstAttribute="height" constant="25" id="9bZ-d6-Q57"/>
@@ -1626,7 +1724,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2SR-74-qwI">
-                                                        <rect key="frame" x="240" y="134" width="25" height="25"/>
+                                                        <rect key="frame" x="184" y="134" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="Cjt-XX-Ads"/>
                                                             <constraint firstAttribute="height" constant="25" id="mX1-uX-1g5"/>
@@ -1640,7 +1738,7 @@
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="fill" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="84a-Ph-PZ8" customClass="ChangeStatsButton" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="327" y="133" width="25" height="25"/>
+                                                        <rect key="frame" x="271" y="133" width="25" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="bXc-2K-gJV"/>
                                                             <constraint firstAttribute="height" constant="25" id="fCU-hg-eje"/>
@@ -1694,7 +1792,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IXj-rp-M9U" userLabel="EvaluateStatsView">
-                                                <rect key="frame" x="0.0" y="340" width="376" height="130"/>
+                                                <rect key="frame" x="0.0" y="340" width="320" height="130"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="STR:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vyD-UN-1kc" customClass="LabelWhiteColorClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
                                                         <rect key="frame" x="50" y="10" width="50" height="30"/>
@@ -1717,7 +1815,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hqw-Xz-lbR" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="10" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="10" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="60" id="epk-4E-e2y"/>
                                                             <constraint firstAttribute="height" constant="30" id="lsZ-zi-YuA"/>
@@ -1727,7 +1825,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WzJ-dK-4ga" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="50" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="50" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Yii-sx-uhP"/>
                                                             <constraint firstAttribute="width" constant="60" id="fBS-1O-vzb"/>
@@ -1737,7 +1835,7 @@
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
                                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mPj-ge-1p8" customClass="TextClass" customModule="Mu_Origin_Calculator" customModuleProvider="target">
-                                                        <rect key="frame" x="266" y="90" width="60" height="30"/>
+                                                        <rect key="frame" x="210" y="90" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Mxf-Qk-G7k"/>
                                                             <constraint firstAttribute="width" constant="60" id="kgX-jH-YzM"/>
@@ -1792,13 +1890,13 @@
                                             <constraint firstItem="b2Q-73-hBa" firstAttribute="leading" secondItem="pFx-g4-DSX" secondAttribute="leading" id="Y9H-oh-ivW"/>
                                             <constraint firstAttribute="trailing" secondItem="b2Q-73-hBa" secondAttribute="trailing" id="hZU-25-L1n"/>
                                             <constraint firstItem="IXj-rp-M9U" firstAttribute="leading" secondItem="pFx-g4-DSX" secondAttribute="leading" id="mvW-LP-TFB"/>
-                                            <constraint firstAttribute="height" constant="667" id="nVn-6v-zf4"/>
                                             <constraint firstItem="7df-mR-iBI" firstAttribute="leading" secondItem="pFx-g4-DSX" secondAttribute="leading" id="xNm-ki-1su"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="pFx-g4-DSX" firstAttribute="leading" secondItem="ido-q3-MR1" secondAttribute="leading" id="0rq-dt-Ksn"/>
+                                    <constraint firstItem="pFx-g4-DSX" firstAttribute="centerY" secondItem="ido-q3-MR1" secondAttribute="centerY" id="GCc-Ks-ojS"/>
                                     <constraint firstItem="pFx-g4-DSX" firstAttribute="centerX" secondItem="ido-q3-MR1" secondAttribute="centerX" id="JI8-QV-P2r"/>
                                     <constraint firstAttribute="trailing" secondItem="pFx-g4-DSX" secondAttribute="trailing" id="Qfp-NW-9Bx"/>
                                     <constraint firstItem="pFx-g4-DSX" firstAttribute="top" secondItem="ido-q3-MR1" secondAttribute="top" id="Va9-BM-hAE"/>
@@ -1809,11 +1907,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ido-q3-MR1" secondAttribute="trailing" id="C9N-gE-S6c"/>
+                            <constraint firstItem="ido-q3-MR1" firstAttribute="centerY" secondItem="0RE-3R-xlO" secondAttribute="centerY" id="Rtc-ai-LJH"/>
                             <constraint firstItem="ido-q3-MR1" firstAttribute="leading" secondItem="0RE-3R-xlO" secondAttribute="leading" id="cw3-BO-Fte"/>
-                            <constraint firstItem="uIF-iA-CeS" firstAttribute="top" secondItem="ido-q3-MR1" secondAttribute="bottom" id="ipW-1N-1aT"/>
                             <constraint firstItem="ido-q3-MR1" firstAttribute="top" secondItem="gFd-06-HWL" secondAttribute="bottom" constant="-64" id="kBa-D8-8Ib"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="Hya-oT-2y6"/>
                     <connections>
                         <outlet property="agiField" destination="WzJ-dK-4ga" id="2O1-3v-cS7"/>
                         <outlet property="agiLabel" destination="Cmx-Qs-gkk" id="l6c-3h-9UD"/>
@@ -1842,7 +1941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4xj-xQ-o3W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1061.5999999999999" y="-773.16341829085468"/>
+            <point key="canvasLocation" x="1400" y="-773.16341829085468"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Pd6-Lh-gSA">
@@ -1850,7 +1949,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="p19-vm-o4g" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tkw-Iz-Gy8">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1862,5 +1961,83 @@
             </objects>
             <point key="canvasLocation" x="-1127" y="313"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="6Lf-0d-Yxl">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Zmb-1D-A0e" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7t9-bM-5FY">
+                        <rect key="frame" x="0.0" y="20" width="54" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eeY-A7-zso" kind="relationship" relationship="rootViewController" id="cvj-XP-UCq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zQJ-bb-QQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="263" y="-773"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="sO5-Ni-q7n">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AuT-RH-dxY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kLZ-rq-rvZ">
+                        <rect key="frame" x="0.0" y="20" width="54" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hu7-I9-Qxs" kind="relationship" relationship="rootViewController" id="ih7-OJ-EaN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8wx-Io-tTb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="748" y="-414"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bmq-tI-N4c">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tTE-or-Mt0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pLi-nJ-6Ie">
+                        <rect key="frame" x="0.0" y="20" width="54" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ZaE-4d-mqX" kind="relationship" relationship="rootViewController" id="c1N-uv-H0w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ohr-bU-cWb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="298" y="-12"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="xfr-yr-5td">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tSc-6p-H55" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aw3-ID-pay">
+                        <rect key="frame" x="0.0" y="20" width="54" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Oqq-Hb-UkK" kind="relationship" relationship="rootViewController" id="lkg-Sy-t4Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sQ-7W-Dbt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="554" y="717"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="XAr-Do-C8I"/>
+        <segue reference="hWy-q0-N3M"/>
+        <segue reference="sRh-uP-N1O"/>
+        <segue reference="zsA-x7-8Sa"/>
+    </inferredMetricsTieBreakers>
 </document>

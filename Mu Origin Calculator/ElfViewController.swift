@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ElfViewController: UIViewController, UITextFieldDelegate {
+class ElfViewController: UIViewController, UITextFieldDelegate, saveDataDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var rebirthInput: UITextField!
@@ -44,6 +44,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
     private let saveStats = SaveStats(character: Classes.elf.rawValue)
+    var iPadViewController: IPadViewController?
     
     // MARK: - Actions
     @IBAction func calculateButton(_ sender: Any) {
@@ -55,7 +56,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
         self.agiField.text = ""
         self.staField.text = ""
         
-        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {//&& validationForCreatons(self.fruitStatsInput.text) {
+        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {
             self.showStatsView.isHidden = false
             self.inputStatsView.isHidden = false
             
@@ -90,6 +91,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func plusRebirth(_ sender: Any) {
         if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
             if self.validationForRebirth(text) == true  {
@@ -110,6 +112,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func minusLevel(_ sender: Any) {
         if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
             if self.validationForLevels(text) == true  {
@@ -130,6 +133,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func plusLevel(_ sender: Any) {
         if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
             if self.validationForLevels(text) == true  {
@@ -150,6 +154,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func minusCreaton(_ sender: Any) {
         if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
@@ -162,6 +167,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
             self.fruitStatsInput.text = "0"
         }
     }
+    
     @IBAction func plusCreaton(_ sender: Any) {
         if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
@@ -169,6 +175,23 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.fruitStatsInput.text = "1"
         }
+    }
+    
+    func saveData(_ isActive: Bool, clas: Classes) {
+        if self.calculateButtonOutlet.isEnabled == true && clas == Classes.elf {
+            saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
+            saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
+            saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+        }
+        
+        if isActive && clas == Classes.elf {
+            self.resetViewControllerContent()
+        }
+    }
+    
+    private func resetViewControllerContent() {
+        self.showStatsView.isHidden = true
+        self.inputStatsView.isHidden = true
     }
     
     private func initialSetup() {
@@ -213,6 +236,10 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
         self.agiField.delegate = self
         self.staField.delegate = self
         
+        if let ipad = iPadViewController {
+            ipad.delegateELF = self
+        }
+        
         let tapper = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
         tapper.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapper)
@@ -247,7 +274,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                let contentInset = UIEdgeInsetsMake(64.0, 0.0, keyboardSize.height,  0.0)
+                let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height,  0.0)
                 
                 self.scrollView.contentInset = contentInset
                 self.scrollView.scrollIndicatorInsets = contentInset
@@ -256,8 +283,14 @@ class ElfViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+        }
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MagicKnightViewController: UIViewController, UITextFieldDelegate {
+class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveDataDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var rebirthInput: UITextField!
@@ -41,6 +41,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     private var sta = 0
     var subject = String()
     private var isCalculated: Bool = false
+    var iPadViewController: IPadViewController?
     
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
@@ -92,6 +93,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func plusRebirth(_ sender: Any) {
         if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
             if self.validationForRebirth(text) == true  {
@@ -112,6 +114,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func minusLevel(_ sender: Any) {
         if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
             if self.validationForLevels(text) == true  {
@@ -132,6 +135,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func plusLevel(_ sender: Any) {
         if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
             if self.validationForLevels(text) == true  {
@@ -152,6 +156,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.calculateButtonOutlet.isEnabled = true
         }
     }
+    
     @IBAction func minusCreaton(_ sender: Any) {
         if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
@@ -164,6 +169,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
             self.fruitStatsInput.text = "0"
         }
     }
+    
     @IBAction func plusCreaton(_ sender: Any) {
         if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
@@ -171,6 +177,22 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         } else {
             self.fruitStatsInput.text = "1"
         }
+    }
+    
+    func saveData(_ isActive: Bool, clas: Classes) {
+        if self.calculateButtonOutlet.isEnabled == true && clas == Classes.mg {
+            saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
+            saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
+            saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+        }
+        
+        if isActive && clas == Classes.mg {
+            self.resetViewControllerContent()
+        }    }
+    
+    private func resetViewControllerContent() {
+        self.showStatsView.isHidden = true
+        self.inputStatsView.isHidden = true
     }
     
     private func initialSetup() {
@@ -211,6 +233,10 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
         self.levelInput.delegate = self
         self.fruitStatsInput.delegate = self
         
+        if let ipad = iPadViewController {
+            ipad.delegateMG = self
+        }
+        
         self.strField.delegate = self
         self.engField.delegate = self
         self.agiField.delegate = self
@@ -250,7 +276,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
             if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                let contentInset = UIEdgeInsetsMake(64.0, 0.0, keyboardSize.height,  0.0)
+                let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height,  0.0)
                 
                 self.scrollView.contentInset = contentInset
                 self.scrollView.scrollIndicatorInsets = contentInset
@@ -259,8 +285,14 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate {
     }
     
     func keyboardWillHide(notification: NSNotification) {
-        self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
-        self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+        }
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {

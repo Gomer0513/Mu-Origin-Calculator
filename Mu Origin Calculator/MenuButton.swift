@@ -13,6 +13,7 @@ class MenuButton: UIButton {
     override func awakeFromNib() {
         self.setTitleColor(.white, for: .normal)
         self.setTitleColor(.orange, for: .disabled)
+        self.setTitleColor(.gray, for: .selected)
         self.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 30.0)
     }
 }
