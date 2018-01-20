@@ -42,6 +42,14 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
     
+    @IBOutlet weak var goldenSwordSlider: RelictSlider!
+    @IBOutlet weak var goldenCrownSlider: RelictSlider!
+    @IBOutlet weak var goldenGrailSlider: RelictSlider!
+    
+    @IBOutlet weak var goldenSwordMaxValue: LabelWhiteColorClass!
+    @IBOutlet weak var goldenCrownMaxValue: LabelWhiteColorClass!
+    @IBOutlet weak var goldenGrailMaxValue: LabelWhiteColorClass!
+    
     //MARK: - Variables
     private var character = Character()
     private var totalPoint = Int()
@@ -50,6 +58,9 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     private var eng = 0
     private var agi = 0
     private var sta = 0
+    private var goldenSwordPoints = 0
+    private var goldenCrownPoints = 0
+    private var goldenGrailPoints = 0
     var subject = String()
     private var isCalculated: Bool = false
     var iPadViewController: IPadViewController?
@@ -59,6 +70,33 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     private let saveStats = SaveStats(character: Classes.dk.rawValue)
     
     // MARK: - Actions
+    @IBAction func calculateGoldenSword(_ sender: UISlider) {
+        self.goldenSwordPoints = Int(round(sender.value / 10) * 10)
+        if self.goldenSwordPoints != 0 {
+            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
+        } else {
+            self.goldenSwordMaxValue.text = "100"
+        }
+    }
+    
+    @IBAction func calculateGoldenCrown(_ sender: UISlider) {
+        self.goldenCrownPoints = Int(round(sender.value / 10) * 10)
+        if self.goldenCrownPoints != 0 {
+            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
+        } else {
+            self.goldenCrownMaxValue.text = "100"
+        }
+    }
+    
+    @IBAction func calculateGoldenGrail(_ sender: UISlider) {
+        self.goldenGrailPoints = Int(round(sender.value / 10) * 10)
+        if self.goldenGrailPoints != 0 {
+            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
+        } else {
+            self.goldenGrailMaxValue.text = "100"
+        }
+    }
+    
     @IBAction func calculateButton(_ sender: Any) {
         
         self.isCalculated = true
@@ -72,8 +110,8 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
             self.showStatsView.isHidden = false
             self.inputStatsView.isHidden = false
             
-            self.totalPoint = self.character.calculateFullStats()
-            self.points = self.character.calculateStats()
+            self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints
+            self.points = self.character.calculateStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints
             
             self.statsWithoutCreatons.text = String(self.points)
             self.totalStats.text = String(self.totalPoint)
@@ -194,6 +232,9 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
+            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
         
         if isActive && clas == Classes.dk {
@@ -227,6 +268,11 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.calculateButtonOutlet.isEnabled = false
     }
     
+    private func calculateHeightOfScreen() -> CGFloat {
+        let totalHeight = self.enterStatsView.frame.height + self.inputStatsView.frame.height + self.showStatsView.frame.height + 50.0
+        return totalHeight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -235,6 +281,25 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.rebirthInput.text = saveStats.getData(key: InputStats.rebirth.key)
         self.levelInput.text = saveStats.getData(key: InputStats.level.key)
         self.fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
+        
+        self.goldenSwordPoints = saveStats.getData(key: InputStats.goldenSword.key)
+        self.goldenCrownPoints = saveStats.getData(key: InputStats.goldenCrown.key)
+        self.goldenGrailPoints = saveStats.getData(key: InputStats.goldenGrail.key)
+        
+        if self.goldenSwordPoints != 0 {
+            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
+            self.goldenSwordSlider.value = Float(self.goldenSwordPoints)
+        }
+        
+        if self.goldenCrownPoints != 0 {
+            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
+            self.goldenCrownSlider.value = Float(self.goldenCrownPoints)
+        }
+        
+        if self.goldenGrailPoints != 0 {
+            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
+            self.goldenGrailSlider.value = Float(self.goldenGrailPoints)
+        }
         
         if !(self.rebirthInput.text?.isEmpty)! || !(self.levelInput.text?.isEmpty)! {
             self.calculateButtonOutlet.isEnabled = true
@@ -258,6 +323,10 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         
         self.registerForNotifications()
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: calculateHeightOfScreen())
+    }
     
     deinit {
         self.deregisterFromNotifications()
@@ -266,6 +335,9 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
+            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
     }
     

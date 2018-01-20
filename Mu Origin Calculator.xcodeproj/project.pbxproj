@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405943B2001EA870056EED1 /* RelictSlider.swift */; };
 		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
 		E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DD0B01FA5F0AF00DF6462 /* Constants.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E405943B2001EA870056EED1 /* RelictSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelictSlider.swift; sourceTree = "<group>"; };
 		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E43DD0B01FA5F0AF00DF6462 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,6 +120,7 @@
 				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
 				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
 				E490707D1FE20CF800671F89 /* IPadViewController.swift */,
+				E405943B2001EA870056EED1 /* RelictSlider.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
+				E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */,
 				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,
 				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
 				E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */,

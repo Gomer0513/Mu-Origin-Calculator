@@ -30,6 +30,14 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
     
+    @IBOutlet weak var goldenCrownSlider: RelictSlider!
+    @IBOutlet weak var goldenScriptureSlider: RelictSlider!
+    @IBOutlet weak var goldenGrailSlider: RelictSlider!
+    
+    @IBOutlet weak var goldenCrownMaxValue: LabelWhiteColorClass!
+    @IBOutlet weak var goldenGrailMaxValue: LabelWhiteColorClass!
+    @IBOutlet weak var goldenScriptureMaxValue: LabelWhiteColorClass!
+    
     //MARK: - Variables
     var character = Character()
     private var totalPoint = Int()
@@ -38,6 +46,9 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
     private var eng = 0
     private var agi = 0
     private var sta = 0
+    private var goldenCrownPoints = 0
+    private var goldenGrailPoints = 0
+    private var goldenScripturePoints = 0
     var subject = String()
     private var isCalculated: Bool = false
     var iPadViewController: IPadViewController?
@@ -47,6 +58,33 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
     private let saveStats = SaveStats(character: Classes.dw.rawValue)
     
     // MARK: - Actions
+    @IBAction func calculateGoldenCrown(_ sender: UISlider) {
+        self.goldenCrownPoints = Int(round(sender.value / 10) * 10)
+        if self.goldenCrownPoints != 0 {
+            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
+        } else {
+            self.goldenCrownMaxValue.text = "100"
+        }
+    }
+    
+    @IBAction func calculateGoldenScripture(_ sender: UISlider) {
+        self.goldenScripturePoints = Int(round(sender.value / 10) * 10)
+        if self.goldenScripturePoints != 0 {
+            self.goldenScriptureMaxValue.text = String(self.goldenScripturePoints)
+        } else {
+            self.goldenScriptureMaxValue.text = "100"
+        }
+    }
+    
+    @IBAction func calculateGoldenGrail(_ sender: UISlider) {
+        self.goldenGrailPoints = Int(round(sender.value / 10) * 10)
+        if self.goldenGrailPoints != 0 {
+            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
+        } else {
+            self.goldenGrailMaxValue.text = "100"
+        }
+    }
+    
     @IBAction func calculateButton(_ sender: Any) {
         
         self.isCalculated = true
@@ -56,12 +94,12 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.agiField.text = ""
         self.staField.text = ""
         
-        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {//&& validationForCreatons(self.fruitStatsInput.text) {
+        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {
             self.showStatsView.isHidden = false
             self.inputStatsView.isHidden = false
             
-            self.totalPoint = self.character.calculateFullStats()
-            self.points = self.character.calculateStats()
+            self.totalPoint = self.character.calculateFullStats() + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
+            self.points = self.character.calculateStats() + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
             
             self.statsWithoutCreatons.text = String(self.points)
             self.totalStats.text = String(self.totalPoint)
@@ -181,6 +219,9 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
+            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
         
         if isActive && clas == Classes.dw {
@@ -214,6 +255,11 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.calculateButtonOutlet.isEnabled = false
     }
     
+    private func calculateHeightOfScreen() -> CGFloat {
+        let totalHeight = self.enterStatsView.frame.height + self.inputStatsView.frame.height + self.showStatsView.frame.height + 50.0
+        return totalHeight
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -222,6 +268,25 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.rebirthInput.text = saveStats.getData(key: InputStats.rebirth.key)
         self.levelInput.text = saveStats.getData(key: InputStats.level.key)
         self.fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
+        
+        self.goldenCrownPoints = saveStats.getData(key: InputStats.goldenCrown.key)
+        self.goldenScripturePoints = saveStats.getData(key: InputStats.goldenScripture.key)
+        self.goldenGrailPoints = saveStats.getData(key: InputStats.goldenGrail.key)
+        
+        if self.goldenCrownPoints != 0 {
+            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
+            self.goldenCrownSlider.value = Float(self.goldenCrownPoints)
+        }
+        
+        if self.goldenScripturePoints != 0 {
+            self.goldenScriptureMaxValue.text = String(self.goldenScripturePoints)
+            self.goldenScriptureSlider.value = Float(self.goldenScripturePoints)
+        }
+        
+        if self.goldenGrailPoints != 0 {
+            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
+            self.goldenGrailSlider.value = Float(self.goldenGrailPoints)
+        }
         
         if !(self.rebirthInput.text?.isEmpty)! || !(self.levelInput.text?.isEmpty)! {
             self.calculateButtonOutlet.isEnabled = true
@@ -246,6 +311,11 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.registerForNotifications()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: calculateHeightOfScreen())
+    }
+    
     deinit {
         self.deregisterFromNotifications()
         
@@ -253,6 +323,9 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
+            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
     }
     

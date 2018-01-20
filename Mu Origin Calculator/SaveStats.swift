@@ -22,12 +22,25 @@ class SaveStats {
         defaults.set(data, forKey: typeOfClass+key)
         defaults.synchronize()
     }
+    func saveData(_ data: Int, key: String) {
+        defaults.set(data, forKey: typeOfClass+key)
+        defaults.synchronize()
+    }
     
     func getData(key: String) -> String? {
         if let data = defaults.string(forKey: typeOfClass+key) {
             return data
         } else {
             return nil
+        }
+    }
+    
+    func getData(key: String) -> Int {
+        let data = defaults.integer(forKey: typeOfClass+key)
+        if data != 0 {
+            return data
+        } else {
+            return 0
         }
     }
 }

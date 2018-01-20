@@ -18,6 +18,10 @@ enum InputStats: String {
     case rebirth
     case level
     case creaton
+    case goldenSword
+    case goldenCrown
+    case goldenScripture
+    case goldenGrail
     
     var key: String {
         get {
