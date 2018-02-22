@@ -41,6 +41,10 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     @IBOutlet weak var goldenScriptureMaxValue: LabelWhiteColorClass!
     @IBOutlet weak var goldenGrailMaxValue: LabelWhiteColorClass!
     
+    // MARK: - Constraints
+    @IBOutlet weak var showResultsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var evaluateStatsHeightConstraint: NSLayoutConstraint!
+    
     //MARK: - Variables
     var character = Character()
     private var totalPoint = Int()
@@ -121,6 +125,12 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
         }
+        
+        self.showResultsHeightConstraint.constant = 100.0
+        self.evaluateStatsHeightConstraint.constant = 180.0
+        self.showStatsView.layoutIfNeeded()
+        self.inputStatsView.layoutIfNeeded()
+        self.scrollView.layoutIfNeeded()
     }
     
     @IBAction func minusRebirth(_ sender: Any) {
@@ -331,6 +341,9 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.view.addGestureRecognizer(tapper)
         
         self.registerForNotifications()
+        
+        self.showResultsHeightConstraint.constant = 0.0
+        self.evaluateStatsHeightConstraint.constant = 0.0
     }
     
     override func viewDidLayoutSubviews() {

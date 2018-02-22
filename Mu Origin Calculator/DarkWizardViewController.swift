@@ -38,6 +38,10 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
     @IBOutlet weak var goldenGrailMaxValue: LabelWhiteColorClass!
     @IBOutlet weak var goldenScriptureMaxValue: LabelWhiteColorClass!
     
+    // MARK: - Constraints
+    @IBOutlet weak var showResultsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var evaluateStatsHeightConstraint: NSLayoutConstraint!
+    
     //MARK: - Variables
     var character = Character()
     private var totalPoint = Int()
@@ -107,6 +111,12 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
         }
+        
+        self.showResultsHeightConstraint.constant = 100.0
+        self.evaluateStatsHeightConstraint.constant = 130.0
+        self.showStatsView.layoutIfNeeded()
+        self.inputStatsView.layoutIfNeeded()
+        self.scrollView.layoutIfNeeded()
     }
     
     @IBAction func minusRebirth(_ sender: Any) {
@@ -309,6 +319,9 @@ class DarkWizardViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.view.addGestureRecognizer(tapper)
         
         self.registerForNotifications()
+        
+        self.showResultsHeightConstraint.constant = 0.0
+        self.evaluateStatsHeightConstraint.constant = 0.0
     }
     
     override func viewDidLayoutSubviews() {

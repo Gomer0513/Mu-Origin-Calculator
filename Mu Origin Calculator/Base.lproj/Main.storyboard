@@ -764,6 +764,7 @@
                         <outlet property="containerView" destination="yEk-LW-lEl" id="Axs-qV-Y3w"/>
                         <outlet property="engField" destination="gVz-iu-KMB" id="V3j-UH-rKr"/>
                         <outlet property="enterStatsView" destination="rlw-3d-j4f" id="KME-9t-PXH"/>
+                        <outlet property="evaluateStatsHeightConstraint" destination="01U-Dz-DGt" id="jJa-o6-gZN"/>
                         <outlet property="fruitStatsInput" destination="gxB-4h-Umm" id="jn5-TI-WAo"/>
                         <outlet property="goldenCrownMaxValue" destination="1K2-mC-tYq" id="M51-aS-fna"/>
                         <outlet property="goldenCrownSlider" destination="b6M-t6-aPp" id="py5-ac-DOs"/>
@@ -775,6 +776,7 @@
                         <outlet property="levelInput" destination="NNz-TJ-ZRs" id="hG6-el-lg9"/>
                         <outlet property="rebirthInput" destination="lhi-Ab-kKa" id="kvt-G6-c17"/>
                         <outlet property="scrollView" destination="dhj-RD-DUy" id="h4D-tA-FNt"/>
+                        <outlet property="showResultsHeightConstraint" destination="m2K-JY-eI8" id="ZvV-tA-00r"/>
                         <outlet property="showStatsView" destination="SYK-y4-5PF" id="iwZ-8y-W1P"/>
                         <outlet property="staField" destination="Dwm-Gg-rf0" id="7cJ-f2-dIP"/>
                         <outlet property="statsWithoutCreatons" destination="Vza-Cd-idd" id="GbP-Ss-9NO"/>
@@ -1335,6 +1337,7 @@
                         <outlet property="calculateButtonOutlet" destination="4nG-re-hkH" id="JHW-Vm-yEn"/>
                         <outlet property="containerView" destination="Yoo-i3-zYl" id="fOA-CD-lJd"/>
                         <outlet property="enterStatsView" destination="Aeu-34-1gx" id="r86-57-qda"/>
+                        <outlet property="evaluateStatsHeightConstraint" destination="eko-UL-icZ" id="hHB-VD-I7Y"/>
                         <outlet property="fruitStatsInput" destination="A0s-xK-AbI" id="yoi-bM-ne7"/>
                         <outlet property="goldenCrownMaxValue" destination="HS3-IB-AT4" id="G2s-YE-hAw"/>
                         <outlet property="goldenCrownSlider" destination="b3q-ZO-lsf" id="bjN-VX-Tnq"/>
@@ -1346,6 +1349,7 @@
                         <outlet property="levelInput" destination="eiT-Z5-tar" id="0LD-kq-bm3"/>
                         <outlet property="rebirthInput" destination="el2-oM-J6U" id="IUS-tz-LWO"/>
                         <outlet property="scrollView" destination="66B-Tr-yTr" id="Svd-zZ-XaD"/>
+                        <outlet property="showResultsHeightConstraint" destination="kF2-kj-jKG" id="Xra-q9-wlf"/>
                         <outlet property="showStatsView" destination="4Tj-lO-dfB" id="Eex-sg-htG"/>
                         <outlet property="staField" destination="P4H-7I-R84" id="aJ0-Ib-buJ"/>
                         <outlet property="statsWithoutCreatons" destination="YBQ-hz-NrT" id="RzG-EL-fyb"/>
@@ -1373,7 +1377,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hH4-Mh-TJb" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="667"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="800"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiL-ft-SoO" userLabel="ShowResutsVIew">
                                                 <rect key="frame" x="0.0" y="515" width="320" height="100"/>
@@ -1958,12 +1962,12 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="centerY" secondItem="eHv-2X-Zds" secondAttribute="centerY" id="HlN-vZ-95j"/>
-                                    <constraint firstAttribute="bottom" secondItem="hH4-Mh-TJb" secondAttribute="bottom" id="JfH-DP-nEr"/>
-                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="centerX" secondItem="eHv-2X-Zds" secondAttribute="centerX" id="UXy-Z5-gbo"/>
-                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="top" secondItem="eHv-2X-Zds" secondAttribute="top" id="ask-3r-2hz"/>
-                                    <constraint firstAttribute="trailing" secondItem="hH4-Mh-TJb" secondAttribute="trailing" id="gJE-pi-u27"/>
-                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="leading" secondItem="eHv-2X-Zds" secondAttribute="leading" id="n8O-vd-iWM"/>
+                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="centerY" secondItem="eHv-2X-Zds" secondAttribute="centerY" constant="66.5" id="1iS-ue-DxU"/>
+                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="centerX" secondItem="eHv-2X-Zds" secondAttribute="centerX" id="8GB-gd-I00"/>
+                                    <constraint firstAttribute="trailing" secondItem="hH4-Mh-TJb" secondAttribute="trailing" id="Kb9-0q-C1a"/>
+                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="top" secondItem="eHv-2X-Zds" secondAttribute="top" id="in2-cy-rH2"/>
+                                    <constraint firstItem="hH4-Mh-TJb" firstAttribute="leading" secondItem="eHv-2X-Zds" secondAttribute="leading" id="stB-1h-xw2"/>
+                                    <constraint firstAttribute="bottom" secondItem="hH4-Mh-TJb" secondAttribute="bottom" constant="-133" id="vD6-zC-TW5"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -1971,17 +1975,18 @@
                         <constraints>
                             <constraint firstItem="eHv-2X-Zds" firstAttribute="leading" secondItem="MaC-vW-FL5" secondAttribute="leading" id="A3R-Jt-s7K"/>
                             <constraint firstAttribute="trailing" secondItem="eHv-2X-Zds" secondAttribute="trailing" id="NRw-a0-8Ie"/>
-                            <constraint firstItem="ThP-iv-vVN" firstAttribute="top" secondItem="eHv-2X-Zds" secondAttribute="bottom" id="PWV-vl-Clt"/>
                             <constraint firstItem="eHv-2X-Zds" firstAttribute="top" secondItem="VkS-7B-YeG" secondAttribute="bottom" constant="-64" id="ULf-DV-L9l"/>
+                            <constraint firstItem="eHv-2X-Zds" firstAttribute="centerY" secondItem="MaC-vW-FL5" secondAttribute="centerY" id="biH-RB-uOH"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="qCE-7I-k5I"/>
                     <connections>
-                        <outlet property="agiField" destination="Ijx-I0-YRg" id="hRK-Y8-FkC"/>
+                        <outlet property="agiField" destination="Ijx-I0-YRg" id="wjX-hv-Kph"/>
                         <outlet property="calculateButtonOutlet" destination="u5u-cr-TN8" id="DOg-Bi-JbW"/>
                         <outlet property="containerView" destination="hH4-Mh-TJb" id="itw-vC-bSn"/>
-                        <outlet property="engField" destination="c4R-dQ-Po4" id="kB8-Bw-gfF"/>
+                        <outlet property="engField" destination="c4R-dQ-Po4" id="X7d-1a-TfJ"/>
                         <outlet property="enterStatsView" destination="mXQ-xe-j2e" id="6ww-YN-YGv"/>
+                        <outlet property="evaluateStatsHeightConstraint" destination="NkR-pa-6dv" id="Rxb-f7-unA"/>
                         <outlet property="fruitStatsInput" destination="hcl-Kv-in2" id="Wlg-wX-UfO"/>
                         <outlet property="goldenCrownMaxValue" destination="len-i1-QgP" id="hic-An-ffP"/>
                         <outlet property="goldenCrownSlider" destination="PY4-57-d1n" id="3Ty-QE-vi7"/>
@@ -1995,8 +2000,9 @@
                         <outlet property="levelInput" destination="MOY-hD-chb" id="4EL-sj-a01"/>
                         <outlet property="rebirthInput" destination="hR7-ga-pYa" id="KcO-vo-Lva"/>
                         <outlet property="scrollView" destination="eHv-2X-Zds" id="YYZ-nm-wSa"/>
+                        <outlet property="showResultsHeightConstraint" destination="qaW-qE-KzI" id="yQR-45-FiS"/>
                         <outlet property="showStatsView" destination="PiL-ft-SoO" id="ybt-mF-b3S"/>
-                        <outlet property="staField" destination="E0X-2R-BO9" id="8zs-E2-OrF"/>
+                        <outlet property="staField" destination="E0X-2R-BO9" id="PMi-ji-aAd"/>
                         <outlet property="statsWithoutCreatons" destination="o4D-aX-bfa" id="UEK-x9-usT"/>
                         <outlet property="strField" destination="g9v-1f-e57" id="tRt-Ge-Iif"/>
                         <outlet property="totalStats" destination="ysg-Lb-GnA" id="2Fl-Ow-UGs"/>
@@ -2559,6 +2565,7 @@
                         <outlet property="creatonInputLabel" destination="0Wl-td-cyH" id="7D0-V3-kBP"/>
                         <outlet property="currentLevelLabel" destination="oty-EN-Zhs" id="hHA-xr-Nv6"/>
                         <outlet property="enterStatsView" destination="7df-mR-iBI" id="IQq-gP-kTr"/>
+                        <outlet property="evaluateStatsHeightConstraint" destination="FBK-Sd-RXh" id="xPa-Y2-I9o"/>
                         <outlet property="fruitStatsInput" destination="uD8-qy-Fvd" id="DiT-BF-BoV"/>
                         <outlet property="goldenCrownMaxValue" destination="qxM-cj-q81" id="rhN-ic-Gvi"/>
                         <outlet property="goldenCrownSlider" destination="al3-CQ-POz" id="Ero-MC-l8C"/>
@@ -2572,6 +2579,7 @@
                         <outlet property="rebirthInput" destination="Hv3-Sc-eo9" id="6El-tX-VcO"/>
                         <outlet property="rebirthInputLabel" destination="SfH-MK-p4G" id="0c3-ZU-G49"/>
                         <outlet property="scrollView" destination="ido-q3-MR1" id="h5T-vX-bkH"/>
+                        <outlet property="showResultsHeightConstraint" destination="oTJ-jY-1et" id="wcZ-xF-dv5"/>
                         <outlet property="showStatsView" destination="b2Q-73-hBa" id="ePy-SN-8fT"/>
                         <outlet property="staField" destination="mPj-ge-1p8" id="UiG-cl-GGu"/>
                         <outlet property="staLabel" destination="dVv-0q-xg3" id="bev-X4-K3W"/>
