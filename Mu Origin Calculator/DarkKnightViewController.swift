@@ -33,12 +33,15 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     @IBOutlet weak var statsWithoutCreatons: UILabel!
     @IBOutlet weak var totalStatsLabel: LabelWhiteColorClass!
     @IBOutlet weak var statsWithoutCreatonsLabel: LabelWhiteColorClass!
+    @IBOutlet weak var weapon: LabelWhiteColorClass!
+    @IBOutlet weak var set: LabelWhiteColorClass!
     
     @IBOutlet weak var enterStatsView: UIView!
     @IBOutlet weak var showStatsView: UIView!
     @IBOutlet weak var inputStatsView: UIView!
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var showItemsView: ShowItemsView!
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
     
@@ -53,6 +56,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     // MARK: - Constraints
     @IBOutlet weak var showResultsHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var evaluateStatsHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var showItemsHeightConstraint: NSLayoutConstraint!
     
     //MARK: - Variables
     private var character = Character()
@@ -72,6 +76,8 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
     private let saveStats = SaveStats(character: Classes.dk.rawValue)
+    private let weapons = Weapon(belongsTo: Classes.dk)
+    private let armors = Armor(belongsTo: Classes.dk)
     
     // MARK: - Actions
     @IBAction func calculateGoldenSword(_ sender: UISlider) {
@@ -110,9 +116,13 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.agiField.text = ""
         self.staField.text = ""
         
+        self.showItemsHeightConstraint.constant = 0.0
+        self.showItemsView.layoutIfNeeded()
+        
         if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {
             self.showStatsView.isHidden = false
             self.inputStatsView.isHidden = false
+            self.showItemsView.isHidden = true
             
             self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints
             self.points = self.character.calculateStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints
@@ -122,6 +132,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         } else {
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
+            self.showItemsView.isHidden = true
         }
         
         self.showResultsHeightConstraint.constant = 100.0
@@ -255,6 +266,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     private func resetViewControllerContent() {
         self.showStatsView.isHidden = true
         self.inputStatsView.isHidden = true
+        self.showItemsView.isHidden = true
     }
     
     private func initialSetup() {
@@ -275,11 +287,12 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         
         self.showStatsView.isHidden = true
         self.inputStatsView.isHidden = true
+        self.showItemsView.isHidden = true
         self.calculateButtonOutlet.isEnabled = false
     }
     
     private func calculateHeightOfScreen() -> CGFloat {
-        let totalHeight = self.enterStatsView.frame.height + self.inputStatsView.frame.height + self.showStatsView.frame.height + 50.0
+        let totalHeight = self.enterStatsView.frame.height + self.inputStatsView.frame.height + self.showStatsView.frame.height + self.showItemsView.frame.height + 50.0
         return totalHeight
     }
     
@@ -323,6 +336,10 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.agiField.delegate = self
         self.staField.delegate = self
         
+        self.strField.addTarget(self, action: #selector(strFieldDidChange(textField:)), for: .editingDidEnd)
+        self.agiField.addTarget(self, action: #selector(agiFieldDidChange(textField:)), for: .editingDidEnd)
+        self.staField.addTarget(self, action: #selector(staFieldDidChange(textField:)), for: .editingDidEnd)
+        
         if let ipad = iPadViewController {
             ipad.delegateDK = self
         }
@@ -335,7 +352,9 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         
         self.showResultsHeightConstraint.constant = 0.0
         self.evaluateStatsHeightConstraint.constant = 0.0
+        self.showItemsHeightConstraint.constant = 0.0
     }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: calculateHeightOfScreen())
@@ -381,8 +400,8 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     
     func keyboardWillHide(notification: NSNotification) {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            self.scrollView.contentInset = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
-            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(64.0, 0.0, 0.0,  0.0)
+            self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
             self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
@@ -391,37 +410,126 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {
-        
-        if !((textField?.isEmpty)!) && validationForCreatons(textField) {
+        if validationForCreatons(textField) {
             if stat == .str {
-                self.str = Int(textField!)!
-                self.totalPoint = self.totalPoint - self.str
+                if !(self.strField.text?.isEmpty)! {
+                    self.str =  Int(self.strField.text!)!
+                } else {
+                    self.str = 0
+                }
             }
             if stat == .agi {
-                self.agi = Int(textField!)!
-                self.totalPoint = self.totalPoint - self.agi
+                if !(self.agiField.text?.isEmpty)! {
+                    self.agi = Int(self.agiField.text!)!
+                } else {
+                    self.agi = 0
+                }
             }
             if stat == .sta {
-                self.sta = Int(textField!)!
-                self.totalPoint = self.totalPoint - self.sta
+                if !(self.staField.text?.isEmpty)! {
+                    self.sta = Int(self.staField.text!)!
+                } else {
+                    self.sta = 0
+                }
             }
-            self.totalStats.text = String(self.totalPoint)
         }
         
-        if (textField == "0" || (textField?.isEmpty)!) && stat == .str {
-            self.str = 0
-            self.totalPoint = self.character.calculateFullStats() - self.str - self.agi - self.sta
-            self.totalStats.text = String(self.totalPoint)
+        self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints - self.str - self.agi - self.sta
+        self.totalStats.text = String(self.totalPoint)
+        
+        if (self.strField.text?.isEmpty)! || (self.agiField.text?.isEmpty)! || (self.staField.text?.isEmpty)! {
+            self.showItemsView.isHidden = true
+            self.showItemsHeightConstraint.constant = 0.0
+            self.showItemsView.layoutIfNeeded()
+        } else {
+            self.showItemsView.isHidden = false
+            self.showItemsHeightConstraint.constant = 100.0
+            self.showItemsView.layoutIfNeeded()
+            
+            let wp = weapons.getItem(str: self.str, agi: self.agi, sta: self.sta)
+            let arm = armors.getItem(str: self.str, agi: self.agi, sta: self.sta)
+            if wp.tier != nil && wp.name != nil {
+                self.weapon.text = "T\(wp.tier!): \(wp.name!)"
+            } else {
+                self.weapon.text = ""
+            }
+            if arm.tier != nil && arm.name != nil {
+                self.set.text = "T\(arm.tier!): \(arm.name!)"
+            } else {
+                self.set.text = ""
+            }
         }
-        if (textField == "0" || (textField?.isEmpty)!) && stat == .agi {
-            self.agi = 0
-            self.totalPoint = self.character.calculateFullStats() - self.str - self.agi - self.sta
-            self.totalStats.text = String(self.totalPoint)
+    }
+    
+    func strFieldDidChange(textField: UITextField) {
+        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
+            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
+                if Int(textField.text!)! > self.totalPoint + self.str {
+                    self.strField.text = String(self.totalPoint + self.str)
+                    self.updateStats(self.strField.text, stat: .str)
+                } else {
+                    self.updateStats(textField.text, stat: .str)
+                }
+            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
+                if Int(textField.text!)! > self.str {
+                    self.totalPoint = 0
+                    self.strField.text = String(self.str)
+                } else {
+                    self.updateStats(textField.text, stat: .str)
+                }
+            } else {
+                self.updateStats(self.strField.text, stat: .str)
+            }
+        } else if (textField.text?.isEmpty)! || textField.text == "0" {
+            self.updateStats("0", stat: .str)
         }
-        if (textField == "0" || (textField?.isEmpty)!) && stat == .sta {
-            self.sta = 0
-            self.totalPoint = self.character.calculateFullStats() - self.str - self.agi - self.sta
-            self.totalStats.text = String(self.totalPoint)
+    }
+    
+    func agiFieldDidChange(textField: UITextField) {
+        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
+            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
+                if Int(textField.text!)! > self.totalPoint + self.agi {
+                    self.agiField.text = String(self.totalPoint + self.agi)
+                    self.updateStats(self.agiField.text, stat: .agi)
+                } else {
+                    self.updateStats(textField.text, stat: .agi)
+                }
+            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
+                if Int(textField.text!)! > self.agi {
+                    self.totalPoint = 0
+                    self.agiField.text = String(self.agi)
+                } else {
+                    self.updateStats(textField.text, stat: .agi)
+                }
+            } else {
+                self.updateStats(self.agiField.text, stat: .agi)
+            }
+        } else if (textField.text?.isEmpty)! || textField.text == "0" {
+            self.updateStats("0", stat: .agi)
+        }
+    }
+    
+    func staFieldDidChange(textField: UITextField) {
+        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
+            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
+                if Int(textField.text!)! > self.totalPoint + self.sta {
+                    self.staField.text = String(self.totalPoint + self.sta)
+                    self.updateStats(self.staField.text, stat: .sta)
+                } else {
+                    self.updateStats(textField.text, stat: .sta)
+                }
+            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
+                if Int(textField.text!)! > self.sta {
+                    self.totalPoint = 0
+                    self.staField.text = String(self.sta)
+                } else {
+                    self.updateStats(textField.text, stat: .sta)
+                }
+            } else {
+                self.updateStats(self.staField.text, stat: .sta)
+            }
+        } else if (textField.text?.isEmpty)! || textField.text == "0" {
+            self.updateStats("0", stat: .sta)
         }
     }
     
@@ -451,13 +559,13 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
             self.calculateButtonOutlet.isEnabled = true
         } else {
             self.calculateButtonOutlet.isEnabled = false
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
+            self.showItemsView.isHidden = true
             self.isCalculated = false
         }
         
@@ -471,39 +579,6 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
             } else {
                 self.levelInput.text = levelMaxValue
             }
-        }
-        
-        if !((self.strField.text?.isEmpty)!) && self.strField.resignFirstResponder() && validationForCreatons(self.strField.text) {
-            if Int(self.strField.text!)! > self.totalPoint {
-                self.strField.text = String(self.totalPoint)
-                self.updateStats(self.strField.text, stat: .str)
-            } else {
-                self.updateStats(self.strField.text, stat: .str)
-            }
-        } else if (self.strField.text?.isEmpty)! || self.strField.text == "0" {
-            self.updateStats("0", stat: .str)
-        }
-        
-        if !((self.agiField.text?.isEmpty)!) && self.agiField.resignFirstResponder() && validationForCreatons(self.agiField.text) {
-            if Int(self.agiField.text!)! > self.totalPoint {
-                self.agiField.text = String(self.totalPoint)
-                self.updateStats(self.agiField.text, stat: .agi)
-            } else {
-                self.updateStats(self.agiField.text, stat: .agi)
-            }
-        } else if (self.agiField.text?.isEmpty)! || self.agiField.text == "0" {
-            self.updateStats("0", stat: .agi)
-        }
-        
-        if !((self.staField.text?.isEmpty)!) && self.staField.resignFirstResponder() && validationForCreatons(self.staField.text) {
-            if Int(self.staField.text!)! > self.totalPoint {
-                self.staField.text = String(self.totalPoint)
-                self.updateStats(self.staField.text, stat: .sta)
-            } else {
-                self.updateStats(self.staField.text, stat: .sta)
-            }
-        } else if (self.staField.text?.isEmpty)! || self.staField.text == "0" {
-            self.updateStats("0", stat: .sta)
         }
     }
     

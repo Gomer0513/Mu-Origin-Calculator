@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405943B2001EA870056EED1 /* RelictSlider.swift */; };
 		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
+		E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42623EF204AC5E900543F07 /* ShowItemsView.swift */; };
 		E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DD0B01FA5F0AF00DF6462 /* Constants.swift */; };
+		E4609A752042E43200E0B4B3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4609A742042E43200E0B4B3 /* Items.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
@@ -32,7 +34,9 @@
 /* Begin PBXFileReference section */
 		E405943B2001EA870056EED1 /* RelictSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelictSlider.swift; sourceTree = "<group>"; };
 		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E42623EF204AC5E900543F07 /* ShowItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowItemsView.swift; sourceTree = "<group>"; };
 		E43DD0B01FA5F0AF00DF6462 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4609A742042E43200E0B4B3 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -121,6 +125,7 @@
 				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
 				E490707D1FE20CF800671F89 /* IPadViewController.swift */,
 				E405943B2001EA870056EED1 /* RelictSlider.swift */,
+				E42623EF204AC5E900543F07 /* ShowItemsView.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -129,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				E481ADC51F17B11300F22ECA /* Character.swift */,
+				E4609A742042E43200E0B4B3 /* Items.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -205,6 +211,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */,
 				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
@@ -214,6 +221,7 @@
 				E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */,
 				E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
+				E4609A752042E43200E0B4B3 /* Items.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
 				E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
@@ -287,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -337,7 +345,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";

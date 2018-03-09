@@ -22,13 +22,19 @@ enum Classes: String {
     case dw = "Dark Wizard"
     case elf = "Elf"
     case mg = "Magic Knight"
+    case sum = "Summoner"
 }
 
 class Character {
     var level: Int = 1
     var rebirth: Int = 0
-    var stats: Stats?
     var fruits: Point = 0
+    var goldenSword: Point = 0
+    var goldenCrown: Point = 0
+    var goldenScripture: Point = 0
+    var goldenGrail: Point = 0
+    
+    private var relictSum: Point = 0
     
     init (rebirth: Int?, level: Int?, fruits: Point?) {
         self.rebirth = rebirth ?? 0
@@ -131,9 +137,25 @@ class Character {
         return overalStats
     }
     
+    func evaluateRelicts(goldenSword: Point? = nil ?? 0, goldenCrown: Point? = nil ?? 0, goldenScripture: Point? = nil ?? 0, goldenGrail: Point? = nil ?? 0) {
+        if goldenSword != nil {
+            self.goldenSword = goldenSword!
+        }
+        if goldenCrown != nil {
+            self.goldenCrown = goldenCrown!
+        }
+        if goldenScripture != nil {
+            self.goldenScripture = goldenScripture!
+        }
+        if goldenGrail != nil {
+            self.goldenGrail = goldenGrail!
+        }
+        
+        self.relictSum = self.goldenSword + self.goldenCrown + self.goldenScripture + self.goldenGrail
+    }
+    
     func calculateFullStats() -> Point {
-        let sum: Point = self.calculateStats() + self.fruits
-        return sum
+        return self.calculateStats() + self.fruits //+ self.relictSum
     }
     
 }
