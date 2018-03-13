@@ -65,6 +65,11 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.magicKnightContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
+            self.darkKnightVC?.view.endEditing(true)
+            self.darkWizardVC?.view.endEditing(true)
+            self.elfVC?.view.endEditing(true)
+            self.magicKnightVC?.view.endEditing(true)
+            
             self.mainMenuVC?.darkKnightButton.isSelected = true
             self.mainMenuVC?.darkWizardButton.isSelected = false
             self.mainMenuVC?.elfButton.isSelected = false
@@ -77,6 +82,11 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.elfContainer.isHidden = true
             self.magicKnightContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+            
+            self.darkKnightVC?.view.endEditing(true)
+            self.darkWizardVC?.view.endEditing(true)
+            self.elfVC?.view.endEditing(true)
+            self.magicKnightVC?.view.endEditing(true)
             
             self.mainMenuVC?.darkKnightButton.isSelected = false
             self.mainMenuVC?.darkWizardButton.isSelected = true
@@ -91,6 +101,11 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.magicKnightContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
+            self.darkKnightVC?.view.endEditing(true)
+            self.darkWizardVC?.view.endEditing(true)
+            self.elfVC?.view.endEditing(true)
+            self.magicKnightVC?.view.endEditing(true)
+            
             self.mainMenuVC?.darkKnightButton.isSelected = false
             self.mainMenuVC?.darkWizardButton.isSelected = false
             self.mainMenuVC?.elfButton.isSelected = true
@@ -103,6 +118,11 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.elfContainer.isHidden = true
             self.magicKnightContainer.isHidden = false
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+            
+            self.darkKnightVC?.view.endEditing(true)
+            self.darkWizardVC?.view.endEditing(true)
+            self.elfVC?.view.endEditing(true)
+            self.magicKnightVC?.view.endEditing(true)
             
             self.mainMenuVC?.darkKnightButton.isSelected = false
             self.mainMenuVC?.darkWizardButton.isSelected = false

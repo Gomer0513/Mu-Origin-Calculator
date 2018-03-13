@@ -115,6 +115,9 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         self.strField.text = ""
         self.agiField.text = ""
         self.staField.text = ""
+        self.eng = 0
+        self.agi = 0
+        self.sta = 0
         
         self.showItemsHeightConstraint.constant = 0.0
         self.showItemsView.layoutIfNeeded()
@@ -143,16 +146,12 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func minusRebirth(_ sender: Any) {
-        if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
-            if self.validationForRebirth(text) == true  {
-                let rebirth: Int = Int(text)!
-                if rebirth == 0 {
-                    self.rebirthInput.text = rebirthMinValue
-                } else {
-                    self.rebirthInput.text! = String(rebirth - 1)
-                }
+        if !(self.rebirthInput.text?.isEmpty == true) && validationForRebirth(self.rebirthInput.text), let text = self.rebirthInput.text {
+            let rebirth: Int = Int(text)!
+            if rebirth == 0 {
+                self.rebirthInput.text = rebirthMinValue
             } else {
-                self.rebirthInput.text = rebirthMaxValue
+                self.rebirthInput.text! = String(rebirth - 1)
             }
         } else {
             self.rebirthInput.text = rebirthMinValue
@@ -164,16 +163,12 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func plusRebirth(_ sender: Any) {
-        if !(self.rebirthInput.text?.isEmpty == true), let text = self.rebirthInput.text {
-            if self.validationForRebirth(text) == true  {
-                let rebirth: Int = Int(text)!
-                if rebirth >= 11 {
-                    self.rebirthInput.text = rebirthMaxValue
-                } else {
-                    self.rebirthInput.text! = String(rebirth + 1)
-                }
-            } else {
+        if !(self.rebirthInput.text?.isEmpty == true) && validationForRebirth(self.rebirthInput.text), let text = self.rebirthInput.text {
+            let rebirth: Int = Int(text)!
+            if rebirth >= 11 {
                 self.rebirthInput.text = rebirthMaxValue
+            } else {
+                self.rebirthInput.text! = String(rebirth + 1)
             }
         } else {
             self.rebirthInput.text = "1"
@@ -185,16 +180,12 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func minusLevel(_ sender: Any) {
-        if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
-            if self.validationForLevels(text) == true  {
-                let level: Int = Int(text)!
-                if level == 1 {
-                    self.levelInput.text = levelMinValue
-                } else {
-                    self.levelInput.text! = String(level - 1)
-                }
+        if !(self.levelInput.text?.isEmpty == true) && validationForLevels(self.levelInput.text), let text = self.levelInput.text {
+            let level: Int = Int(text)!
+            if level == 1 {
+                self.levelInput.text = levelMinValue
             } else {
-                self.levelInput.text = levelMaxValue
+                self.levelInput.text! = String(level - 1)
             }
         } else {
             self.levelInput.text = levelMinValue
@@ -206,16 +197,12 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func plusLevel(_ sender: Any) {
-        if !(self.levelInput.text?.isEmpty == true), let text = self.levelInput.text {
-            if self.validationForLevels(text) == true  {
-                let level: Int = Int(text)!
-                if level >= 100 {
-                    self.levelInput.text = levelMaxValue
-                } else {
-                    self.levelInput.text! = String(level + 1)
-                }
-            } else {
+        if !(self.levelInput.text?.isEmpty == true) && validationForLevels(self.levelInput.text), let text = self.levelInput.text {
+            let level: Int = Int(text)!
+            if level >= 100 {
                 self.levelInput.text = levelMaxValue
+            } else {
+                self.levelInput.text! = String(level + 1)
             }
         } else {
             self.levelInput.text = levelMinValue
@@ -227,7 +214,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func minusCreaton(_ sender: Any) {
-        if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
+        if !(self.fruitStatsInput.text?.isEmpty == true) && validationForCreatons(self.fruitStatsInput.text), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
             if creatons == 0 {
                 self.fruitStatsInput.text = "0"
@@ -240,7 +227,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     }
     
     @IBAction func plusCreaton(_ sender: Any) {
-        if !(self.fruitStatsInput.text?.isEmpty == true), let text = self.fruitStatsInput.text {
+        if !(self.fruitStatsInput.text?.isEmpty == true) && validationForCreatons(self.fruitStatsInput.text), let text = self.fruitStatsInput.text {
             let creatons: Int = Int(text)!
             self.fruitStatsInput.text! = String(creatons + 1)
         } else {
@@ -570,15 +557,11 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
         }
         
         if !(self.validationForRebirth(self.rebirthInput.text)) && !(self.rebirthInput.text?.isEmpty == true) {
-            self.rebirthInput.text = rebirthMaxValue
+            self.rebirthInput.text = rebirthMinValue
         }
         
         if !(self.validationForLevels(self.levelInput.text)) && !(self.levelInput.text?.isEmpty == true) {
-            if self.levelInput.text == "0" {
-                self.levelInput.text = levelMinValue
-            } else {
-                self.levelInput.text = levelMaxValue
-            }
+            self.levelInput.text = levelMinValue
         }
     }
     
