@@ -273,7 +273,49 @@ class Weapon: Items {
                 return (item.tier,item.name)
             }
         case .sum:
-            print("not implemented")
+            if ((item.str! < 544) || (item.eng! < 544)) && (item.agi! < 217) {
+                return (nil,nil)
+            }
+            if ((item.str! >= 544 || item.eng! >= 544) && (item.agi! >= 217 && item.agi! < 704)) || (((item.str! >= 544 && item.str! < 1760) || (item.eng! >= 544 && item.eng! < 1760)) && item.agi! >= 217) {
+                item.name = "Zephyrus Rod"
+                item.tier = 5
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 1760 || item.eng! >= 1760) && (item.agi! >= 704 && item.agi! < 1062)) || (((item.str! >= 1760 && item.str! < 2656) || (item.eng! >= 1760 && item.eng! < 2656)) && item.agi! >= 704) {
+                item.name = "Red Wing Rod"
+                item.tier = 6
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 2656 || item.eng! >= 2656) && (item.agi! >= 1062 && item.agi! < 1546)) || (((item.str! >= 2656 && item.str! < 3864) || (item.eng! >= 2656 && item.eng! < 3864)) && item.agi! >= 1062) {
+                item.name = "Ancient Rod"
+                item.tier = 7
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 3864 || item.eng! >= 3864) && (item.agi! >= 1546 && item.agi! < 1907)) || (((item.str! >= 3864 && item.str! < 4768) || (item.eng! >= 3864 && item.eng! < 4768)) && item.agi! >= 1546) {
+                item.name = "Eternal Rod"
+                item.tier = 8
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 4768 || item.eng! >= 4768) && (item.agi! >= 1907 && item.agi! < 2301)) || (((item.str! >= 4768 && item.str! < 5752) || (item.eng! >= 4768 && item.eng! < 5752)) && item.agi! >= 1907) {
+                item.name = "Dream Eater Rod"
+                item.tier = 9
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 5752 || item.eng! >= 5752) && (item.agi! >= 2301 && item.agi! < 2726)) || (((item.str! >= 5752 && item.str! < 6816) || (item.eng! >= 5752 && item.eng! < 6816)) && item.agi! >= 2301) {
+                item.name = "" // TODO: -
+                item.tier = 10
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 6816 || item.eng! >= 6816) && (item.agi! >= 2726 && item.agi! < 3184)) || (((item.str! >= 6816 && item.str! < 7960) || (item.eng! >= 6816 && item.eng! < 7960)) && item.agi! >= 2726) {
+                item.name = "" // TODO: -
+                item.tier = 11
+                return (item.tier,item.name)
+            }
+            if ((item.str! >= 7960) || (item.eng! >= 7960)) && (item.agi! >= 3184) {
+                item.name = "" // TODO: -
+                item.tier = 12
+                return (item.tier,item.name)
+            }
         }
         return (nil,nil)
     }
@@ -532,7 +574,50 @@ class Armor: Items {
                 return (item.tier,item.name)
             }
         case .sum:
-            print("not implemented")
+            if ((item.str! < 220) || (item.eng! < 220)) && (item.agi! < 217) && (item.sta! < 328) {
+                item.name = ""
+                return (nil,nil)
+            }
+            if (item.agi! >= 442 && (item.sta! >= 662 && item.sta! < 1056)) || ((item.agi! >= 442 && item.agi! < 704) && item.sta! >= 662) {
+                item.name = "Zephyrus Set"
+                item.tier = 5
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 704 && (item.sta! >= 1056 && item.sta! < 1594)) || ((item.agi! >= 704 && item.agi! < 1062) && item.sta! >= 1056) {
+                item.name = "Red Wing Set"
+                item.tier = 6
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 1062 && (item.sta! >= 1594 && item.sta! < 2318)) || ((item.agi! >= 1062 && item.agi! < 1546) && item.sta! >= 1594) {
+                item.name = "Ancient Set"
+                item.tier = 7
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 1546 && (item.sta! >= 2318 && item.sta! < 2861)) || ((item.agi! >= 1546 && item.agi! < 1907) && item.sta! >= 2318) {
+                item.name = "Eternal Set"
+                item.tier = 8
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 1907 && (item.sta! >= 2861 && item.sta! < 3451)) || ((item.agi! >= 1907 && item.agi! < 2301) && item.sta! >= 2861) {
+                item.name = "Dream Eater Set"
+                item.tier = 9
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 2301 && (item.sta! >= 3451 && item.sta! < 4090)) || ((item.agi! >= 2301 && item.agi! < 2726) && item.sta! >= 3451) {
+                item.name = "" // TODO: -
+                item.tier = 10
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 2726 && (item.sta! >= 4090 && item.sta! < 4776)) || ((item.agi! >= 2726 && item.agi! < 3184) && item.sta! >= 4090) {
+                item.name = "" // TODO: -
+                item.tier = 11
+                return (item.tier, item.name)
+            }
+            if (item.agi! >= 3184) && (item.sta! >= 4776){
+                item.name = "" // TODO: -
+                item.tier = 12
+                return (item.tier, item.name)
+            }
         }
         return (nil,nil)
     }

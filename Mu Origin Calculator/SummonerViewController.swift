@@ -1,21 +1,20 @@
 //
-//  MagicKnightViewController.swift
+//  SummonerViewController.swift
 //  Mu Origin Calculator
 //
-//  Created by Oleksandr Kysil on 7/11/17.
-//  Copyright © 2017 Oleksandr Kysil. All rights reserved.
+//  Created by Oleksandr Kysil on 3/22/18.
+//  Copyright © 2018 Oleksandr Kysil. All rights reserved.
 //
 
 import UIKit
 
-class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveDataDelegate {
+class SummonerViewController: UIViewController , UITextFieldDelegate, saveDataDelegate {
     
     // MARK: - Outlets
     @IBOutlet weak var rebirthInput: UITextField!
     @IBOutlet weak var levelInput: UITextField!
     @IBOutlet weak var fruitStatsInput: UITextField!
     
-    @IBOutlet weak var strField: UITextField!
     @IBOutlet weak var engField: UITextField!
     @IBOutlet weak var agiField: UITextField!
     @IBOutlet weak var staField: UITextField!
@@ -25,24 +24,22 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     @IBOutlet weak var weapon: LabelWhiteColorClass!
     @IBOutlet weak var set: LabelWhiteColorClass!
     
-    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var enterStatsView: UIView!
     @IBOutlet weak var showStatsView: UIView!
     @IBOutlet weak var inputStatsView: UIView!
-    @IBOutlet weak var scrollView: UIScrollView!
-    @IBOutlet weak var showItemsView: ShowItemsView!
     
     @IBOutlet weak var calculateButtonOutlet: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var showItemsView: ShowItemsView!
     
-    @IBOutlet weak var goldenSwordSlider: RelictSlider!
     @IBOutlet weak var goldenCrownSlider: RelictSlider!
     @IBOutlet weak var goldenScriptureSlider: RelictSlider!
     @IBOutlet weak var goldenGrailSlider: RelictSlider!
     
-    @IBOutlet weak var goldenSwordMaxValue: LabelWhiteColorClass!
     @IBOutlet weak var goldenCrownMaxValue: LabelWhiteColorClass!
-    @IBOutlet weak var goldenScriptureMaxValue: LabelWhiteColorClass!
     @IBOutlet weak var goldenGrailMaxValue: LabelWhiteColorClass!
+    @IBOutlet weak var goldenScriptureMaxValue: LabelWhiteColorClass!
     
     // MARK: - Constraints
     @IBOutlet weak var showResultsHeightConstraint: NSLayoutConstraint!
@@ -57,30 +54,20 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     private var eng = 0
     private var agi = 0
     private var sta = 0
-    private var goldenSwordPoints = 0
     private var goldenCrownPoints = 0
-    private var goldenScripturePoints = 0
     private var goldenGrailPoints = 0
+    private var goldenScripturePoints = 0
     var subject = String()
     private var isCalculated: Bool = false
     var iPadViewController: IPadViewController?
     
     // MARK: - Constants
     private let alerts = Alert.sharedInstance
-    private let saveStats = SaveStats(character: Classes.mg.rawValue)
-    private let weapons = Weapon(belongsTo: Classes.mg)
-    private let armors = Armor(belongsTo: Classes.mg)
+    private let saveStats = SaveStats(character: Classes.sum.rawValue)
+    private let weapons = Weapon(belongsTo: Classes.sum)
+    private let armors = Armor(belongsTo: Classes.sum)
     
     // MARK: - Actions
-    @IBAction func calculateGoldenSword(_ sender: UISlider) {
-        self.goldenSwordPoints = Int(round(sender.value / 10) * 10)
-        if self.goldenSwordPoints != 0 {
-            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
-        } else {
-            self.goldenSwordMaxValue.text = "100"
-        }
-    }
-    
     @IBAction func calculateGoldenCrown(_ sender: UISlider) {
         self.goldenCrownPoints = Int(round(sender.value / 10) * 10)
         if self.goldenCrownPoints != 0 {
@@ -113,11 +100,9 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.isCalculated = true
         self.character = Character(rebirth: Int(self.rebirthInput.text!), level: Int(self.levelInput.text!), fruits: Int(self.fruitStatsInput.text!))
         
-        self.strField.text = ""
         self.engField.text = ""
         self.agiField.text = ""
         self.staField.text = ""
-        self.str = 0
         self.eng = 0
         self.agi = 0
         self.sta = 0
@@ -130,8 +115,8 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             self.inputStatsView.isHidden = false
             self.showItemsView.isHidden = true
             
-            self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
-            self.points = self.character.calculateStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
+            self.totalPoint = self.character.calculateFullStats() + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
+            self.points = self.character.calculateStats() + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
             
             self.statsWithoutCreatons.text = String(self.points)
             self.totalStats.text = String(self.totalPoint)
@@ -142,7 +127,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         }
         
         self.showResultsHeightConstraint.constant = 100.0
-        self.evaluateStatsHeightConstraint.constant = 180.0
+        self.evaluateStatsHeightConstraint.constant = 130.0
         self.showStatsView.layoutIfNeeded()
         self.inputStatsView.layoutIfNeeded()
         self.scrollView.layoutIfNeeded()
@@ -239,19 +224,19 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     }
     
     func saveData(_ isActive: Bool, clas: Classes) {
-        if self.calculateButtonOutlet.isEnabled == true && clas == Classes.mg {
+        if self.calculateButtonOutlet.isEnabled == true && clas == Classes.sum {
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
-            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
             saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
             saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
             saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
         
-        if isActive && clas == Classes.mg {
+        if isActive && clas == Classes.sum {
             self.resetViewControllerContent()
-        }    }
+        }
+    }
     
     private func resetViewControllerContent() {
         self.showStatsView.isHidden = true
@@ -295,15 +280,9 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.levelInput.text = saveStats.getData(key: InputStats.level.key)
         self.fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
         
-        self.goldenSwordPoints = saveStats.getData(key: InputStats.goldenSword.key)
         self.goldenCrownPoints = saveStats.getData(key: InputStats.goldenCrown.key)
         self.goldenScripturePoints = saveStats.getData(key: InputStats.goldenScripture.key)
         self.goldenGrailPoints = saveStats.getData(key: InputStats.goldenGrail.key)
-        
-        if self.goldenSwordPoints != 0 {
-            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
-            self.goldenSwordSlider.value = Float(self.goldenSwordPoints)
-        }
         
         if self.goldenCrownPoints != 0 {
             self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
@@ -328,19 +307,17 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.levelInput.delegate = self
         self.fruitStatsInput.delegate = self
         
-        self.strField.addTarget(self, action: #selector(strFieldDidChange(textField:)), for: .editingDidEnd)
-        self.agiField.addTarget(self, action: #selector(agiFieldDidChange(textField:)), for: .editingDidEnd)
-        self.engField.addTarget(self, action: #selector(engFieldDidChange(textField:)), for: .editingDidEnd)
-        self.staField.addTarget(self, action: #selector(staFieldDidChange(textField:)), for: .editingDidEnd)
-        
-        if let ipad = iPadViewController {
-            ipad.delegateMG = self
-        }
-        
-        self.strField.delegate = self
         self.engField.delegate = self
         self.agiField.delegate = self
         self.staField.delegate = self
+        
+        self.engField.addTarget(self, action: #selector(engFieldDidChange(textField:)), for: .editingDidEnd)
+        self.agiField.addTarget(self, action: #selector(agiFieldDidChange(textField:)), for: .editingDidEnd)
+        self.staField.addTarget(self, action: #selector(staFieldDidChange(textField:)), for: .editingDidEnd)
+        
+        if let ipad = iPadViewController {
+            ipad.delegameSumm = self
+        }
         
         let tapper = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
         tapper.cancelsTouchesInView = false
@@ -365,7 +342,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
             saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
             saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
-            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
             saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
             saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
             saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
@@ -400,21 +376,21 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     func keyboardWillHide(notification: NSNotification) {
         if UIDevice.current.userInterfaceIdiom == .phone {
             self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
             self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
         }
     }
     
     private func updateStats(_ textField: String?, stat: Stats) {
         if validationForCreatons(textField) {
-            if stat == .str {
-                if !(self.strField.text?.isEmpty)! {
-                    self.str =  Int(self.strField.text!)!
+            if stat == .eng {
+                if !(self.engField.text?.isEmpty)! {
+                    self.eng =  Int(self.engField.text!)!
                 } else {
-                    self.str = 0
+                    self.eng = 0
                 }
             }
             if stat == .agi {
@@ -422,13 +398,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
                     self.agi = Int(self.agiField.text!)!
                 } else {
                     self.agi = 0
-                }
-            }
-            if stat == .eng {
-                if !(self.engField.text?.isEmpty)! {
-                    self.eng =  Int(self.engField.text!)!
-                } else {
-                    self.eng = 0
                 }
             }
             if stat == .sta {
@@ -440,10 +409,10 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             }
         }
         
-        self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints - self.str - self.agi - self.eng - self.sta
+        self.totalPoint = self.character.calculateFullStats() + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints - self.eng - self.agi - self.sta
         self.totalStats.text = String(self.totalPoint)
         
-        if (self.strField.text?.isEmpty)! || (self.agiField.text?.isEmpty)! || (self.engField.text?.isEmpty)! || (self.staField.text?.isEmpty)! {
+        if (self.engField.text?.isEmpty)! || (self.agiField.text?.isEmpty)! || (self.staField.text?.isEmpty)! {
             self.showItemsView.isHidden = true
             self.showItemsHeightConstraint.constant = 0.0
             self.showItemsView.layoutIfNeeded()
@@ -452,8 +421,8 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             self.showItemsHeightConstraint.constant = 100.0
             self.showItemsView.layoutIfNeeded()
             
-            let wp = weapons.getItem(str: self.str, agi: self.agi, eng: self.eng, sta: self.sta)
-            let arm = armors.getItem(str: self.str, agi: self.agi, eng: self.eng, sta: self.sta)
+            let wp = weapons.getItem(agi: self.agi, eng: self.eng, sta: self.sta)
+            let arm = armors.getItem(agi: self.agi, eng: self.eng, sta: self.sta)
             if wp.tier != nil && wp.name != nil {
                 self.weapon.text = "T\(wp.tier!): \(wp.name!)"
             } else {
@@ -470,54 +439,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
                 self.showItemsHeightConstraint.constant = 0.0
                 self.showItemsView.layoutIfNeeded()
             }
-        }
-    }
-    
-    func strFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.str {
-                    self.strField.text = String(self.totalPoint + self.str)
-                    self.updateStats(self.strField.text, stat: .str)
-                } else {
-                    self.updateStats(textField.text, stat: .str)
-                }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.str {
-                    self.totalPoint = 0
-                    self.strField.text = String(self.str)
-                } else {
-                    self.updateStats(textField.text, stat: .str)
-                }
-            } else {
-                self.updateStats(self.strField.text, stat: .str)
-            }
-        } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .str)
-        }
-    }
-    
-    func agiFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.agi {
-                    self.agiField.text = String(self.totalPoint + self.agi)
-                    self.updateStats(self.agiField.text, stat: .agi)
-                } else {
-                    self.updateStats(textField.text, stat: .agi)
-                }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.agi {
-                    self.totalPoint = 0
-                    self.agiField.text = String(self.agi)
-                } else {
-                    self.updateStats(textField.text, stat: .agi)
-                }
-            } else {
-                self.updateStats(self.agiField.text, stat: .agi)
-            }
-        } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .agi)
         }
     }
     
@@ -542,6 +463,30 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             }
         } else if (textField.text?.isEmpty)! || textField.text == "0" {
             self.updateStats("0", stat: .eng)
+        }
+    }
+    
+    func agiFieldDidChange(textField: UITextField) {
+        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
+            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
+                if Int(textField.text!)! > self.totalPoint + self.agi {
+                    self.agiField.text = String(self.totalPoint + self.agi)
+                    self.updateStats(self.agiField.text, stat: .agi)
+                } else {
+                    self.updateStats(textField.text, stat: .agi)
+                }
+            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
+                if Int(textField.text!)! > self.agi {
+                    self.totalPoint = 0
+                    self.agiField.text = String(self.agi)
+                } else {
+                    self.updateStats(textField.text, stat: .agi)
+                }
+            } else {
+                self.updateStats(self.agiField.text, stat: .agi)
+            }
+        } else if (textField.text?.isEmpty)! || textField.text == "0" {
+            self.updateStats("0", stat: .agi)
         }
     }
     
@@ -579,7 +524,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.rebirthInput.keyboardType = .numberPad
         self.levelInput.keyboardType = .numberPad
         self.fruitStatsInput.keyboardType = .numberPad
-        self.strField.keyboardType = .numberPad
         self.engField.keyboardType = .numberPad
         self.agiField.keyboardType = .numberPad
         self.staField.keyboardType = .numberPad
@@ -589,7 +533,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.rebirthInput.resignFirstResponder()
         self.levelInput.resignFirstResponder()
         self.fruitStatsInput.resignFirstResponder()
-        self.strField.resignFirstResponder()
         self.engField.resignFirstResponder()
         self.agiField.resignFirstResponder()
         self.staField.resignFirstResponder()
@@ -597,14 +540,12 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
             self.calculateButtonOutlet.isEnabled = true
         } else {
             self.calculateButtonOutlet.isEnabled = false
             self.showStatsView.isHidden = true
             self.inputStatsView.isHidden = true
-            self.showItemsView.isHidden = true
             self.isCalculated = false
         }
         
@@ -624,8 +565,6 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
         self.levelInput.resignFirstResponder()
         self.fruitStatsInput.text = ""
         self.fruitStatsInput.resignFirstResponder()
-        self.strField.text = ""
-        self.strField.resignFirstResponder()
         self.engField.text = ""
         self.engField.resignFirstResponder()
         self.agiField.text = ""
@@ -677,7 +616,7 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             return false
         }
         
-        let format = "[0-9]{1,5}"
+        let format = "[0-9]{1,6}"
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }

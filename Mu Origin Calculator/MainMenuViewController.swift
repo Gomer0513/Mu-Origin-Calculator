@@ -17,6 +17,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var darkWizardButton: UIButton!
     @IBOutlet weak var elfButton: UIButton!
     @IBOutlet weak var magicKnightButton: UIButton!
+    @IBOutlet weak var summonerButton: UIButton!
     
     var delegate: MenuViewControllerDelegate?
     
@@ -25,7 +26,7 @@ class MainMenuViewController: UIViewController {
             performSegue(withIdentifier: "DarkKinght", sender: self)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.delegate?.segue(0)
+            self.delegate?.segue(.dk)
         }
     }
     @IBAction func darkWizardButton(_ sender: Any) {
@@ -33,7 +34,7 @@ class MainMenuViewController: UIViewController {
             performSegue(withIdentifier: "DarkWizard", sender: self)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.delegate?.segue(1)
+            self.delegate?.segue(.dw)
         }
     }
     @IBAction func elfButton(_ sender: Any) {
@@ -41,7 +42,7 @@ class MainMenuViewController: UIViewController {
             performSegue(withIdentifier: "Elf", sender: self)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.delegate?.segue(2)
+            self.delegate?.segue(.elf)
         }
     }
     @IBAction func magicKnightButton(_ sender: Any) {
@@ -49,10 +50,17 @@ class MainMenuViewController: UIViewController {
             performSegue(withIdentifier: "MagicKnight", sender: self)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.delegate?.segue(3)
+            self.delegate?.segue(.mg)
         }
     }
-    
+    @IBAction func summonerButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "Summoner", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(.sum)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -69,6 +77,7 @@ class MainMenuViewController: UIViewController {
         self.darkWizardButton.setTitle(Classes.dw.rawValue, for: .normal)
         self.elfButton.setTitle(Classes.elf.rawValue, for: .normal)
         self.magicKnightButton.setTitle(Classes.mg.rawValue, for: .normal)
+        self.summonerButton.setTitle(Classes.sum.rawValue, for: .normal)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -95,9 +104,15 @@ class MainMenuViewController: UIViewController {
                 vc.subject = Classes.mg.rawValue
             }
         }
+        
+        if segue.identifier == "Summoner" {
+            if let vc = segue.destination as? SummonerViewController {
+                vc.subject = Classes.sum.rawValue
+            }
+        }
     }
 }
 
 protocol MenuViewControllerDelegate {
-    func segue(_ index: Int)
+    func segue(_ index: Classes)
 }

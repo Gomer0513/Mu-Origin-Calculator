@@ -26,6 +26,7 @@
 		E48703961FA03F1100562F5F /* TextClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703951FA03F1100562F5F /* TextClass.swift */; };
 		E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */; };
 		E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */; };
+		E48C00C52063F978001DD82B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48C00C42063F978001DD82B /* SummonerViewController.swift */; };
 		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
 		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
@@ -53,6 +54,7 @@
 		E48703951FA03F1100562F5F /* TextClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClass.swift; sourceTree = "<group>"; };
 		E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWhiteColorClass.swift; sourceTree = "<group>"; };
 		E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelOrangeColorClass.swift; sourceTree = "<group>"; };
+		E48C00C42063F978001DD82B /* SummonerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; };
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */,
 				E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */,
 				E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */,
+				E48C00C42063F978001DD82B /* SummonerViewController.swift */,
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
 				E48703931F9FAE2100562F5F /* MenuButton.swift */,
 				E48703951FA03F1100562F5F /* TextClass.swift */,
@@ -214,6 +217,7 @@
 				E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */,
 				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
+				E48C00C52063F978001DD82B /* SummonerViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
 				E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */,
 				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,

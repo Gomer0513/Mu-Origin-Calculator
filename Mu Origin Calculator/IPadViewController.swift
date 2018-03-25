@@ -16,6 +16,7 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
     @IBOutlet weak var darkWizardContainer: UIView!
     @IBOutlet weak var elfContainer: UIView!
     @IBOutlet weak var magicKnightContainer: UIView!
+    @IBOutlet weak var summonerContainer: UIView!
     
     // MARK: - Variables
     private weak var mainMenuVC: MainMenuViewController?
@@ -23,12 +24,14 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
     private weak var darkWizardVC: DarkWizardViewController?
     private weak var elfVC: ElfViewController?
     private weak var magicKnightVC: MagicKnightViewController?
+    private weak var summonerVC: SummonerViewController?
     private var index: Int?
     private var navigationControllerForCharacters: UINavigationController?
     var delegateDK : saveDataDelegate?
     var delegateDW : saveDataDelegate?
     var delegateELF : saveDataDelegate?
     var delegateMG : saveDataDelegate?
+    var delegameSumm: saveDataDelegate?
     
     // MARK: - Properties
     override func viewDidLoad() {
@@ -39,6 +42,7 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
         self.darkWizardContainer.isHidden = true
         self.elfContainer.isHidden = true
         self.magicKnightContainer.isHidden = true
+        self.summonerContainer.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -47,6 +51,7 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
         self.delegateDW?.saveData(false, clas: Classes.dw)
         self.delegateELF?.saveData(false, clas: Classes.elf)
         self.delegateMG?.saveData(false, clas: Classes.mg)
+        self.delegameSumm?.saveData(false, clas: Classes.sum)
     }
     
     /**
@@ -55,14 +60,15 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
      - Parameter index: index of selected class.
      
      */
-    func segue(_ index: Int) {
+    func segue(_ index: Classes) {
         
         switch index {
-        case 0:
+        case .dk:
             self.rightContainer.isHidden = false
             self.darkWizardContainer.isHidden = true
             self.elfContainer.isHidden = true
             self.magicKnightContainer.isHidden = true
+            self.summonerContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
             self.darkKnightVC?.view.endEditing(true)
@@ -74,13 +80,15 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.mainMenuVC?.darkWizardButton.isSelected = false
             self.mainMenuVC?.elfButton.isSelected = false
             self.mainMenuVC?.magicKnightButton.isSelected = false
+            self.mainMenuVC?.summonerButton.isSelected = false
             
             self.delegateDK?.saveData(true, clas: Classes.dk)
-        case 1:
+        case .dw:
             self.rightContainer.isHidden = true
             self.darkWizardContainer.isHidden = false
             self.elfContainer.isHidden = true
             self.magicKnightContainer.isHidden = true
+            self.summonerContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
             self.darkKnightVC?.view.endEditing(true)
@@ -92,13 +100,15 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.mainMenuVC?.darkWizardButton.isSelected = true
             self.mainMenuVC?.elfButton.isSelected = false
             self.mainMenuVC?.magicKnightButton.isSelected = false
+            self.mainMenuVC?.summonerButton.isSelected = false
             
             self.delegateDW?.saveData(true, clas: Classes.dw)
-        case 2:
+        case .elf:
             self.rightContainer.isHidden = true
             self.darkWizardContainer.isHidden = true
             self.elfContainer.isHidden = false
             self.magicKnightContainer.isHidden = true
+            self.summonerContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
             self.darkKnightVC?.view.endEditing(true)
@@ -110,13 +120,15 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.mainMenuVC?.darkWizardButton.isSelected = false
             self.mainMenuVC?.elfButton.isSelected = true
             self.mainMenuVC?.magicKnightButton.isSelected = false
+            self.mainMenuVC?.summonerButton.isSelected = false
             
             self.delegateELF?.saveData(true, clas: Classes.elf)
-        case 3:
+        case .mg:
             self.rightContainer.isHidden = true
             self.darkWizardContainer.isHidden = true
             self.elfContainer.isHidden = true
             self.magicKnightContainer.isHidden = false
+            self.summonerContainer.isHidden = true
             self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
             
             self.darkKnightVC?.view.endEditing(true)
@@ -128,8 +140,29 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
             self.mainMenuVC?.darkWizardButton.isSelected = false
             self.mainMenuVC?.elfButton.isSelected = false
             self.mainMenuVC?.magicKnightButton.isSelected = true
+            self.mainMenuVC?.summonerButton.isSelected = false
             
             self.delegateMG?.saveData(true, clas: Classes.mg)
+        case .sum:
+            self.rightContainer.isHidden = true
+            self.darkWizardContainer.isHidden = true
+            self.elfContainer.isHidden = true
+            self.magicKnightContainer.isHidden = true
+            self.summonerContainer.isHidden = false
+            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+            
+            self.darkKnightVC?.view.endEditing(true)
+            self.darkWizardVC?.view.endEditing(true)
+            self.elfVC?.view.endEditing(true)
+            self.magicKnightVC?.view.endEditing(true)
+            
+            self.mainMenuVC?.darkKnightButton.isSelected = false
+            self.mainMenuVC?.darkWizardButton.isSelected = false
+            self.mainMenuVC?.elfButton.isSelected = false
+            self.mainMenuVC?.magicKnightButton.isSelected = false
+            self.mainMenuVC?.summonerButton.isSelected = true
+            
+            self.delegameSumm?.saveData(true, clas: Classes.sum)
         default:
             print("nothing")
         }
@@ -165,6 +198,12 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
                 self.magicKnightVC = navigationController.viewControllers.first as? MagicKnightViewController
                 self.magicKnightVC?.subject = Classes.mg.rawValue
                 self.magicKnightVC?.iPadViewController = self
+            }
+        } else if segue.identifier == "SummonerIPad" {
+            if let navigationController = segue.destination as? UINavigationController {
+                self.summonerVC = navigationController.viewControllers.first as? SummonerViewController
+                self.summonerVC?.subject = Classes.sum.rawValue
+                self.summonerVC?.iPadViewController = self
             }
         }
     }
