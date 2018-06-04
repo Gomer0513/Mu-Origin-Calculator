@@ -302,17 +302,17 @@ class Weapon: Items {
                 return (item.tier,item.name)
             }
             if ((item.str! >= 5752 || item.eng! >= 5752) && (item.agi! >= 2301 && item.agi! < 2726)) || (((item.str! >= 5752 && item.str! < 6816) || (item.eng! >= 5752 && item.eng! < 6816)) && item.agi! >= 2301) {
-                item.name = "" // TODO: -
+                item.name = "Storm Blitz Rod"
                 item.tier = 10
                 return (item.tier,item.name)
             }
             if ((item.str! >= 6816 || item.eng! >= 6816) && (item.agi! >= 2726 && item.agi! < 3184)) || (((item.str! >= 6816 && item.str! < 7960) || (item.eng! >= 6816 && item.eng! < 7960)) && item.agi! >= 2726) {
-                item.name = "" // TODO: -
+                item.name = "Not Available" // TODO: -
                 item.tier = 11
                 return (item.tier,item.name)
             }
             if ((item.str! >= 7960) || (item.eng! >= 7960)) && (item.agi! >= 3184) {
-                item.name = "" // TODO: -
+                item.name = "Not Available" // TODO: -
                 item.tier = 12
                 return (item.tier,item.name)
             }
@@ -604,17 +604,17 @@ class Armor: Items {
                 return (item.tier, item.name)
             }
             if (item.agi! >= 2301 && (item.sta! >= 3451 && item.sta! < 4090)) || ((item.agi! >= 2301 && item.agi! < 2726) && item.sta! >= 3451) {
-                item.name = "" // TODO: -
+                item.name = "Storm Blitz Set"
                 item.tier = 10
                 return (item.tier, item.name)
             }
             if (item.agi! >= 2726 && (item.sta! >= 4090 && item.sta! < 4776)) || ((item.agi! >= 2726 && item.agi! < 3184) && item.sta! >= 4090) {
-                item.name = "" // TODO: -
+                item.name = "Not Available" // TODO: -
                 item.tier = 11
                 return (item.tier, item.name)
             }
             if (item.agi! >= 3184) && (item.sta! >= 4776){
-                item.name = "" // TODO: -
+                item.name = "Not Available" // TODO: -
                 item.tier = 12
                 return (item.tier, item.name)
             }
