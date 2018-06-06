@@ -601,7 +601,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
             return false
         }
         
-        let format = "[0-9]{1}|10|11|12"
+        let format = "[0-9]{1}|10|11|12|13"
         let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
         return formatPredicate.evaluate(with: enteredData)
     }
