@@ -153,7 +153,7 @@ class ElfViewController: UIViewController, UITextFieldDelegate, saveDataDelegate
     @IBAction func plusRebirth(_ sender: Any) {
         if !(self.rebirthInput.text?.isEmpty == true) && validationForRebirth(self.rebirthInput.text), let text = self.rebirthInput.text {
             let rebirth: Int = Int(text)!
-            if rebirth >= 11 {
+            if rebirth >= Int(rebirthMaxValue)! {
                 self.rebirthInput.text = rebirthMaxValue
             } else {
                 self.rebirthInput.text! = String(rebirth + 1)

@@ -622,42 +622,42 @@ class Armor: Items {
                 item.name = ""
                 return (nil,nil)
             }
-            if (item.agi! >= 217 && (item.eng! >= 352 && item.eng! < 352) && (item.sta! >= 1056 && item.sta! < 1056)) || ((item.agi! >= 217 && item.agi! < 704) && (item.eng! >= 352 && item.eng! < 352) && item.sta! >= 1056) && ((item.agi! >= 217 && item.agi! < 704) && item.eng! >= 352 && (item.sta! >= 1056 && item.sta! < 1056)) {
+            if (item.agi! >= 217 && item.eng! >= 220 && (item.sta! >= 328 && item.sta! < 1056)) || ((item.agi! >= 217 && item.agi! < 704) && item.eng! >= 220 && item.sta! >= 328) || (item.agi! >= 217 && (item.eng! >= 220 && item.eng! < 352) && (item.sta! >= 328 && item.sta! < 1056)) {
                 item.name = "Zephyrus Set"
                 item.tier = 5
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 704 && (item.eng! >= 220 && item.eng! < 531) && (item.sta! >= 328 && item.sta! < 1594)) || ((item.agi! >= 704 && item.agi! < 1062) && (item.eng! >= 220 && item.eng! < 531) && item.sta! >= 328) && ((item.agi! >= 704 && item.agi! < 1062) && item.eng! >= 220 && (item.sta! >= 328 && item.sta! < 1594)) {
+            if (item.agi! >= 704 && (item.eng! >= 352 && item.eng! < 531) && item.sta! >= 1056) || ((item.agi! >= 704 && item.agi! < 1062) && item.eng! >= 352 && item.sta! >= 1056) || (item.agi! >= 704 && item.eng! >= 352 && (item.sta! >= 1056 && item.sta! < 1594)) {
                 item.name = "Red Wing Set"
                 item.tier = 6
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1062 && (item.eng! >= 531 && item.eng! < 772) && (item.sta! >= 1594 && item.sta! < 2318)) || ((item.agi! >= 1062 && item.agi! < 1546) && (item.eng! >= 531 && item.eng! < 772) && item.sta! >= 1594) && ((item.agi! >= 1062 && item.agi! < 1546) && item.eng! >= 531 && (item.sta! >= 1594 && item.sta! < 2318)) {
+            if (item.agi! >= 1062 && (item.eng! >= 531 && item.eng! < 772) && item.sta! >= 1594) || ((item.agi! >= 1062 && item.agi! < 1546) && item.eng! >= 531 && item.sta! >= 1594) || (item.agi! >= 1062 && item.eng! >= 531 && (item.sta! >= 1594 && item.sta! < 2318)) {
                 item.name = "Ancient Set"
                 item.tier = 7
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1546 && (item.eng! >= 772 && item.eng! < 953) && (item.sta! >= 2318 && item.sta! < 2861)) || ((item.agi! >= 1546 && item.agi! < 1907) && (item.eng! >= 772 && item.eng! < 953) && item.sta! >= 2318) && ((item.agi! >= 1546 && item.agi! < 1907) && item.eng! >= 772 && (item.sta! >= 2318 && item.sta! < 2861)) {
+            if (item.agi! >= 1546 && (item.eng! >= 772 && item.eng! < 953) && item.sta! >= 2318) || ((item.agi! >= 1546 && item.agi! < 1907) && item.eng! >= 772 && item.sta! >= 2318) || (item.agi! >= 1546 && item.eng! >= 772 && (item.sta! >= 2318 && item.sta! < 2861)) {
                 item.name = "Eternal Set"
                 item.tier = 8
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1907 && (item.eng! >= 953 && item.eng! < 1150) && (item.sta! >= 2861 && item.sta! < 3451)) || ((item.agi! >= 1907 && item.agi! < 2301) && (item.eng! >= 953 && item.eng! < 1150) && item.sta! >= 2861) && ((item.agi! >= 1907 && item.agi! < 2301) && item.eng! >= 953 && (item.sta! >= 2861 && item.sta! < 3451)) {
+            if (item.agi! >= 1907 && (item.eng! >= 953 && item.eng! < 1150) && item.sta! >= 2861) || ((item.agi! >= 1907 && item.agi! < 2301) && item.eng! >= 953 && item.sta! >= 2861) || (item.agi! >= 1907 && item.eng! >= 953 && (item.sta! >= 2861 && item.sta! < 3451)) {
                 item.name = "Dream Eater Set"
                 item.tier = 9
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 2301 && (item.eng! >= 1150 && item.eng! < 1363) && (item.sta! >= 3451 && item.sta! < 4090)) || ((item.agi! >= 2301 && item.agi! < 2726) && (item.eng! >= 1150 && item.eng! < 1363) && item.sta! >= 3451) && ((item.agi! >= 2301 && item.agi! < 2726) && item.eng! >= 1150 && (item.sta! >= 3451 && item.sta! < 4090)) {
+            if (item.agi! >= 2301 && (item.eng! >= 1150 && item.eng! < 1363) && item.sta! >= 3451) || ((item.agi! >= 2301 && item.agi! < 2726) && item.eng! >= 1150 && item.sta! >= 3451) || (item.agi! >= 2301 && item.eng! >= 1150 && (item.sta! >= 3451 && item.sta! < 4090)) {
                 item.name = "Storm Blitz Set"
                 item.tier = 10
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 2726 && (item.eng! >= 1363 && item.eng! < 1592) && (item.sta! >= 4090 && item.sta! < 4776)) || ((item.agi! >= 2726 && item.agi! < 3184) && (item.eng! >= 1363 && item.eng! < 1592) && item.sta! >= 4090) && ((item.agi! >= 2726 && item.agi! < 3184) && item.eng! >= 1363 && (item.sta! >= 4090 && item.sta! < 4776)) {
+            if (item.agi! >= 2726 && (item.eng! >= 1363 && item.eng! < 1592) && item.sta! >= 4090) || ((item.agi! >= 2726 && item.agi! < 3184) && item.eng! >= 1363 && item.sta! >= 4090) || (item.agi! >= 2726 && item.eng! >= 1363 && (item.sta! >= 4090 && item.sta! < 4776)) {
                 item.name = "Not Available" // TODO: -
                 item.tier = 11
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 3184 && (item.eng! >= 1592 && item.eng! < 1837) && (item.sta! >= 4776 && item.sta! < 5510)) || ((item.agi! >= 3184 && item.agi! < 3674) && (item.eng! >= 1592 && item.eng! < 1837) && item.sta! >= 4776) && ((item.agi! >= 3184 && item.agi! < 3674) && item.eng! >= 1592 && (item.sta! >= 4776 && item.sta! < 5510)) {
+            if (item.agi! >= 3184 && (item.eng! >= 1592 && item.eng! < 1837) && item.sta! >= 4776) || ((item.agi! >= 3184 && item.agi! < 3674) && item.eng! >= 1592 && item.sta! >= 4776) || (item.agi! >= 3184 && item.eng! >= 1592 && (item.sta! >= 4776 && item.sta! < 5510)) {
                 item.name = "Not Available" // TODO: -
                 item.tier = 12
                 return (item.tier, item.name)
