@@ -134,6 +134,12 @@ class Character {
                 } else {
                     overalStats = overalStats + 99*18
                 }
+            case 14:
+                if i == self.rebirth {
+                    overalStats = overalStats + (self.level - 1)*19
+                } else {
+                    overalStats = overalStats + 99*19
+                }
             default:
                 print("unknown rebirth")
             }
@@ -161,7 +167,7 @@ class Character {
     }
     
     func calculateFullStats() -> Point {
-        return self.calculateStats() + self.fruits //+ self.relictSum
+        return self.calculateStats() + self.fruits
     }
     
 }

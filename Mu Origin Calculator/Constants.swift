@@ -9,7 +9,7 @@
 import Foundation
 
 let rebirthMinValue = "0"
-let rebirthMaxValue = "12"
+let rebirthMaxValue = "14"
 
 let levelMinValue = "1"
 let levelMaxValue = "100"
