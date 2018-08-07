@@ -30,7 +30,19 @@
 		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
 		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
+		E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */; };
+		E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB7121199AE0003EB0A6 /* SetTests.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E4E8AB6A211982C8003EB0A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E481AD9C1F14E6FD00F22ECA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E481ADA31F14E6FD00F22ECA;
+			remoteInfo = "Mu Origin Calculator";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		E405943B2001EA870056EED1 /* RelictSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelictSlider.swift; sourceTree = "<group>"; };
@@ -58,10 +70,21 @@
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
+		E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mu Origin Calculator Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4E8AB69211982C8003EB0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponTests.swift; sourceTree = "<group>"; };
+		E4E8AB7121199AE0003EB0A6 /* SetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E481ADA11F14E6FD00F22ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4E8AB62211982C8003EB0A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -86,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */,
+				E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */,
 				E481ADA51F14E6FD00F22ECA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -94,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */,
+				E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -142,6 +167,16 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
+		E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8AB69211982C8003EB0A6 /* Info.plist */,
+				E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */,
+				E4E8AB7121199AE0003EB0A6 /* SetTests.swift */,
+			);
+			path = "Mu Origin Calculator Tests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -162,13 +197,31 @@
 			productReference = E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E4E8AB64211982C8003EB0A6 /* Mu Origin Calculator Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4E8AB6E211982C8003EB0A6 /* Build configuration list for PBXNativeTarget "Mu Origin Calculator Tests" */;
+			buildPhases = (
+				E4E8AB61211982C8003EB0A6 /* Sources */,
+				E4E8AB62211982C8003EB0A6 /* Frameworks */,
+				E4E8AB63211982C8003EB0A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4E8AB6B211982C8003EB0A6 /* PBXTargetDependency */,
+			);
+			name = "Mu Origin Calculator Tests";
+			productName = "Mu Origin Calculator Tests";
+			productReference = E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		E481AD9C1F14E6FD00F22ECA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
+				LastSwiftUpdateCheck = 0940;
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Oleksandr Kysil";
 				TargetAttributes = {
@@ -176,6 +229,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = MW5NN26C7T;
 						ProvisioningStyle = Automatic;
+					};
+					E4E8AB64211982C8003EB0A6 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E481ADA31F14E6FD00F22ECA;
 					};
 				};
 			};
@@ -193,6 +251,7 @@
 			projectRoot = "";
 			targets = (
 				E481ADA31F14E6FD00F22ECA /* Mu Origin Calculator */,
+				E4E8AB64211982C8003EB0A6 /* Mu Origin Calculator Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -204,6 +263,13 @@
 			files = (
 				E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */,
 				E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4E8AB63211982C8003EB0A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -238,7 +304,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4E8AB61211982C8003EB0A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */,
+				E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4E8AB6B211982C8003EB0A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E481ADA31F14E6FD00F22ECA /* Mu Origin Calculator */;
+			targetProxy = E4E8AB6A211982C8003EB0A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E481ADAB1F14E6FD00F22ECA /* Main.storyboard */ = {
@@ -389,6 +472,52 @@
 			};
 			name = Release;
 		};
+		E4E8AB6C211982C8003EB0A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Mu Origin Calculator Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.OleksandrKysil.Mu-Origin-Calculator-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mu Origin Calculator.app/Mu Origin Calculator";
+			};
+			name = Debug;
+		};
+		E4E8AB6D211982C8003EB0A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Mu Origin Calculator Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.OleksandrKysil.Mu-Origin-Calculator-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mu Origin Calculator.app/Mu Origin Calculator";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -406,6 +535,15 @@
 			buildConfigurations = (
 				E481ADB71F14E6FD00F22ECA /* Debug */,
 				E481ADB81F14E6FD00F22ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4E8AB6E211982C8003EB0A6 /* Build configuration list for PBXNativeTarget "Mu Origin Calculator Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4E8AB6C211982C8003EB0A6 /* Debug */,
+				E4E8AB6D211982C8003EB0A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

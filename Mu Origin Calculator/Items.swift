@@ -178,7 +178,7 @@ class Weapon: Items {
                 return (item.tier,item.name)
             }
         case .elf:
-            if (item.str! < 2) && (item.agi! <= 0) {
+            if (item.str! < 2) {
                 item.name = "Crossbow"
                 item.tier = 1
                 return (item.tier,item.name)
@@ -327,7 +327,7 @@ class Weapon: Items {
                 return (item.tier,item.name)
             }
             if (item.eng! >= 6816 && (item.agi! >= 2726 && item.agi! < 3184)) || ((item.eng! >= 6816 && item.eng! < 7960) && item.agi! >= 2726) {
-                item.name = "Not Available" // TODO: -
+                item.name = "Sucubbus Rod"
                 item.tier = 11
                 return (item.tier,item.name)
             }
@@ -375,7 +375,7 @@ class Armor: Items {
                 item.tier = 1
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1 && (item.sta! >= 1 && item.sta! < 192)) || ((item.agi! >= 1 && item.agi! < 128) && item.sta! >= 1) {
+            if (item.agi! >= 0 && (item.sta! >= 0 && item.sta! < 192)) || ((item.agi! >= 0 && item.agi! < 128) && item.sta! >= 0) {
                 item.name = "Scale Set"
                 item.tier = 2
                 return (item.tier, item.name)
@@ -425,12 +425,12 @@ class Armor: Items {
                 item.tier = 11
                 return (item.tier, item.name)
             }
-            if (item.str! >= 7960 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.str! >= 7960 && item.str! < 9184) && item.agi! >= 3184) {
+            if (item.sta! >= 4776 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.sta! >= 4776 && item.sta! < 5510) && item.agi! >= 3184) {
                 item.name = "Immortal Set"
                 item.tier = 12
                 return (item.tier,item.name)
             }
-            if (item.str! >= 9184) && (item.agi! >= 3674) {
+            if (item.sta! >= 5510) && (item.agi! >= 3674) {
                 item.name = "Bloodthirst Set"
                 item.tier = 13
                 return (item.tier,item.name)
@@ -441,7 +441,7 @@ class Armor: Items {
                 item.tier = 1
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1 && (item.sta! >= 1 && item.sta! < 192)) || ((item.agi! >= 1 && item.agi! < 128) && item.sta! >= 1) {
+            if (item.agi! >= 0 && (item.sta! >= 0 && item.sta! < 192)) || ((item.agi! >= 0 && item.agi! < 128) && item.sta! >= 0) {
                 item.name = "Bone Set"
                 item.tier = 2
                 return (item.tier, item.name)
@@ -491,12 +491,12 @@ class Armor: Items {
                 item.tier = 11
                 return (item.tier, item.name)
             }
-            if (item.eng! >= 7960 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.eng! >= 7960 && item.eng! < 9184) && item.agi! >= 3184) {
+            if (item.sta! >= 4776 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.sta! >= 4776 && item.sta! < 5510) && item.agi! >= 3184) {
                 item.name = "Demigod Set"
                 item.tier = 12
                 return (item.tier,item.name)
             }
-            if (item.eng! >= 9184) && (item.agi! >= 3674) {
+            if (item.sta! >= 5510) && (item.agi! >= 3674) {
                 item.name = "Eternal Set"
                 item.tier = 13
                 return (item.tier,item.name)
@@ -507,7 +507,7 @@ class Armor: Items {
                 item.tier = 1
                 return (item.tier, item.name)
             }
-            if (item.agi! >= 1 && (item.sta! >= 1 && item.sta! < 192)) || ((item.agi! >= 1 && item.agi! < 128) && item.sta! >= 1) {
+            if (item.agi! >= 0 && (item.sta! >= 0 && item.sta! < 192)) || ((item.agi! >= 0 && item.agi! < 128) && item.sta! >= 0) {
                 item.name = "Silk Set"
                 item.tier = 2
                 return (item.tier, item.name)
@@ -557,12 +557,12 @@ class Armor: Items {
                 item.tier = 11
                 return (item.tier, item.name)
             }
-            if (item.str! >= 7960 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.str! >= 7960 && item.str! < 9184) && item.agi! >= 3184) {
+            if (item.sta! >= 4776 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.sta! >= 4776 && item.sta! < 5510) && item.agi! >= 3184) {
                 item.name = "Valkyrie Set"
                 item.tier = 12
                 return (item.tier,item.name)
             }
-            if (item.str! >= 9184) && (item.agi! >= 3674) {
+            if (item.sta! >= 5510) && (item.agi! >= 3674) {
                 item.name = "Raging Gale Set"
                 item.tier = 13
                 return (item.tier,item.name)
@@ -653,7 +653,7 @@ class Armor: Items {
                 return (item.tier, item.name)
             }
             if (item.agi! >= 2726 && (item.eng! >= 1363 && item.eng! < 1592) && item.sta! >= 4090) || ((item.agi! >= 2726 && item.agi! < 3184) && item.eng! >= 1363 && item.sta! >= 4090) || (item.agi! >= 2726 && item.eng! >= 1363 && (item.sta! >= 4090 && item.sta! < 4776)) {
-                item.name = "Not Available" // TODO: -
+                item.name = "Sucubbus Set"
                 item.tier = 11
                 return (item.tier, item.name)
             }
