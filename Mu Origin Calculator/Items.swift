@@ -341,6 +341,8 @@ class Weapon: Items {
                 item.tier = 13
                 return (item.tier,item.name)
             }
+        default:
+            return (nil,nil)
         }
         return (nil,nil)
     }
@@ -667,6 +669,8 @@ class Armor: Items {
                 item.tier = 13
                 return (item.tier, item.name)
             }
+        default:
+            return (nil,nil)
         }
         return (nil,nil)
     }

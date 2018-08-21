@@ -14,6 +14,8 @@ let rebirthMaxValue = "14"
 let levelMinValue = "1"
 let levelMaxValue = "100"
 
+typealias Diamond = Int
+
 enum InputStats: String {
     case rebirth
     case level
@@ -22,10 +24,32 @@ enum InputStats: String {
     case goldenCrown
     case goldenScripture
     case goldenGrail
+    case diamondsPerDay
+    case achievementTitle
+    case fameTitle
+    case wingsTitle
+    case currentAchievemntPoints
+    case currentFamePoints
+    case currentWingsPoints
+    case achievementPercentage
+    case famePercentage
+    case wingsPercentage
     
     var key: String {
         get {
             return self.rawValue
+        }
+    }
+}
+
+extension Float {
+    func roundToInt() -> Int {
+        let value = Int(self)
+        let f = self - Float(value)
+        if f >= 0.1 {
+            return value + 1
+        } else {
+            return value + 1
         }
     }
 }

@@ -8,10 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405943B2001EA870056EED1 /* RelictSlider.swift */; };
+		E42083992102252900B8D968 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42083982102252900B8D968 /* Day.swift */; };
 		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
 		E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42623EF204AC5E900543F07 /* ShowItemsView.swift */; };
 		E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DD0B01FA5F0AF00DF6462 /* Constants.swift */; };
 		E4609A752042E43200E0B4B3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4609A742042E43200E0B4B3 /* Items.swift */; };
+		E47FFF9D211C61010039ED77 /* ExtraStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
@@ -30,6 +32,9 @@
 		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
 		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
+		E4C047D521020B3500C197E2 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D421020B3500C197E2 /* Achievements.swift */; };
+		E4C047D721020B5A00C197E2 /* Fame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D621020B5A00C197E2 /* Fame.swift */; };
+		E4C047D921020B9B00C197E2 /* Wings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D821020B9B00C197E2 /* Wings.swift */; };
 		E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */; };
 		E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB7121199AE0003EB0A6 /* SetTests.swift */; };
 /* End PBXBuildFile section */
@@ -46,10 +51,12 @@
 
 /* Begin PBXFileReference section */
 		E405943B2001EA870056EED1 /* RelictSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelictSlider.swift; sourceTree = "<group>"; };
+		E42083982102252900B8D968 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E42623EF204AC5E900543F07 /* ShowItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowItemsView.swift; sourceTree = "<group>"; };
 		E43DD0B01FA5F0AF00DF6462 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		E4609A742042E43200E0B4B3 /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
+		E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtraStatsViewController.swift; sourceTree = "<group>"; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -70,6 +77,9 @@
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
+		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
+		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; };
+		E4C047D821020B9B00C197E2 /* Wings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wings.swift; sourceTree = "<group>"; };
 		E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mu Origin Calculator Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8AB69211982C8003EB0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponTests.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 				E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */,
 				E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */,
 				E48C00C42063F978001DD82B /* SummonerViewController.swift */,
+				E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */,
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
 				E48703931F9FAE2100562F5F /* MenuButton.swift */,
 				E48703951FA03F1100562F5F /* TextClass.swift */,
@@ -163,6 +174,10 @@
 			children = (
 				E481ADC51F17B11300F22ECA /* Character.swift */,
 				E4609A742042E43200E0B4B3 /* Items.swift */,
+				E4C047D421020B3500C197E2 /* Achievements.swift */,
+				E4C047D621020B5A00C197E2 /* Fame.swift */,
+				E4C047D821020B9B00C197E2 /* Wings.swift */,
+				E42083982102252900B8D968 /* Day.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -287,6 +302,7 @@
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
 				E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */,
 				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,
+				E47FFF9D211C61010039ED77 /* ExtraStatsViewController.swift in Sources */,
 				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
 				E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */,
 				E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */,
@@ -298,9 +314,13 @@
 				E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */,
 				E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */,
 				E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */,
+				E42083992102252900B8D968 /* Day.swift in Sources */,
 				E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */,
 				E421EA511F38FA040088C40F /* Alert.swift in Sources */,
 				E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */,
+				E4C047D521020B3500C197E2 /* Achievements.swift in Sources */,
+				E4C047D921020B9B00C197E2 /* Wings.swift in Sources */,
+				E4C047D721020B5A00C197E2 /* Fame.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

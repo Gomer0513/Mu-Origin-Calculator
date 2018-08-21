@@ -18,6 +18,7 @@ class MainMenuViewController: UIViewController {
     @IBOutlet weak var elfButton: UIButton!
     @IBOutlet weak var magicKnightButton: UIButton!
     @IBOutlet weak var summonerButton: UIButton!
+    @IBOutlet weak var AdditionalCalculationButton: UIButton!
     
     var delegate: MenuViewControllerDelegate?
     
@@ -61,6 +62,15 @@ class MainMenuViewController: UIViewController {
             self.delegate?.segue(.sum)
         }
     }
+    @IBAction func AdditionalCalculationButton(_ sender: Any) {
+        if UIDevice.current.userInterfaceIdiom == .phone{
+            performSegue(withIdentifier: "ExtraStats", sender: self)
+        }
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.delegate?.segue(.extra)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -78,6 +88,8 @@ class MainMenuViewController: UIViewController {
         self.elfButton.setTitle(Classes.elf.rawValue, for: .normal)
         self.magicKnightButton.setTitle(Classes.mg.rawValue, for: .normal)
         self.summonerButton.setTitle(Classes.sum.rawValue, for: .normal)
+        self.AdditionalCalculationButton.setTitle("Extra Calculation", for: .normal)
+        self.AdditionalCalculationButton.isEnabled = true
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -108,6 +120,12 @@ class MainMenuViewController: UIViewController {
         if segue.identifier == "Summoner" {
             if let vc = segue.destination as? SummonerViewController {
                 vc.subject = Classes.sum.rawValue
+            }
+        }
+        
+        if segue.identifier == "ExtraStats" {
+            if let vc = segue.destination as? ExtraStatsViewController {
+                vc.subject = "Extra Stats"
             }
         }
     }

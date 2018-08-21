@@ -58,7 +58,7 @@ class DarkKnightViewController: UIViewController, UITextFieldDelegate, saveDataD
     @IBOutlet weak var evaluateStatsHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var showItemsHeightConstraint: NSLayoutConstraint!
     
-    //MARK: - Variables
+    // MARK: - Variables
     private var character = Character()
     private var totalPoint = Int()
     private var points = Int()

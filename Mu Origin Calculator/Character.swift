@@ -23,6 +23,7 @@ enum Classes: String {
     case elf = "Elf"
     case mg = "Magic Knight"
     case sum = "Summoner"
+    case extra = "Extra Stats"
 }
 
 class Character {
