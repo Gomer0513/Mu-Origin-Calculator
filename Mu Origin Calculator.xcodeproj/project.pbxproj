@@ -23,6 +23,7 @@
 		E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */; };
 		E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */; };
 		E481ADC61F17B11300F22ECA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC51F17B11300F22ECA /* Character.swift */; };
+		E48211C7212CB29000EB14B6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48211C6212CB29000EB14B6 /* StoreKit.framework */; };
 		E48703921F9E66FE00562F5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703911F9E66FE00562F5F /* Colors.swift */; };
 		E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703931F9FAE2100562F5F /* MenuButton.swift */; };
 		E48703961FA03F1100562F5F /* TextClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703951FA03F1100562F5F /* TextClass.swift */; };
@@ -68,6 +69,7 @@
 		E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicKnightViewController.swift; sourceTree = "<group>"; };
 		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
 		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E48211C6212CB29000EB14B6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		E48703911F9E66FE00562F5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E48703931F9FAE2100562F5F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E48703951FA03F1100562F5F /* TextClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClass.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E48211C7212CB29000EB14B6 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +124,7 @@
 				E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */,
 				E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */,
 				E481ADA51F14E6FD00F22ECA /* Products */,
+				E48211C5212CB29000EB14B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -180,6 +184,14 @@
 				E42083982102252900B8D968 /* Day.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E48211C5212CB29000EB14B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E48211C6212CB29000EB14B6 /* StoreKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */ = {
@@ -244,6 +256,11 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = MW5NN26C7T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					E4E8AB64211982C8003EB0A6 = {
 						CreatedOnToolsVersion = 9.4.1;

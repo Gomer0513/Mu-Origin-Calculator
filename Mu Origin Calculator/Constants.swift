@@ -14,6 +14,8 @@ let rebirthMaxValue = "14"
 let levelMinValue = "1"
 let levelMaxValue = "100"
 
+let productID = "Oleksandr_Kysil.Mu_Origin_Calculator.Extra_Stats"
+
 typealias Diamond = Int
 
 enum InputStats: String {
