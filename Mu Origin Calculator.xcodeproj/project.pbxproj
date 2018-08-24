@@ -32,6 +32,7 @@
 		E48C00C52063F978001DD82B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48C00C42063F978001DD82B /* SummonerViewController.swift */; };
 		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
 		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
+		E4A942F421301D7D002B3986 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F321301D7D002B3986 /* IAPHelper.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
 		E4C047D521020B3500C197E2 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D421020B3500C197E2 /* Achievements.swift */; };
 		E4C047D721020B5A00C197E2 /* Fame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D621020B5A00C197E2 /* Fame.swift */; };
@@ -78,6 +79,7 @@
 		E48C00C42063F978001DD82B /* SummonerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; };
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
+		E4A942F321301D7D002B3986 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
 		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; };
@@ -114,6 +116,7 @@
 				E48703911F9E66FE00562F5F /* Colors.swift */,
 				E43DD0B01FA5F0AF00DF6462 /* Constants.swift */,
 				E4A783041FB8DEF70056F5A2 /* SaveStats.swift */,
+				E4A942F321301D7D002B3986 /* IAPHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				E42083992102252900B8D968 /* Day.swift in Sources */,
 				E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */,
 				E421EA511F38FA040088C40F /* Alert.swift in Sources */,
+				E4A942F421301D7D002B3986 /* IAPHelper.swift in Sources */,
 				E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */,
 				E4C047D521020B3500C197E2 /* Achievements.swift in Sources */,
 				E4C047D921020B9B00C197E2 /* Wings.swift in Sources */,
