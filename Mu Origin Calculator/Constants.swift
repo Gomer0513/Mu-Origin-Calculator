@@ -48,10 +48,10 @@ extension Float {
     func roundToInt() -> Int {
         let value = Int(self)
         let f = self - Float(value)
-        if f >= 0.1 {
+        if f >= 0.00000000001 {
             return value + 1
         } else {
-            return value + 1
+            return value
         }
     }
 }

@@ -33,6 +33,9 @@
 		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
 		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
 		E4A942F421301D7D002B3986 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F321301D7D002B3986 /* IAPHelper.swift */; };
+		E4A942F621303F73002B3986 /* AchievementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F521303F73002B3986 /* AchievementTests.swift */; };
+		E4A942F821319356002B3986 /* FameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F721319356002B3986 /* FameTests.swift */; };
+		E4A942FA21324148002B3986 /* FlameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F921324148002B3986 /* FlameTests.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
 		E4C047D521020B3500C197E2 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D421020B3500C197E2 /* Achievements.swift */; };
 		E4C047D721020B5A00C197E2 /* Fame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D621020B5A00C197E2 /* Fame.swift */; };
@@ -80,6 +83,9 @@
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
 		E4A942F321301D7D002B3986 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		E4A942F521303F73002B3986 /* AchievementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTests.swift; sourceTree = "<group>"; };
+		E4A942F721319356002B3986 /* FameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameTests.swift; sourceTree = "<group>"; };
+		E4A942F921324148002B3986 /* FlameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameTests.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
 		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
 		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; };
@@ -203,6 +209,9 @@
 				E4E8AB69211982C8003EB0A6 /* Info.plist */,
 				E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */,
 				E4E8AB7121199AE0003EB0A6 /* SetTests.swift */,
+				E4A942F521303F73002B3986 /* AchievementTests.swift */,
+				E4A942F721319356002B3986 /* FameTests.swift */,
+				E4A942F921324148002B3986 /* FlameTests.swift */,
 			);
 			path = "Mu Origin Calculator Tests";
 			sourceTree = "<group>";
@@ -349,7 +358,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E4A942FA21324148002B3986 /* FlameTests.swift in Sources */,
+				E4A942F621303F73002B3986 /* AchievementTests.swift in Sources */,
 				E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */,
+				E4A942F821319356002B3986 /* FameTests.swift in Sources */,
 				E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

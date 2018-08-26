@@ -141,6 +141,7 @@ class MainMenuViewController: UIViewController, IAPHelperDelegate {
             self.AdditionalCalculationButton.removeTarget(nil, action: nil, for: .allEvents)
             self.AdditionalCalculationButton.addTarget(self, action: #selector(performSegueForExtraButton), for: .touchUpInside)
         } else {
+            UserDefaults.standard.set(false, forKey: "Purchase")
             self.AdditionalCalculationButton.setTitleColor(.orange, for: .normal)
             self.AdditionalCalculationButton.removeTarget(nil, action: nil, for: .allEvents)
             self.AdditionalCalculationButton.addTarget(self, action: #selector(requestPurchase), for: .touchUpInside)

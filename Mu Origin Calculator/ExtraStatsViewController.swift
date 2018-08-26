@@ -64,17 +64,18 @@ class ExtraStatsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
         if !(self.amountOfDimanondsPerDay.text?.isEmpty)! {
             self.makeTextFieldEditable(true)
-//            if self.achievementSlider.value != 0 {
-//                print("before",self.fameSlider.value)
-//                self.achievementSlider.maximumValue = Float(self.maxPercent) - self.fameSlider.value - self.flameSlider.value
-//                print("after",self.fameSlider.value)
-//            }
-//            if self.fameSlider.value != 0 {
-//                self.fameSlider.maximumValue = Float(self.maxPercent) - self.achievementSlider.value - self.flameSlider.value
-//            }
-//            if self.flameSlider.value != 0 {
-//                self.flameSlider.maximumValue = Float(self.maxPercent) - self.achievementSlider.value - self.fameSlider.value
-//            }
+            if self.achievementSlider.value != 0 {
+                self.achievementSlider.maximumValue = Float(self.maxPercent) - self.fameSlider.value - self.flameSlider.value
+                self.maxNumberOfAchievements.text = String(Int(self.achievementSlider.maximumValue))
+            }
+            if self.fameSlider.value != 0 {
+                self.fameSlider.maximumValue = Float(self.maxPercent) - self.achievementSlider.value - self.flameSlider.value
+                self.maxNumberOfFames.text = String(Int(self.fameSlider.maximumValue))
+            }
+            if self.flameSlider.value != 0 {
+                self.flameSlider.maximumValue = Float(self.maxPercent) - self.achievementSlider.value - self.fameSlider.value
+                self.maxNumberOfFlames.text = String(Int(self.flameSlider.maximumValue))
+            }
         }
         
         self.amountOfDimanondsPerDay.delegate = self
