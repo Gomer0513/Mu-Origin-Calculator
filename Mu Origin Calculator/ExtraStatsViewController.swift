@@ -133,6 +133,7 @@ class ExtraStatsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         self.achievementsView.backgroundColor = backgroundColor.withAlphaComponent(0)
         self.famesView.backgroundColor = backgroundColor.withAlphaComponent(0)
         self.wingsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        self.amountOfDimanondsPerDay.attributedPlaceholder = NSAttributedString(string: self.amountOfDimanondsPerDay.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
         
         self.evaluateButton.setTitle("Calculate", for: .normal)
         
@@ -439,18 +440,30 @@ class ExtraStatsViewController: UIViewController, UITextFieldDelegate, UIPickerV
         
         if isEdidable {
             self.achievementTitle.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.achievementTitle.attributedPlaceholder = NSAttributedString(string: self.achievementTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
             self.fameTitle.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.fameTitle.attributedPlaceholder = NSAttributedString(string: self.fameTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
             self.wingsTitle.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.wingsTitle.attributedPlaceholder = NSAttributedString(string: self.wingsTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
             self.currentAchievementPoints.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.currentAchievementPoints.attributedPlaceholder = NSAttributedString(string: self.currentAchievementPoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
             self.currentFamePoints.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.currentFamePoints.attributedPlaceholder = NSAttributedString(string: self.currentFamePoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
             self.currentFlamePoints.textColor = UIColor.orange.withAlphaComponent(1.0)
+            self.currentFlamePoints.attributedPlaceholder = NSAttributedString(string: self.currentFlamePoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(1.0)])
         } else {
             self.achievementTitle.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.achievementTitle.attributedPlaceholder = NSAttributedString(string: self.achievementTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
             self.fameTitle.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.fameTitle.attributedPlaceholder = NSAttributedString(string: self.fameTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
             self.wingsTitle.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.wingsTitle.attributedPlaceholder = NSAttributedString(string: self.wingsTitle.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
             self.currentAchievementPoints.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.currentAchievementPoints.attributedPlaceholder = NSAttributedString(string: self.currentAchievementPoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
             self.currentFamePoints.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.currentFamePoints.attributedPlaceholder = NSAttributedString(string: self.currentFamePoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
             self.currentFlamePoints.textColor = UIColor.orange.withAlphaComponent(0.3)
+            self.currentFlamePoints.attributedPlaceholder = NSAttributedString(string: self.currentFlamePoints.placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
         }
     }
     

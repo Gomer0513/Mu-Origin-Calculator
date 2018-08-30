@@ -137,6 +137,7 @@ class MainMenuViewController: UIViewController, IAPHelperDelegate {
     }
     func isPaymentSuccessful(_ success: Bool) {
         if success == true {
+            UserDefaults.standard.set(true, forKey: "Purchase")
             self.AdditionalCalculationButton.setTitleColor(.white, for: .normal)
             self.AdditionalCalculationButton.removeTarget(nil, action: nil, for: .allEvents)
             self.AdditionalCalculationButton.addTarget(self, action: #selector(performSegueForExtraButton), for: .touchUpInside)

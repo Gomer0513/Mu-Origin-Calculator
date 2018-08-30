@@ -37,7 +37,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 SKPaymentQueue.default().finishTransaction(transaction)
                 break
             case .restored:
-                SKPaymentQueue.default().restoreCompletedTransactions()
+                SKPaymentQueue.default().finishTransaction(transaction)
                 UserDefaults.standard.set(true, forKey: "Purchase")
                 delegate?.sendInformation(message: "Your Payment has been successfully restored!", success: true)
                 break
@@ -52,7 +52,20 @@ extension IAPHelper: SKPaymentTransactionObserver {
     }
     
     func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
-        delegate?.isPaymentSuccessful(true)
+        if queue.transactions.count != 0 {
+            for transaction in queue.transactions {
+                let product = transaction.payment.productIdentifier
+                
+                switch product {
+                case productID:
+                    delegate?.isPaymentSuccessful(true)
+                default:
+                    delegate?.isPaymentSuccessful(false)
+                    delegate?.sendInformation(message: "You have not made any purchases", success: false)
+                }
+            }
+        }
+        
     }
 }
 
