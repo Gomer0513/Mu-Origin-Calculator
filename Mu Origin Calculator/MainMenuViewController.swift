@@ -116,16 +116,22 @@ class MainMenuViewController: UIViewController, IAPHelperDelegate {
         self.magicKnightButton.setTitle(Classes.mg.rawValue, for: .normal)
         self.summonerButton.setTitle(Classes.sum.rawValue, for: .normal)
         self.AdditionalCalculationButton.setTitle("Extra Calculation", for: .normal)
+        
+        self.view.isUserInteractionEnabled = true
+        self.navigationController?.navigationBar.isUserInteractionEnabled = true
     }
     
     func requestPurchase(sender: UIButton) {
         iapHelper.requestProductInfo()
         iapHelper.delegate = self
+        self.view.isUserInteractionEnabled = false
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false
     }
     
     func restorePurchases(_ sender: Any) {
         iapHelper.restoreProducts()
         iapHelper.delegate = self
+        self.view.isUserInteractionEnabled = false
     }
     
     func sendInformation(message: String, success: Bool) {
@@ -135,17 +141,22 @@ class MainMenuViewController: UIViewController, IAPHelperDelegate {
             alert.errorAlert(title: "Error", message: message, viewController: self)
         }
     }
+    
     func isPaymentSuccessful(_ success: Bool) {
         if success == true {
             UserDefaults.standard.set(true, forKey: "Purchase")
             self.AdditionalCalculationButton.setTitleColor(.white, for: .normal)
             self.AdditionalCalculationButton.removeTarget(nil, action: nil, for: .allEvents)
             self.AdditionalCalculationButton.addTarget(self, action: #selector(performSegueForExtraButton), for: .touchUpInside)
+            self.view.isUserInteractionEnabled = true
+            self.navigationController?.navigationBar.isUserInteractionEnabled = true
         } else {
             UserDefaults.standard.set(false, forKey: "Purchase")
             self.AdditionalCalculationButton.setTitleColor(.orange, for: .normal)
             self.AdditionalCalculationButton.removeTarget(nil, action: nil, for: .allEvents)
             self.AdditionalCalculationButton.addTarget(self, action: #selector(requestPurchase), for: .touchUpInside)
+            self.view.isUserInteractionEnabled = true
+            self.navigationController?.navigationBar.isUserInteractionEnabled = true
         }
     }
     

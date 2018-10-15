@@ -35,6 +35,7 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 break
             case .failed:
                 SKPaymentQueue.default().finishTransaction(transaction)
+                delegate?.isPaymentSuccessful(false)
                 break
             case .restored:
                 SKPaymentQueue.default().finishTransaction(transaction)
@@ -59,6 +60,8 @@ extension IAPHelper: SKPaymentTransactionObserver {
                 switch product {
                 case productID:
                     delegate?.isPaymentSuccessful(true)
+                case "Oleksandr_Kysil.Mu_Origin_Calculator.Extra_Stats1":
+                    print("Fake product")
                 default:
                     delegate?.isPaymentSuccessful(false)
                     delegate?.sendInformation(message: "You have not made any purchases", success: false)
