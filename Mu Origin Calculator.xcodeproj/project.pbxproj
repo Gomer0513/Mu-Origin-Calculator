@@ -121,10 +121,24 @@
 				E421EA501F38FA040088C40F /* Alert.swift */,
 				E48703911F9E66FE00562F5F /* Colors.swift */,
 				E43DD0B01FA5F0AF00DF6462 /* Constants.swift */,
-				E4A783041FB8DEF70056F5A2 /* SaveStats.swift */,
 				E4A942F321301D7D002B3986 /* IAPHelper.swift */,
+				E4A783041FB8DEF70056F5A2 /* SaveStats.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E42329FF21BD8C2F00B3C3CC /* UI Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
+				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
+				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
+				E48703931F9FAE2100562F5F /* MenuButton.swift */,
+				E405943B2001EA870056EED1 /* RelictSlider.swift */,
+				E42623EF204AC5E900543F07 /* ShowItemsView.swift */,
+				E48703951FA03F1100562F5F /* TextClass.swift */,
+			);
+			name = "UI Subclasses";
 			sourceTree = "<group>";
 		};
 		E481AD9B1F14E6FD00F22ECA = {
@@ -152,6 +166,7 @@
 				E421EA4F1F38F9DB0088C40F /* Helpers */,
 				E481ADC41F17B0E900F22ECA /* Models */,
 				E481ADB91F14F83B00F22ECA /* ViewControllers */,
+				E42329FF21BD8C2F00B3C3CC /* UI Subclasses */,
 				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
 				E481ADAB1F14E6FD00F22ECA /* Main.storyboard */,
 				E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */,
@@ -170,14 +185,7 @@
 				E48C00C42063F978001DD82B /* SummonerViewController.swift */,
 				E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */,
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
-				E48703931F9FAE2100562F5F /* MenuButton.swift */,
-				E48703951FA03F1100562F5F /* TextClass.swift */,
-				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
-				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
-				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
 				E490707D1FE20CF800671F89 /* IPadViewController.swift */,
-				E405943B2001EA870056EED1 /* RelictSlider.swift */,
-				E42623EF204AC5E900543F07 /* ShowItemsView.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -185,12 +193,12 @@
 		E481ADC41F17B0E900F22ECA /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				E481ADC51F17B11300F22ECA /* Character.swift */,
-				E4609A742042E43200E0B4B3 /* Items.swift */,
 				E4C047D421020B3500C197E2 /* Achievements.swift */,
-				E4C047D621020B5A00C197E2 /* Fame.swift */,
-				E4C047D821020B9B00C197E2 /* Wings.swift */,
+				E481ADC51F17B11300F22ECA /* Character.swift */,
 				E42083982102252900B8D968 /* Day.swift */,
+				E4C047D621020B5A00C197E2 /* Fame.swift */,
+				E4609A742042E43200E0B4B3 /* Items.swift */,
+				E4C047D821020B9B00C197E2 /* Wings.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
