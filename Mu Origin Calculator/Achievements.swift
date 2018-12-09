@@ -23,6 +23,10 @@ enum Achievements: AchievementBadge {
     case conqueror = 4100500
     case terminator = 5807500
     case immortal = 7998500
+    case demolisher = 7998501
+    case annihilator = 7998502
+    case foreseer = 7998503
+    case creator = 7998504
     
     var value: AchievementBadge {
         return self.rawValue
@@ -53,10 +57,18 @@ enum Achievements: AchievementBadge {
             return "Terminator"
         case .immortal:
             return "Immortal"
+        case .demolisher:
+            return "Demolisher"
+        case .annihilator:
+            return "Annihilator"
+        case .foreseer:
+            return "Foreseer"
+        case .creator:
+            return "Creator"
         }
     }
-    static let valuesArray = [Achievement.watcher, Achievement.inquisitor, Achievement.guardian, Achievement.challenger, Achievement.hunter,Achievement.champion, Achievement.invincible, Achievement.arbiter, Achievement.destroyer, Achievement.conqueror, Achievement.terminator, Achievement.immortal]
-    static let titlesArray = [Achievements.watcher.name, Achievements.inquisitor.name, Achievements.guardian.name, Achievements.challenger.name, Achievements.hunter.name, Achievements.champion.name, Achievements.invincible.name, Achievements.arbiter.name, Achievements.destroyer.name, Achievements.conqueror.name, Achievements.terminator.name, Achievements.immortal.name]
+    static let valuesArray = [Achievement.watcher, Achievement.inquisitor, Achievement.guardian, Achievement.challenger, Achievement.hunter,Achievement.champion, Achievement.invincible, Achievement.arbiter, Achievement.destroyer, Achievement.conqueror, Achievement.terminator, Achievement.immortal, Achievement.demolisher, Achievement.annihilator, Achievement.foreseer, Achievement.creator]
+    static let titlesArray = [Achievements.watcher.name, Achievements.inquisitor.name, Achievements.guardian.name, Achievements.challenger.name, Achievements.hunter.name, Achievements.champion.name, Achievements.invincible.name, Achievements.arbiter.name, Achievements.destroyer.name, Achievements.conqueror.name, Achievements.terminator.name, Achievements.immortal.name, Achievements.demolisher.name, Achievements.annihilator.name, Achievements.foreseer.name, Achievements.creator.name]
 }
 
 struct Achievement {
@@ -72,6 +84,10 @@ struct Achievement {
     static var conqueror: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value
     static var terminator: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value
     static var immortal: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value
+    static var demolisher: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value
+    static var annihilator: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value
+    static var foreseer: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value + Achievements.foreseer.value
+    static var creator: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value + Achievements.foreseer.value + Achievements.creator.value
     
     func recalculatePoints(currentTitle: String, currentPoints: AchievementBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:AchievementBadge] = [:]

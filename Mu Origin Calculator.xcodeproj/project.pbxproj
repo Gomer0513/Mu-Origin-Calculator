@@ -83,12 +83,12 @@
 		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; };
 		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; };
 		E4A942F321301D7D002B3986 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
-		E4A942F521303F73002B3986 /* AchievementTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementTests.swift; sourceTree = "<group>"; };
-		E4A942F721319356002B3986 /* FameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FameTests.swift; sourceTree = "<group>"; };
+		E4A942F521303F73002B3986 /* AchievementTests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AchievementTests.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4A942F721319356002B3986 /* FameTests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FameTests.swift; sourceTree = "<group>"; tabWidth = 2; };
 		E4A942F921324148002B3986 /* FlameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameTests.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
-		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; };
-		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; };
+		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; tabWidth = 2; };
 		E4C047D821020B9B00C197E2 /* Wings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wings.swift; sourceTree = "<group>"; };
 		E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mu Origin Calculator Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4E8AB69211982C8003EB0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };

@@ -36,6 +36,10 @@ class AchievementTests: XCTestCase {
         let conqueror = achievement.evaluatePointsForTitle(currentTitle: Achievements.conqueror.name)
         let terminator = achievement.evaluatePointsForTitle(currentTitle: Achievements.terminator.name)
         let immortal = achievement.evaluatePointsForTitle(currentTitle: Achievements.immortal.name)
+        let demolisher = achievement.evaluatePointsForTitle(currentTitle: Achievements.demolisher.name)
+        let annihilator = achievement.evaluatePointsForTitle(currentTitle: Achievements.annihilator.name)
+        let foreseer = achievement.evaluatePointsForTitle(currentTitle: Achievements.foreseer.name)
+        let сreator = achievement.evaluatePointsForTitle(currentTitle: Achievements.creator.name)
         
         XCTAssertEqual(watcher, Achievements.watcher.value)
         XCTAssertEqual(inquisitor, Achievements.inquisitor.value)
@@ -49,6 +53,10 @@ class AchievementTests: XCTestCase {
         XCTAssertEqual(conqueror, Achievements.conqueror.value)
         XCTAssertEqual(terminator, Achievements.terminator.value)
         XCTAssertEqual(immortal, Achievements.immortal.value)
+        XCTAssertEqual(demolisher, Achievements.demolisher.value)
+        XCTAssertEqual(annihilator, Achievements.annihilator.value)
+        XCTAssertEqual(foreseer, Achievements.foreseer.value)
+        XCTAssertEqual(сreator, Achievements.creator.value)
         
         XCTAssertEqual(Day(type: .AchievementBadge, points: watcher, diamondsPerDay: 200).evaluateDays(percentage: 100), 1) // 4500 points
         XCTAssertEqual(Day(type: .AchievementBadge, points: inquisitor, diamondsPerDay: 200).evaluateDays(percentage: 100), 4) // 23000 points
@@ -62,6 +70,10 @@ class AchievementTests: XCTestCase {
         XCTAssertEqual(Day(type: .AchievementBadge, points: conqueror, diamondsPerDay: 200).evaluateDays(percentage: 100), 616) // 4100500 points
         XCTAssertEqual(Day(type: .AchievementBadge, points: terminator, diamondsPerDay: 200).evaluateDays(percentage: 100), 872) // 5807500 points
         XCTAssertEqual(Day(type: .AchievementBadge, points: immortal, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 7998500 points
+        XCTAssertEqual(Day(type: .AchievementBadge, points: demolisher, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 7998500 points
+        XCTAssertEqual(Day(type: .AchievementBadge, points: annihilator, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 7998500 points
+        XCTAssertEqual(Day(type: .AchievementBadge, points: foreseer, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 7998500 points
+        XCTAssertEqual(Day(type: .AchievementBadge, points: сreator, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 7998500 points
         
     }
 }

@@ -23,6 +23,10 @@ enum Fames: FameBadge {
     case firstSG = 8201000
     case sgm = 11615000
     case csm = 15997000
+    case ltc = 15997001
+    case col = 15997002
+    case bg = 15997003
+    case mg = 15997004
     
     var value: FameBadge {
         return self.rawValue
@@ -53,10 +57,18 @@ enum Fames: FameBadge {
             return "SGM"
         case .csm:
             return "CSM"
+        case .ltc:
+            return "LTC"
+        case .col:
+            return "COL"
+        case .bg:
+            return "BG"
+        case .mg:
+            return "MG"
         }
     }
-    static let valuesArray = [Fame.pv1, Fame.pv2, Fame.pfc, Fame.spc, Fame.cpl, Fame.sgt, Fame.ssg, Fame.sfc, Fame.msg, Fame.firstSG, Fame.sgm, Fame.csm]
-    static let titlesArray = [Fames.pv1.name, Fames.pv2.name, Fames.pfc.name, Fames.spc.name, Fames.cpl.name, Fames.sgt.name, Fames.ssg.name, Fames.sfc.name, Fames.msg.name, Fames.firstSG.name, Fames.sgm.name, Fames.csm.name]
+    static let valuesArray = [Fame.pv1, Fame.pv2, Fame.pfc, Fame.spc, Fame.cpl, Fame.sgt, Fame.ssg, Fame.sfc, Fame.msg, Fame.firstSG, Fame.sgm, Fame.csm, Fame.ltc, Fame.col, Fame.bg, Fame.mg]
+    static let titlesArray = [Fames.pv1.name, Fames.pv2.name, Fames.pfc.name, Fames.spc.name, Fames.cpl.name, Fames.sgt.name, Fames.ssg.name, Fames.sfc.name, Fames.msg.name, Fames.firstSG.name, Fames.sgm.name, Fames.csm.name, Fames.ltc.name, Fames.col.name, Fames.bg.name, Fames.mg.name]
 }
 
 struct Fame {
@@ -72,6 +84,10 @@ struct Fame {
     static var firstSG: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value
     static var sgm: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value
     static var csm: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value
+    static var ltc: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value
+    static var col: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value
+    static var bg: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value + Fames.bg.value
+    static var mg: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value + Fames.bg.value + Fames.mg.value
     
     func recalculatePoints(currentTitle: String, currentPoints: FameBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:FameBadge] = [:]

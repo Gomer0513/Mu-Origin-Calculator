@@ -37,6 +37,10 @@ class FameTests: XCTestCase {
         let firstSG = fame.evaluatePointsForTitle(currentTitle: Fames.firstSG.name) // 8201000
         let sgm = fame.evaluatePointsForTitle(currentTitle: Fames.sgm.name) // 11615000
         let csm = fame.evaluatePointsForTitle(currentTitle: Fames.csm.name) // 15997000
+        let ltc = fame.evaluatePointsForTitle(currentTitle: Fames.ltc.name) // 15997000
+        let col = fame.evaluatePointsForTitle(currentTitle: Fames.col.name) // 15997000
+        let bg = fame.evaluatePointsForTitle(currentTitle: Fames.bg.name) // 15997000
+        let mg = fame.evaluatePointsForTitle(currentTitle: Fames.mg.name) // 15997000
         
         XCTAssertEqual(pv1, Fames.pv1.value)
         XCTAssertEqual(pv2, Fames.pv2.value)
@@ -50,6 +54,10 @@ class FameTests: XCTestCase {
         XCTAssertEqual(firstSG, Fames.firstSG.value)
         XCTAssertEqual(sgm, Fames.sgm.value)
         XCTAssertEqual(csm, Fames.csm.value)
+        XCTAssertEqual(ltc, Fames.ltc.value)
+        XCTAssertEqual(col, Fames.col.value)
+        XCTAssertEqual(bg, Fames.bg.value)
+        XCTAssertEqual(mg, Fames.mg.value)
         
         XCTAssertEqual(Day(type: .FameBadge, points: pv1, diamondsPerDay: 200).evaluateDays(percentage: 100), 1) // 9000
         XCTAssertEqual(Day(type: .FameBadge, points: pv2, diamondsPerDay: 200).evaluateDays(percentage: 100), 4) // 46000
@@ -63,6 +71,9 @@ class FameTests: XCTestCase {
         XCTAssertEqual(Day(type: .FameBadge, points: firstSG, diamondsPerDay: 200).evaluateDays(percentage: 100), 616) // 8201000
         XCTAssertEqual(Day(type: .FameBadge, points: sgm, diamondsPerDay: 200).evaluateDays(percentage: 100), 872) // 11615000
         XCTAssertEqual(Day(type: .FameBadge, points: csm, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 15997000
-        
+        XCTAssertEqual(Day(type: .FameBadge, points: ltc, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 15997000
+        XCTAssertEqual(Day(type: .FameBadge, points: col, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 15997000
+        XCTAssertEqual(Day(type: .FameBadge, points: bg, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 15997000
+        XCTAssertEqual(Day(type: .FameBadge, points: mg, diamondsPerDay: 200).evaluateDays(percentage: 100), 1200) // 15997000
     }
 }
