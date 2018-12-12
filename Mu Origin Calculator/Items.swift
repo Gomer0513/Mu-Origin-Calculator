@@ -327,12 +327,12 @@ class Weapon: Items {
                 return (item.tier,item.name)
             }
             if (item.eng! >= 6816 && (item.agi! >= 2726 && item.agi! < 3184)) || ((item.eng! >= 6816 && item.eng! < 7960) && item.agi! >= 2726) {
-                item.name = "Sucubbus Rod"
+                item.name = "Sucubus Rod"
                 item.tier = 11
                 return (item.tier,item.name)
             }
             if (item.eng! >= 7960 && (item.agi! >= 3184 && item.agi! < 3674)) || ((item.eng! >= 7960 && item.eng! < 9184) && item.agi! >= 3184) {
-                item.name = "Not Available" // TODO: -
+                item.name = "Aether Rod"
                 item.tier = 12
                 return (item.tier,item.name)
             }
@@ -655,12 +655,12 @@ class Armor: Items {
                 return (item.tier, item.name)
             }
             if (item.agi! >= 2726 && (item.eng! >= 1363 && item.eng! < 1592) && item.sta! >= 4090) || ((item.agi! >= 2726 && item.agi! < 3184) && item.eng! >= 1363 && item.sta! >= 4090) || (item.agi! >= 2726 && item.eng! >= 1363 && (item.sta! >= 4090 && item.sta! < 4776)) {
-                item.name = "Sucubbus Set"
+                item.name = "Succubus Set"
                 item.tier = 11
                 return (item.tier, item.name)
             }
             if (item.agi! >= 3184 && (item.eng! >= 1592 && item.eng! < 1837) && item.sta! >= 4776) || ((item.agi! >= 3184 && item.agi! < 3674) && item.eng! >= 1592 && item.sta! >= 4776) || (item.agi! >= 3184 && item.eng! >= 1592 && (item.sta! >= 4776 && item.sta! < 5510)) {
-                item.name = "Not Available" // TODO: -
+                item.name = "Aether Set"
                 item.tier = 12
                 return (item.tier, item.name)
             }
