@@ -11,12 +11,9 @@ import UIKit
 class TextClass: UITextField {
     
     override func awakeFromNib() {
-        self.textColor = UIColor.orange.withAlphaComponent(1.0)
-        self.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-        self.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
-        self.placeholder = "0"
-        if self.placeholder == "0", let text = self.placeholder {
-            self.attributedPlaceholder = NSAttributedString(string: text, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
-        }
+        textColor = UIColor.orange.withAlphaComponent(1.0)
+        backgroundColor = UIColor.black.withAlphaComponent(0.1)
+        font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
+        attributedPlaceholder = NSAttributedString(string: placeholder!, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
     }
 }

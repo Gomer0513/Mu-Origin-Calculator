@@ -11,7 +11,7 @@ import UIKit
 class LabelWhiteColorClass: UILabel {
     
     override func awakeFromNib() {
-        self.textColor = .white
-        self.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
+        textColor = .white
+        font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
     }
 }

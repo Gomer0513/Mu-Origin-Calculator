@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E405943B2001EA870056EED1 /* RelictSlider.swift */; };
+		E42083992102252900B8D968 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42083982102252900B8D968 /* Day.swift */; };
 		E421EA511F38FA040088C40F /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E421EA501F38FA040088C40F /* Alert.swift */; };
+		E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42623EF204AC5E900543F07 /* ShowItemsView.swift */; };
 		E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E43DD0B01FA5F0AF00DF6462 /* Constants.swift */; };
+		E4609A752042E43200E0B4B3 /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4609A742042E43200E0B4B3 /* Items.swift */; };
+		E47FFF9D211C61010039ED77 /* ExtraStatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */; };
 		E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */; };
 		E481ADAD1F14E6FD00F22ECA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAB1F14E6FD00F22ECA /* Main.storyboard */; };
 		E481ADAF1F14E6FD00F22ECA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */; };
@@ -18,38 +23,95 @@
 		E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */; };
 		E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */; };
 		E481ADC61F17B11300F22ECA /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E481ADC51F17B11300F22ECA /* Character.swift */; };
+		E48211C7212CB29000EB14B6 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E48211C6212CB29000EB14B6 /* StoreKit.framework */; };
+		E4829D57221D883C0072B6F6 /* FloatExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4829D56221D883C0072B6F6 /* FloatExtension.swift */; };
+		E4829D61221DFCB40072B6F6 /* StatsValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4829D60221DFCB40072B6F6 /* StatsValidation.swift */; };
+		E4829D63221E01EF0072B6F6 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4829D62221E01EF0072B6F6 /* Protocols.swift */; };
 		E48703921F9E66FE00562F5F /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703911F9E66FE00562F5F /* Colors.swift */; };
 		E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703931F9FAE2100562F5F /* MenuButton.swift */; };
 		E48703961FA03F1100562F5F /* TextClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703951FA03F1100562F5F /* TextClass.swift */; };
 		E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */; };
 		E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */; };
+		E48C00C52063F978001DD82B /* SummonerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E48C00C42063F978001DD82B /* SummonerViewController.swift */; };
+		E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E490707D1FE20CF800671F89 /* IPadViewController.swift */; };
+		E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A783041FB8DEF70056F5A2 /* SaveStats.swift */; };
+		E4A942F421301D7D002B3986 /* IAPHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F321301D7D002B3986 /* IAPHelper.swift */; };
+		E4A942F621303F73002B3986 /* AchievementTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F521303F73002B3986 /* AchievementTests.swift */; };
+		E4A942F821319356002B3986 /* FameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F721319356002B3986 /* FameTests.swift */; };
+		E4A942FA21324148002B3986 /* FlameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A942F921324148002B3986 /* FlameTests.swift */; };
 		E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */; };
+		E4C047D521020B3500C197E2 /* Achievements.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D421020B3500C197E2 /* Achievements.swift */; };
+		E4C047D721020B5A00C197E2 /* Fame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D621020B5A00C197E2 /* Fame.swift */; };
+		E4C047D921020B9B00C197E2 /* Wings.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C047D821020B9B00C197E2 /* Wings.swift */; };
+		E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */; };
+		E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4E8AB7121199AE0003EB0A6 /* SetTests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E4E8AB6A211982C8003EB0A6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E481AD9C1F14E6FD00F22ECA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E481ADA31F14E6FD00F22ECA;
+			remoteInfo = "Mu Origin Calculator";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		E405943B2001EA870056EED1 /* RelictSlider.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RelictSlider.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E42083982102252900B8D968 /* Day.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; tabWidth = 2; };
 		E421EA501F38FA040088C40F /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E42623EF204AC5E900543F07 /* ShowItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowItemsView.swift; sourceTree = "<group>"; };
 		E43DD0B01FA5F0AF00DF6462 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		E4609A742042E43200E0B4B3 /* Items.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ExtraStatsViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mu Origin Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E481ADAC1F14E6FD00F22ECA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E481ADB31F14E6FD00F22ECA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E481ADBA1F14FC5200F22ECA /* DarkKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkKnightViewController.swift; sourceTree = "<group>"; };
-		E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DarkWizardViewController.swift; sourceTree = "<group>"; };
-		E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElfViewController.swift; sourceTree = "<group>"; };
-		E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagicKnightViewController.swift; sourceTree = "<group>"; };
-		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; };
-		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
+		E481ADBA1F14FC5200F22ECA /* DarkKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DarkKnightViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = DarkWizardViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ElfViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MagicKnightViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MainMenuViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E481ADC51F17B11300F22ECA /* Character.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E48211C6212CB29000EB14B6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		E4829D56221D883C0072B6F6 /* FloatExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatExtension.swift; sourceTree = "<group>"; };
+		E4829D60221DFCB40072B6F6 /* StatsValidation.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = StatsValidation.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4829D62221E01EF0072B6F6 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		E48703911F9E66FE00562F5F /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E48703931F9FAE2100562F5F /* MenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
 		E48703951FA03F1100562F5F /* TextClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextClass.swift; sourceTree = "<group>"; };
 		E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelWhiteColorClass.swift; sourceTree = "<group>"; };
 		E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelOrangeColorClass.swift; sourceTree = "<group>"; };
+		E48C00C42063F978001DD82B /* SummonerViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SummonerViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E490707D1FE20CF800671F89 /* IPadViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = IPadViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4A783041FB8DEF70056F5A2 /* SaveStats.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SaveStats.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4A942F321301D7D002B3986 /* IAPHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IAPHelper.swift; sourceTree = "<group>"; };
+		E4A942F521303F73002B3986 /* AchievementTests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = AchievementTests.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4A942F721319356002B3986 /* FameTests.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FameTests.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4A942F921324148002B3986 /* FlameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlameTests.swift; sourceTree = "<group>"; };
 		E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeStatsButton.swift; sourceTree = "<group>"; };
+		E4C047D421020B3500C197E2 /* Achievements.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Achievements.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4C047D621020B5A00C197E2 /* Fame.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Fame.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4C047D821020B9B00C197E2 /* Wings.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = Wings.swift; sourceTree = "<group>"; tabWidth = 2; };
+		E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Mu Origin Calculator Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4E8AB69211982C8003EB0A6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeaponTests.swift; sourceTree = "<group>"; };
+		E4E8AB7121199AE0003EB0A6 /* SetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		E481ADA11F14E6FD00F22ECA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E48211C7212CB29000EB14B6 /* StoreKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4E8AB62211982C8003EB0A6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -65,15 +127,33 @@
 				E421EA501F38FA040088C40F /* Alert.swift */,
 				E48703911F9E66FE00562F5F /* Colors.swift */,
 				E43DD0B01FA5F0AF00DF6462 /* Constants.swift */,
+				E4829D56221D883C0072B6F6 /* FloatExtension.swift */,
+				E4A942F321301D7D002B3986 /* IAPHelper.swift */,
+				E4A783041FB8DEF70056F5A2 /* SaveStats.swift */,
+				E4829D60221DFCB40072B6F6 /* StatsValidation.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		E42329FF21BD8C2F00B3C3CC /* UI Subclasses */ = {
+			isa = PBXGroup;
+			children = (
+				E4829D58221D8E8A0072B6F6 /* UIButton */,
+				E4829D5A221D8FB80072B6F6 /* UILabel */,
+				E4829D5B221D8FCA0072B6F6 /* UISlider */,
+				E4829D5C221D8FFE0072B6F6 /* UITextField */,
+				E4829D59221D8EB50072B6F6 /* UIVIew */,
+			);
+			name = "UI Subclasses";
 			sourceTree = "<group>";
 		};
 		E481AD9B1F14E6FD00F22ECA = {
 			isa = PBXGroup;
 			children = (
 				E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */,
+				E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */,
 				E481ADA51F14E6FD00F22ECA /* Products */,
+				E48211C5212CB29000EB14B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */,
+				E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,13 +169,13 @@
 		E481ADA61F14E6FD00F22ECA /* Mu Origin Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				E4829D5D221D906A0072B6F6 /* App Delegate */,
 				E421EA4F1F38F9DB0088C40F /* Helpers */,
 				E481ADC41F17B0E900F22ECA /* Models */,
+				E4829D5E221D907D0072B6F6 /* Storyboards */,
+				E4829D5F221D90B10072B6F6 /* Supporting Files */,
 				E481ADB91F14F83B00F22ECA /* ViewControllers */,
-				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
-				E481ADAB1F14E6FD00F22ECA /* Main.storyboard */,
-				E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */,
-				E481ADB31F14E6FD00F22ECA /* Info.plist */,
+				E42329FF21BD8C2F00B3C3CC /* UI Subclasses */,
 			);
 			path = "Mu Origin Calculator";
 			sourceTree = "<group>";
@@ -106,12 +187,10 @@
 				E481ADBC1F14FC6700F22ECA /* DarkWizardViewController.swift */,
 				E481ADBE1F14FC8000F22ECA /* ElfViewController.swift */,
 				E481ADC01F14FC9100F22ECA /* MagicKnightViewController.swift */,
+				E48C00C42063F978001DD82B /* SummonerViewController.swift */,
+				E47FFF9C211C61010039ED77 /* ExtraStatsViewController.swift */,
 				E481ADC21F17921D00F22ECA /* MainMenuViewController.swift */,
-				E48703931F9FAE2100562F5F /* MenuButton.swift */,
-				E48703951FA03F1100562F5F /* TextClass.swift */,
-				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
-				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
-				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
+				E490707D1FE20CF800671F89 /* IPadViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -119,9 +198,103 @@
 		E481ADC41F17B0E900F22ECA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E4C047D421020B3500C197E2 /* Achievements.swift */,
 				E481ADC51F17B11300F22ECA /* Character.swift */,
+				E42083982102252900B8D968 /* Day.swift */,
+				E4C047D621020B5A00C197E2 /* Fame.swift */,
+				E4609A742042E43200E0B4B3 /* Items.swift */,
+				E4829D62221E01EF0072B6F6 /* Protocols.swift */,
+				E4C047D821020B9B00C197E2 /* Wings.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E48211C5212CB29000EB14B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E48211C6212CB29000EB14B6 /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4829D58221D8E8A0072B6F6 /* UIButton */ = {
+			isa = PBXGroup;
+			children = (
+				E4AC6D491FA528C100A7CFBA /* ChangeStatsButton.swift */,
+				E48703931F9FAE2100562F5F /* MenuButton.swift */,
+			);
+			name = UIButton;
+			sourceTree = "<group>";
+		};
+		E4829D59221D8EB50072B6F6 /* UIVIew */ = {
+			isa = PBXGroup;
+			children = (
+				E42623EF204AC5E900543F07 /* ShowItemsView.swift */,
+			);
+			name = UIVIew;
+			sourceTree = "<group>";
+		};
+		E4829D5A221D8FB80072B6F6 /* UILabel */ = {
+			isa = PBXGroup;
+			children = (
+				E48703991FA2334300562F5F /* LabelOrangeColorClass.swift */,
+				E48703971FA040FF00562F5F /* LabelWhiteColorClass.swift */,
+			);
+			name = UILabel;
+			sourceTree = "<group>";
+		};
+		E4829D5B221D8FCA0072B6F6 /* UISlider */ = {
+			isa = PBXGroup;
+			children = (
+				E405943B2001EA870056EED1 /* RelictSlider.swift */,
+			);
+			name = UISlider;
+			sourceTree = "<group>";
+		};
+		E4829D5C221D8FFE0072B6F6 /* UITextField */ = {
+			isa = PBXGroup;
+			children = (
+				E48703951FA03F1100562F5F /* TextClass.swift */,
+			);
+			name = UITextField;
+			sourceTree = "<group>";
+		};
+		E4829D5D221D906A0072B6F6 /* App Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				E481ADA71F14E6FD00F22ECA /* AppDelegate.swift */,
+			);
+			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		E4829D5E221D907D0072B6F6 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				E481ADAB1F14E6FD00F22ECA /* Main.storyboard */,
+			);
+			name = Storyboards;
+			sourceTree = "<group>";
+		};
+		E4829D5F221D90B10072B6F6 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E481ADAE1F14E6FD00F22ECA /* Assets.xcassets */,
+				E481ADB31F14E6FD00F22ECA /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E4E8AB66211982C8003EB0A6 /* Mu Origin Calculator Tests */ = {
+			isa = PBXGroup;
+			children = (
+				E4E8AB69211982C8003EB0A6 /* Info.plist */,
+				E4E8AB6F211983AC003EB0A6 /* WeaponTests.swift */,
+				E4E8AB7121199AE0003EB0A6 /* SetTests.swift */,
+				E4A942F521303F73002B3986 /* AchievementTests.swift */,
+				E4A942F721319356002B3986 /* FameTests.swift */,
+				E4A942F921324148002B3986 /* FlameTests.swift */,
+			);
+			path = "Mu Origin Calculator Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,20 +317,48 @@
 			productReference = E481ADA41F14E6FD00F22ECA /* Mu Origin Calculator.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E4E8AB64211982C8003EB0A6 /* Mu Origin Calculator Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4E8AB6E211982C8003EB0A6 /* Build configuration list for PBXNativeTarget "Mu Origin Calculator Tests" */;
+			buildPhases = (
+				E4E8AB61211982C8003EB0A6 /* Sources */,
+				E4E8AB62211982C8003EB0A6 /* Frameworks */,
+				E4E8AB63211982C8003EB0A6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E4E8AB6B211982C8003EB0A6 /* PBXTargetDependency */,
+			);
+			name = "Mu Origin Calculator Tests";
+			productName = "Mu Origin Calculator Tests";
+			productReference = E4E8AB65211982C8003EB0A6 /* Mu Origin Calculator Tests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		E481AD9C1F14E6FD00F22ECA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastSwiftUpdateCheck = 0940;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = "Oleksandr Kysil";
 				TargetAttributes = {
 					E481ADA31F14E6FD00F22ECA = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = MW5NN26C7T;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
+					};
+					E4E8AB64211982C8003EB0A6 = {
+						CreatedOnToolsVersion = 9.4.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E481ADA31F14E6FD00F22ECA;
 					};
 				};
 			};
@@ -175,6 +376,7 @@
 			projectRoot = "";
 			targets = (
 				E481ADA31F14E6FD00F22ECA /* Mu Origin Calculator */,
+				E4E8AB64211982C8003EB0A6 /* Mu Origin Calculator Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -189,6 +391,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E4E8AB63211982C8003EB0A6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -196,25 +405,60 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E42623F0204AC5E900543F07 /* ShowItemsView.swift in Sources */,
+				E4829D61221DFCB40072B6F6 /* StatsValidation.swift in Sources */,
 				E48703961FA03F1100562F5F /* TextClass.swift in Sources */,
 				E481ADC31F17921D00F22ECA /* MainMenuViewController.swift in Sources */,
+				E48C00C52063F978001DD82B /* SummonerViewController.swift in Sources */,
 				E48703921F9E66FE00562F5F /* Colors.swift in Sources */,
+				E405943C2001EA870056EED1 /* RelictSlider.swift in Sources */,
 				E4AC6D4A1FA528C100A7CFBA /* ChangeStatsButton.swift in Sources */,
+				E47FFF9D211C61010039ED77 /* ExtraStatsViewController.swift in Sources */,
 				E48703941F9FAE2200562F5F /* MenuButton.swift in Sources */,
 				E43DD0B11FA5F0AF00DF6462 /* Constants.swift in Sources */,
+				E490707E1FE20CF800671F89 /* IPadViewController.swift in Sources */,
 				E481ADBF1F14FC8000F22ECA /* ElfViewController.swift in Sources */,
+				E4609A752042E43200E0B4B3 /* Items.swift in Sources */,
 				E481ADC61F17B11300F22ECA /* Character.swift in Sources */,
+				E4829D63221E01EF0072B6F6 /* Protocols.swift in Sources */,
+				E4A783051FB8DEF70056F5A2 /* SaveStats.swift in Sources */,
 				E481ADBD1F14FC6700F22ECA /* DarkWizardViewController.swift in Sources */,
 				E487039A1FA2334300562F5F /* LabelOrangeColorClass.swift in Sources */,
 				E481ADC11F14FC9100F22ECA /* MagicKnightViewController.swift in Sources */,
 				E481ADA81F14E6FD00F22ECA /* AppDelegate.swift in Sources */,
+				E42083992102252900B8D968 /* Day.swift in Sources */,
 				E48703981FA040FF00562F5F /* LabelWhiteColorClass.swift in Sources */,
 				E421EA511F38FA040088C40F /* Alert.swift in Sources */,
+				E4829D57221D883C0072B6F6 /* FloatExtension.swift in Sources */,
+				E4A942F421301D7D002B3986 /* IAPHelper.swift in Sources */,
 				E481ADBB1F14FC5200F22ECA /* DarkKnightViewController.swift in Sources */,
+				E4C047D521020B3500C197E2 /* Achievements.swift in Sources */,
+				E4C047D921020B9B00C197E2 /* Wings.swift in Sources */,
+				E4C047D721020B5A00C197E2 /* Fame.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4E8AB61211982C8003EB0A6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4A942FA21324148002B3986 /* FlameTests.swift in Sources */,
+				E4A942F621303F73002B3986 /* AchievementTests.swift in Sources */,
+				E4E8AB7221199AE0003EB0A6 /* SetTests.swift in Sources */,
+				E4A942F821319356002B3986 /* FameTests.swift in Sources */,
+				E4E8AB70211983AC003EB0A6 /* WeaponTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E4E8AB6B211982C8003EB0A6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E481ADA31F14E6FD00F22ECA /* Mu Origin Calculator */;
+			targetProxy = E4E8AB6A211982C8003EB0A6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E481ADAB1F14E6FD00F22ECA /* Main.storyboard */ = {
@@ -238,7 +482,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -246,7 +492,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -269,7 +519,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -288,7 +538,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -296,7 +548,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -313,7 +569,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -333,6 +589,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -348,6 +605,53 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "Oleksandr-Kysil.Mu-Origin-Calculator";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E4E8AB6C211982C8003EB0A6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Mu Origin Calculator Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.OleksandrKysil.Mu-Origin-Calculator-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mu Origin Calculator.app/Mu Origin Calculator";
+			};
+			name = Debug;
+		};
+		E4E8AB6D211982C8003EB0A6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = "Mu Origin Calculator Tests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.OleksandrKysil.Mu-Origin-Calculator-Tests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Mu Origin Calculator.app/Mu Origin Calculator";
 			};
 			name = Release;
 		};
@@ -368,6 +672,15 @@
 			buildConfigurations = (
 				E481ADB71F14E6FD00F22ECA /* Debug */,
 				E481ADB81F14E6FD00F22ECA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4E8AB6E211982C8003EB0A6 /* Build configuration list for PBXNativeTarget "Mu Origin Calculator Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4E8AB6C211982C8003EB0A6 /* Debug */,
+				E4E8AB6D211982C8003EB0A6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
