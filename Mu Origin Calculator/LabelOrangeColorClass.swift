@@ -25,7 +25,7 @@ class LabelOrangeColorClass: UILabel {
     }
     
     private func setup() {
-        self.textColor = .orange
-        self.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
+        textColor = .orange
+        font = UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)
     }
 }

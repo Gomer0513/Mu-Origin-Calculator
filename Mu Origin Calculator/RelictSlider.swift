@@ -10,13 +10,15 @@ import UIKit
 
 class RelictSlider: UISlider {
     
-    let thumbImage: UIImage = UIImage(named: "SliderImage")!
+    // MARK: Constant
+    
+    private let thumbImage: UIImage = UIImage(named: "SliderImage")!
     
     override func awakeFromNib() {
-        self.maximumTrackTintColor = UIColor.orange
-        self.minimumTrackTintColor = UIColor.white
-        self.minimumValue = 0
-        self.maximumValue = 100
-        self.setThumbImage(thumbImage, for: .normal)
+        maximumTrackTintColor = UIColor.orange
+        minimumTrackTintColor = UIColor.white
+        minimumValue = 0
+        maximumValue = 100
+        setThumbImage(thumbImage, for: .normal)
     }
 }

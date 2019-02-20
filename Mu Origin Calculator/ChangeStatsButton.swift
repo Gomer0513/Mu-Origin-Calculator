@@ -11,8 +11,8 @@ import UIKit
 class ChangeStatsButton: UIButton {
 
     override func awakeFromNib() {
-        self.setTitle("+", for: .normal)
-        self.setTitleColor(UIColor.orange.withAlphaComponent(0.75), for: .normal)
-        self.titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 25.0)
+        setTitle("+", for: .normal)
+        setTitleColor(UIColor.orange.withAlphaComponent(0.75), for: .normal)
+        titleLabel?.font = UIFont(name: "AppleSDGothicNeo-Regular", size: 25.0)
     }
 }

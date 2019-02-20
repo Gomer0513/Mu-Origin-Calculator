@@ -28,8 +28,10 @@ enum Fames: FameBadge {
     case bg = 15997003
     case mg = 15997004
     
+    // MARK: - Variables
+    
     var value: FameBadge {
-        return self.rawValue
+        return rawValue
     }
     var name: String {
         switch self {
@@ -67,11 +69,17 @@ enum Fames: FameBadge {
             return "MG"
         }
     }
+    
+    // MARK: - Constants
+    
     static let valuesArray = [Fame.pv1, Fame.pv2, Fame.pfc, Fame.spc, Fame.cpl, Fame.sgt, Fame.ssg, Fame.sfc, Fame.msg, Fame.firstSG, Fame.sgm, Fame.csm, Fame.ltc, Fame.col, Fame.bg, Fame.mg]
     static let titlesArray = [Fames.pv1.name, Fames.pv2.name, Fames.pfc.name, Fames.spc.name, Fames.cpl.name, Fames.sgt.name, Fames.ssg.name, Fames.sfc.name, Fames.msg.name, Fames.firstSG.name, Fames.sgm.name, Fames.csm.name, Fames.ltc.name, Fames.col.name, Fames.bg.name, Fames.mg.name]
 }
 
 struct Fame {
+    
+    // MARK: - Variables
+    
     static var pv1: FameBadge = Fames.pv1.value
     static var pv2: FameBadge = Fames.pv1.value + Fames.pv2.value
     static var pfc: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value
@@ -88,6 +96,8 @@ struct Fame {
     static var col: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value
     static var bg: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value + Fames.bg.value
     static var mg: FameBadge = Fames.pv1.value + Fames.pv2.value + Fames.pfc.value + Fames.spc.value + Fames.cpl.value + Fames.sgt.value + Fames.ssg.value + Fames.sfc.value + Fames.msg.value + Fames.firstSG.value + Fames.sgm.value + Fames.csm.value + Fames.ltc.value + Fames.col.value + Fames.bg.value + Fames.mg.value
+    
+    // MARK: - Methods
     
     func recalculatePoints(currentTitle: String, currentPoints: FameBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:FameBadge] = [:]

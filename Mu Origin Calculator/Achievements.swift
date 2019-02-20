@@ -11,6 +11,7 @@ import Foundation
 typealias AchievementBadge = Int
 
 enum Achievements: AchievementBadge {
+    
     case watcher = 4500
     case inquisitor = 23000
     case guardian = 72000
@@ -28,9 +29,12 @@ enum Achievements: AchievementBadge {
     case foreseer = 7998503
     case creator = 7998504
     
+    // MARK: - Variables
+    
     var value: AchievementBadge {
         return self.rawValue
     }
+    
     var name: String {
         switch self {
         case .watcher:
@@ -67,11 +71,17 @@ enum Achievements: AchievementBadge {
             return "Creator"
         }
     }
+    
+    // MARK: - Constants
+    
     static let valuesArray = [Achievement.watcher, Achievement.inquisitor, Achievement.guardian, Achievement.challenger, Achievement.hunter,Achievement.champion, Achievement.invincible, Achievement.arbiter, Achievement.destroyer, Achievement.conqueror, Achievement.terminator, Achievement.immortal, Achievement.demolisher, Achievement.annihilator, Achievement.foreseer, Achievement.creator]
     static let titlesArray = [Achievements.watcher.name, Achievements.inquisitor.name, Achievements.guardian.name, Achievements.challenger.name, Achievements.hunter.name, Achievements.champion.name, Achievements.invincible.name, Achievements.arbiter.name, Achievements.destroyer.name, Achievements.conqueror.name, Achievements.terminator.name, Achievements.immortal.name, Achievements.demolisher.name, Achievements.annihilator.name, Achievements.foreseer.name, Achievements.creator.name]
 }
 
 struct Achievement {
+    
+    // MARK: - Variables
+    
     static var watcher: AchievementBadge  = Achievements.watcher.value
     static var inquisitor: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value
     static var guardian: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value
@@ -88,6 +98,8 @@ struct Achievement {
     static var annihilator: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value
     static var foreseer: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value + Achievements.foreseer.value
     static var creator: AchievementBadge = Achievements.watcher.value + Achievements.inquisitor.value + Achievements.guardian.value + Achievements.challenger.value + Achievements.hunter.value + Achievements.champion.value + Achievements.invincible.value + Achievements.arbiter.value + Achievements.destroyer.value + Achievements.conqueror.value + Achievements.terminator.value + Achievements.immortal.value + Achievements.demolisher.value + Achievements.annihilator.value + Achievements.foreseer.value + Achievements.creator.value
+    
+    // MARK: - Methods
     
     func recalculatePoints(currentTitle: String, currentPoints: AchievementBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:AchievementBadge] = [:]

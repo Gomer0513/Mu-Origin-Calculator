@@ -18,18 +18,19 @@ class SaveStats {
         typeOfClass = character
     }
     
+    // MARK: - Setters
+    
     func saveData(_ data: String?, key: String) {
         defaults.set(data, forKey: typeOfClass+key)
-        defaults.synchronize()
     }
     func saveData(_ data: Int, key: String) {
         defaults.set(data, forKey: typeOfClass+key)
-        defaults.synchronize()
     }
     func saveData(_ data: Float, key: String) {
         defaults.set(data, forKey: typeOfClass+key)
-        defaults.synchronize()
     }
+    
+    // MARK: - Getters
     
     func getData(key: String) -> String? {
         if let data = defaults.string(forKey: typeOfClass+key) {

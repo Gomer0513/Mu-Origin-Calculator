@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveDataDelegate {
+class MagicKnightViewController: UIViewController {
     
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var rebirthInput: UITextField!
     @IBOutlet weak var levelInput: UITextField!
     @IBOutlet weak var fruitStatsInput: UITextField!
@@ -51,335 +51,324 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     
     //MARK: - Variables
     var character = Character()
-    private var totalPoint = Int()
-    private var points = Int()
-    private var str = 0
-    private var eng = 0
-    private var agi = 0
-    private var sta = 0
-    private var goldenSwordPoints = 0
-    private var goldenCrownPoints = 0
-    private var goldenScripturePoints = 0
-    private var goldenGrailPoints = 0
+    fileprivate var totalPoint = Int()
+    fileprivate var points = Int()
+    fileprivate var str = 0
+    fileprivate var eng = 0
+    fileprivate var agi = 0
+    fileprivate var sta = 0
+    fileprivate var goldenSwordPoints = 0
+    fileprivate var goldenCrownPoints = 0
+    fileprivate var goldenScripturePoints = 0
+    fileprivate var goldenGrailPoints = 0
     var subject = String()
-    private var isCalculated: Bool = false
+    fileprivate var isCalculated: Bool = false
     var iPadViewController: IPadViewController?
     
     // MARK: - Constants
-    private let alerts = Alert.sharedInstance
-    private let saveStats = SaveStats(character: Classes.mg.rawValue)
-    private let weapons = Weapon(belongsTo: Classes.mg)
-    private let armors = Armor(belongsTo: Classes.mg)
+    fileprivate let alerts = Alert.sharedInstance
+    fileprivate let saveStats = SaveStats(character: Classes.mg.rawValue)
+    fileprivate let weapons = Weapon(belongsTo: Classes.mg)
+    fileprivate let armors = Armor(belongsTo: Classes.mg)
     
-    // MARK: - Actions
+    // MARK: - IBActions
     @IBAction func calculateGoldenSword(_ sender: UISlider) {
-        self.goldenSwordPoints = Int(round(sender.value / 10) * 10)
-        if self.goldenSwordPoints != 0 {
-            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
+        goldenSwordPoints = Int(round(sender.value / 10) * 10)
+        if goldenSwordPoints != 0 {
+            goldenSwordMaxValue.text = String(goldenSwordPoints)
         } else {
-            self.goldenSwordMaxValue.text = "100"
+            goldenSwordMaxValue.text = "100"
         }
     }
     
     @IBAction func calculateGoldenCrown(_ sender: UISlider) {
-        self.goldenCrownPoints = Int(round(sender.value / 10) * 10)
-        if self.goldenCrownPoints != 0 {
-            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
+        goldenCrownPoints = Int(round(sender.value / 10) * 10)
+        if goldenCrownPoints != 0 {
+            goldenCrownMaxValue.text = String(goldenCrownPoints)
         } else {
-            self.goldenCrownMaxValue.text = "100"
+            goldenCrownMaxValue.text = "100"
         }
     }
     
     @IBAction func calculateGoldenScripture(_ sender: UISlider) {
-        self.goldenScripturePoints = Int(round(sender.value / 10) * 10)
-        if self.goldenScripturePoints != 0 {
-            self.goldenScriptureMaxValue.text = String(self.goldenScripturePoints)
+        goldenScripturePoints = Int(round(sender.value / 10) * 10)
+        if goldenScripturePoints != 0 {
+            goldenScriptureMaxValue.text = String(goldenScripturePoints)
         } else {
-            self.goldenScriptureMaxValue.text = "100"
+            goldenScriptureMaxValue.text = "100"
         }
     }
     
     @IBAction func calculateGoldenGrail(_ sender: UISlider) {
-        self.goldenGrailPoints = Int(round(sender.value / 10) * 10)
-        if self.goldenGrailPoints != 0 {
-            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
+        goldenGrailPoints = Int(round(sender.value / 10) * 10)
+        if goldenGrailPoints != 0 {
+            goldenGrailMaxValue.text = String(goldenGrailPoints)
         } else {
-            self.goldenGrailMaxValue.text = "100"
+            goldenGrailMaxValue.text = "100"
         }
     }
     
     @IBAction func calculateButton(_ sender: Any) {
         
-        self.isCalculated = true
-        self.character = Character(rebirth: Int(self.rebirthInput.text!), level: Int(self.levelInput.text!), fruits: Int(self.fruitStatsInput.text!))
+        isCalculated = true
+        character = Character(rebirth: Int(rebirthInput.text!), level: Int(levelInput.text!), fruits: Int(fruitStatsInput.text!))
         
-        self.strField.text = ""
-        self.engField.text = ""
-        self.agiField.text = ""
-        self.staField.text = ""
-        self.str = 0
-        self.eng = 0
-        self.agi = 0
-        self.sta = 0
+        strField.text = ""
+        engField.text = ""
+        agiField.text = ""
+        staField.text = ""
+        str = 0
+        eng = 0
+        agi = 0
+        sta = 0
         
-        self.showItemsHeightConstraint.constant = 0.0
-        self.showItemsView.layoutIfNeeded()
+        showItemsHeightConstraint.constant = 0.0
+        showItemsView.layoutIfNeeded()
         
-        if self.validationForRebirth(self.rebirthInput.text) && validationForLevels(self.levelInput.text) {
-            self.showStatsView.isHidden = false
-            self.inputStatsView.isHidden = false
-            self.showItemsView.isHidden = true
+        if StatsValidation.forRebirth(rebirthInput.text) && StatsValidation.forLevels(levelInput.text) {
+            showStatsView.isHidden = false
+            inputStatsView.isHidden = false
+            showItemsView.isHidden = true
             
-            self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
-            self.points = self.character.calculateStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenScripturePoints + self.goldenGrailPoints
+            totalPoint = character.calculateFullStats() + goldenSwordPoints + goldenCrownPoints + goldenScripturePoints + goldenGrailPoints
+            points = character.calculateStats() + goldenSwordPoints + goldenCrownPoints + goldenScripturePoints + goldenGrailPoints
             
-            self.statsWithoutCreatons.text = String(self.points)
-            self.totalStats.text = String(self.totalPoint)
+            statsWithoutCreatons.text = String(points)
+            totalStats.text = String(totalPoint)
         } else {
-            self.showStatsView.isHidden = true
-            self.inputStatsView.isHidden = true
-            self.showItemsView.isHidden = true
+            showStatsView.isHidden = true
+            inputStatsView.isHidden = true
+            showItemsView.isHidden = true
         }
         
-        self.showResultsHeightConstraint.constant = 100.0
-        self.evaluateStatsHeightConstraint.constant = 180.0
-        self.showStatsView.layoutIfNeeded()
-        self.inputStatsView.layoutIfNeeded()
-        self.scrollView.layoutIfNeeded()
+        showResultsHeightConstraint.constant = 100.0
+        evaluateStatsHeightConstraint.constant = 180.0
+        showStatsView.layoutIfNeeded()
+        inputStatsView.layoutIfNeeded()
+        scrollView.layoutIfNeeded()
     }
     
     @IBAction func minusRebirth(_ sender: Any) {
-        if !(self.rebirthInput.text?.isEmpty == true) && validationForRebirth(self.rebirthInput.text), let text = self.rebirthInput.text {
+        if !(rebirthInput.text?.isEmpty == true) && StatsValidation.forRebirth(rebirthInput.text), let text = rebirthInput.text {
             let rebirth: Int = Int(text)!
             if rebirth == 0 {
-                self.rebirthInput.text = rebirthMinValue
+                rebirthInput.text = rebirthMinValue
             } else {
-                self.rebirthInput.text! = String(rebirth - 1)
+                rebirthInput.text! = String(rebirth - 1)
             }
         } else {
-            self.rebirthInput.text = rebirthMinValue
+            rebirthInput.text = rebirthMinValue
         }
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! && !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         }
     }
     
     @IBAction func plusRebirth(_ sender: Any) {
-        if !(self.rebirthInput.text?.isEmpty == true) && validationForRebirth(self.rebirthInput.text), let text = self.rebirthInput.text {
+        if !(rebirthInput.text?.isEmpty == true) && StatsValidation.forRebirth(rebirthInput.text), let text = rebirthInput.text {
             let rebirth: Int = Int(text)!
             if rebirth >= Int(rebirthMaxValue)! {
-                self.rebirthInput.text = rebirthMaxValue
+                rebirthInput.text = rebirthMaxValue
             } else {
-                self.rebirthInput.text! = String(rebirth + 1)
+                rebirthInput.text! = String(rebirth + 1)
             }
         } else {
-            self.rebirthInput.text = "1"
+            rebirthInput.text = "1"
         }
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! && !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         }
     }
     
     @IBAction func minusLevel(_ sender: Any) {
-        if !(self.levelInput.text?.isEmpty == true) && validationForLevels(self.levelInput.text), let text = self.levelInput.text {
+        if !(levelInput.text?.isEmpty == true) && StatsValidation.forLevels(levelInput.text), let text = levelInput.text {
             let level: Int = Int(text)!
             if level == 1 {
-                self.levelInput.text = levelMinValue
+                levelInput.text = levelMinValue
             } else {
-                self.levelInput.text! = String(level - 1)
+                levelInput.text! = String(level - 1)
             }
         } else {
-            self.levelInput.text = levelMinValue
+            levelInput.text = levelMinValue
         }
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! && !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         }
     }
     
     @IBAction func plusLevel(_ sender: Any) {
-        if !(self.levelInput.text?.isEmpty == true) && validationForLevels(self.levelInput.text), let text = self.levelInput.text {
+        if !(levelInput.text?.isEmpty == true) && StatsValidation.forLevels(levelInput.text), let text = levelInput.text {
             let level: Int = Int(text)!
             if level >= 100 {
-                self.levelInput.text = levelMaxValue
+                levelInput.text = levelMaxValue
             } else {
-                self.levelInput.text! = String(level + 1)
+                levelInput.text! = String(level + 1)
             }
         } else {
-            self.levelInput.text = levelMinValue
+            levelInput.text = levelMinValue
         }
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! && !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         }
     }
     
     @IBAction func minusCreaton(_ sender: Any) {
-        if !(self.fruitStatsInput.text?.isEmpty == true) && validationForCreatons(self.fruitStatsInput.text), let text = self.fruitStatsInput.text {
+        if !(fruitStatsInput.text?.isEmpty == true) && StatsValidation.forCreatons(fruitStatsInput.text), let text = fruitStatsInput.text {
             let creatons: Int = Int(text)!
             if creatons == 0 {
-                self.fruitStatsInput.text = "0"
+                fruitStatsInput.text = "0"
             } else {
-                self.fruitStatsInput.text! = String(creatons - 1)
+                fruitStatsInput.text! = String(creatons - 1)
             }
         } else {
-            self.fruitStatsInput.text = "0"
+            fruitStatsInput.text = "0"
         }
     }
     
     @IBAction func plusCreaton(_ sender: Any) {
-        if !(self.fruitStatsInput.text?.isEmpty == true) && validationForCreatons(self.fruitStatsInput.text), let text = self.fruitStatsInput.text {
+        if !(fruitStatsInput.text?.isEmpty == true) && StatsValidation.forCreatons(fruitStatsInput.text), let text = fruitStatsInput.text {
             let creatons: Int = Int(text)!
-            self.fruitStatsInput.text! = String(creatons + 1)
+            fruitStatsInput.text! = String(creatons + 1)
         } else {
-            self.fruitStatsInput.text = "1"
+            fruitStatsInput.text = "1"
         }
     }
     
-    func saveData(_ isActive: Bool, clas: Classes) {
-        if self.calculateButtonOutlet.isEnabled == true && clas == Classes.mg {
-            saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
-            saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
-            saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
-            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
-            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
-            saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
-            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
-        }
-        
-        if isActive && clas == Classes.mg {
-            self.resetViewControllerContent()
-        }    }
-    
-    private func resetViewControllerContent() {
-        self.showStatsView.isHidden = true
-        self.inputStatsView.isHidden = true
-        self.showItemsView.isHidden = true
-    }
-    
-    private func initialSetup() {
-        self.navigationController?.navigationBar.tintColor = .orange
-        self.navigationItem.title = self.subject
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!]
-        self.navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!], for: .normal)
-        self.scrollView.backgroundColor = backgroundColor.withAlphaComponent(0.90)
-        self.containerView.backgroundColor = backgroundColor.withAlphaComponent(0)
-        self.enterStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
-        self.showStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
-        self.inputStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
-        
-        self.calculateButtonOutlet.setTitle(NSLocalizedString("Calculate", comment: "Calculate Button"), for: .normal)
-        
-        self.levelInput.placeholder = levelMinValue
-        self.levelInput.attributedPlaceholder = NSAttributedString(string: levelMinValue, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
-        
-        self.showStatsView.isHidden = true
-        self.inputStatsView.isHidden = true
-        self.showItemsView.isHidden = true
-        self.calculateButtonOutlet.isEnabled = false
-    }
-    
-    private func calculateHeightOfScreen() -> CGFloat {
-        let totalHeight = self.enterStatsView.frame.height + self.inputStatsView.frame.height + self.showStatsView.frame.height + self.showItemsView.frame.height + 50.0
-        return totalHeight
-    }
+    // MARK: - Lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.initialSetup()
+        initialSetup()
         
-        self.rebirthInput.text = saveStats.getData(key: InputStats.rebirth.key)
-        self.levelInput.text = saveStats.getData(key: InputStats.level.key)
-        self.fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
+        rebirthInput.text = saveStats.getData(key: InputStats.rebirth.key)
+        levelInput.text = saveStats.getData(key: InputStats.level.key)
+        fruitStatsInput.text = saveStats.getData(key: InputStats.creaton.key)
         
-        self.goldenSwordPoints = saveStats.getData(key: InputStats.goldenSword.key)
-        self.goldenCrownPoints = saveStats.getData(key: InputStats.goldenCrown.key)
-        self.goldenScripturePoints = saveStats.getData(key: InputStats.goldenScripture.key)
-        self.goldenGrailPoints = saveStats.getData(key: InputStats.goldenGrail.key)
+        goldenSwordPoints = saveStats.getData(key: InputStats.goldenSword.key)
+        goldenCrownPoints = saveStats.getData(key: InputStats.goldenCrown.key)
+        goldenScripturePoints = saveStats.getData(key: InputStats.goldenScripture.key)
+        goldenGrailPoints = saveStats.getData(key: InputStats.goldenGrail.key)
         
-        if self.goldenSwordPoints != 0 {
-            self.goldenSwordMaxValue.text = String(self.goldenSwordPoints)
-            self.goldenSwordSlider.value = Float(self.goldenSwordPoints)
+        if goldenSwordPoints != 0 {
+            goldenSwordMaxValue.text = String(goldenSwordPoints)
+            goldenSwordSlider.value = Float(goldenSwordPoints)
         }
         
-        if self.goldenCrownPoints != 0 {
-            self.goldenCrownMaxValue.text = String(self.goldenCrownPoints)
-            self.goldenCrownSlider.value = Float(self.goldenCrownPoints)
+        if goldenCrownPoints != 0 {
+            goldenCrownMaxValue.text = String(goldenCrownPoints)
+            goldenCrownSlider.value = Float(goldenCrownPoints)
         }
         
-        if self.goldenScripturePoints != 0 {
-            self.goldenScriptureMaxValue.text = String(self.goldenScripturePoints)
-            self.goldenScriptureSlider.value = Float(self.goldenScripturePoints)
+        if goldenScripturePoints != 0 {
+            goldenScriptureMaxValue.text = String(goldenScripturePoints)
+            goldenScriptureSlider.value = Float(goldenScripturePoints)
         }
         
-        if self.goldenGrailPoints != 0 {
-            self.goldenGrailMaxValue.text = String(self.goldenGrailPoints)
-            self.goldenGrailSlider.value = Float(self.goldenGrailPoints)
+        if goldenGrailPoints != 0 {
+            goldenGrailMaxValue.text = String(goldenGrailPoints)
+            goldenGrailSlider.value = Float(goldenGrailPoints)
         }
         
-        if !(self.rebirthInput.text?.isEmpty)! || !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! || !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         }
         
-        self.rebirthInput.delegate = self
-        self.levelInput.delegate = self
-        self.fruitStatsInput.delegate = self
+        rebirthInput.delegate = self
+        levelInput.delegate = self
+        fruitStatsInput.delegate = self
         
-        self.strField.addTarget(self, action: #selector(strFieldDidChange(textField:)), for: .editingDidEnd)
-        self.agiField.addTarget(self, action: #selector(agiFieldDidChange(textField:)), for: .editingDidEnd)
-        self.engField.addTarget(self, action: #selector(engFieldDidChange(textField:)), for: .editingDidEnd)
-        self.staField.addTarget(self, action: #selector(staFieldDidChange(textField:)), for: .editingDidEnd)
+        strField.addTarget(self, action: #selector(strFieldDidChange(textField:)), for: .editingDidEnd)
+        agiField.addTarget(self, action: #selector(agiFieldDidChange(textField:)), for: .editingDidEnd)
+        engField.addTarget(self, action: #selector(engFieldDidChange(textField:)), for: .editingDidEnd)
+        staField.addTarget(self, action: #selector(staFieldDidChange(textField:)), for: .editingDidEnd)
         
         if let ipad = iPadViewController {
             ipad.delegateMG = self
         }
         
-        self.strField.delegate = self
-        self.engField.delegate = self
-        self.agiField.delegate = self
-        self.staField.delegate = self
+        strField.delegate = self
+        engField.delegate = self
+        agiField.delegate = self
+        staField.delegate = self
         
         let tapper = UITapGestureRecognizer(target: self, action: #selector(endEdit(_:)))
         tapper.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapper)
+        view.addGestureRecognizer(tapper)
         
-        self.registerForNotifications()
+        registerForNotifications()
         
-        self.showResultsHeightConstraint.constant = 0.0
-        self.evaluateStatsHeightConstraint.constant = 0.0
-        self.showItemsHeightConstraint.constant = 0.0
+        showResultsHeightConstraint.constant = 0.0
+        evaluateStatsHeightConstraint.constant = 0.0
+        showItemsHeightConstraint.constant = 0.0
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.scrollView.contentSize = CGSize(width: self.view.frame.width, height: calculateHeightOfScreen())
+        scrollView.contentSize = CGSize(width: view.frame.width, height: calculateHeightOfScreen())
     }
     
     deinit {
-        self.deregisterFromNotifications()
+        deregisterFromNotifications()
         
-        if self.isCalculated == true {
-            saveStats.saveData(self.rebirthInput.text, key: InputStats.rebirth.key)
-            saveStats.saveData(self.levelInput.text, key: InputStats.level.key)
-            saveStats.saveData(self.fruitStatsInput.text, key: InputStats.creaton.key)
-            saveStats.saveData(self.goldenSwordPoints, key: InputStats.goldenSword.key)
-            saveStats.saveData(self.goldenCrownPoints, key: InputStats.goldenCrown.key)
-            saveStats.saveData(self.goldenScripturePoints, key: InputStats.goldenScripture.key)
-            saveStats.saveData(self.goldenGrailPoints, key: InputStats.goldenGrail.key)
+        if isCalculated == true {
+            saveStats.saveData(rebirthInput.text, key: InputStats.rebirth.key)
+            saveStats.saveData(levelInput.text, key: InputStats.level.key)
+            saveStats.saveData(fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(goldenSwordPoints, key: InputStats.goldenSword.key)
+            saveStats.saveData(goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(goldenScripturePoints, key: InputStats.goldenScripture.key)
+            saveStats.saveData(goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
     }
     
+    // MARK: - Methods
+    
+    fileprivate func resetViewControllerContent() {
+        showStatsView.isHidden = true
+        inputStatsView.isHidden = true
+        showItemsView.isHidden = true
+    }
+    
+    private func initialSetup() {
+        navigationController?.navigationBar.tintColor = .orange
+        navigationItem.title = subject
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!]
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!], for: .normal)
+        scrollView.backgroundColor = backgroundColor.withAlphaComponent(0.90)
+        containerView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        enterStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        showStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        inputStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
+        
+        calculateButtonOutlet.setTitle(NSLocalizedString("Calculate", comment: "Calculate Button"), for: .normal)
+        
+        levelInput.placeholder = levelMinValue
+        levelInput.attributedPlaceholder = NSAttributedString(string: levelMinValue, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
+        
+        showStatsView.isHidden = true
+        inputStatsView.isHidden = true
+        showItemsView.isHidden = true
+        calculateButtonOutlet.isEnabled = false
+    }
+    
+    private func calculateHeightOfScreen() -> CGFloat {
+        let totalHeight = enterStatsView.frame.height + inputStatsView.frame.height + showStatsView.frame.height + showItemsView.frame.height + 50.0
+        return totalHeight
+    }
+    
     func endEdit(_ sedner: UIGestureRecognizer) {
-        self.enterStatsView.endEditing(true)
-        self.inputStatsView.endEditing(true)
+        enterStatsView.endEditing(true)
+        inputStatsView.endEditing(true)
     }
     
     private func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     private func deregisterFromNotifications() {
@@ -391,253 +380,257 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
             if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
                 let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height,  0.0)
                 
-                self.scrollView.contentInset = contentInset
-                self.scrollView.scrollIndicatorInsets = contentInset
+                scrollView.contentInset = contentInset
+                scrollView.scrollIndicatorInsets = contentInset
             }
         }
     }
     
     func keyboardWillHide(notification: NSNotification) {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            self.scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            self.scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
         }
     }
-    
+}
+
+// MARK: - UITextFieldDelegate
+
+extension MagicKnightViewController: UITextFieldDelegate {
     private func updateStats(_ textField: String?, stat: Stats) {
-        if validationForCreatons(textField) {
+        if StatsValidation.forCreatons(textField) {
             if stat == .str {
-                if !(self.strField.text?.isEmpty)! {
-                    self.str =  Int(self.strField.text!)!
+                if !(strField.text?.isEmpty)! {
+                    str =  Int(strField.text!)!
                 } else {
-                    self.str = 0
+                    str = 0
                 }
             }
             if stat == .agi {
-                if !(self.agiField.text?.isEmpty)! {
-                    self.agi = Int(self.agiField.text!)!
+                if !(agiField.text?.isEmpty)! {
+                    agi = Int(agiField.text!)!
                 } else {
-                    self.agi = 0
+                    agi = 0
                 }
             }
             if stat == .eng {
-                if !(self.engField.text?.isEmpty)! {
-                    self.eng =  Int(self.engField.text!)!
+                if !(engField.text?.isEmpty)! {
+                    eng =  Int(engField.text!)!
                 } else {
-                    self.eng = 0
+                    eng = 0
                 }
             }
             if stat == .sta {
-                if !(self.staField.text?.isEmpty)! {
-                    self.sta = Int(self.staField.text!)!
+                if !(staField.text?.isEmpty)! {
+                    sta = Int(staField.text!)!
                 } else {
-                    self.sta = 0
+                    sta = 0
                 }
             }
         }
         
-        self.totalPoint = self.character.calculateFullStats() + self.goldenSwordPoints + self.goldenCrownPoints + self.goldenGrailPoints - self.str - self.agi - self.eng - self.sta
-        self.totalStats.text = String(self.totalPoint)
+        totalPoint = character.calculateFullStats() + goldenSwordPoints + goldenCrownPoints + goldenGrailPoints - str - agi - eng - sta
+        totalStats.text = String(totalPoint)
         
-        if (self.strField.text?.isEmpty)! || (self.agiField.text?.isEmpty)! || (self.engField.text?.isEmpty)! || (self.staField.text?.isEmpty)! {
-            self.showItemsView.isHidden = true
-            self.showItemsHeightConstraint.constant = 0.0
-            self.showItemsView.layoutIfNeeded()
+        if (strField.text?.isEmpty)! || (agiField.text?.isEmpty)! || (engField.text?.isEmpty)! || (staField.text?.isEmpty)! {
+            showItemsView.isHidden = true
+            showItemsHeightConstraint.constant = 0.0
+            showItemsView.layoutIfNeeded()
         } else {
-            self.showItemsView.isHidden = false
-            self.showItemsHeightConstraint.constant = 100.0
-            self.showItemsView.layoutIfNeeded()
+            showItemsView.isHidden = false
+            showItemsHeightConstraint.constant = 100.0
+            showItemsView.layoutIfNeeded()
             
-            let wp = weapons.getItem(str: self.str, agi: self.agi, eng: self.eng, sta: self.sta)
-            let arm = armors.getItem(str: self.str, agi: self.agi, eng: self.eng, sta: self.sta)
+            let wp = weapons.getItem(str: str, agi: agi, eng: eng, sta: sta)
+            let arm = armors.getItem(str: str, agi: agi, eng: eng, sta: sta)
             if wp.tier != nil && wp.name != nil {
-                self.weapon.text = "T\(wp.tier!): \(wp.name!)"
+                weapon.text = "T\(wp.tier!): \(wp.name!)"
             } else {
-                self.weapon.text = ""
+                weapon.text = ""
             }
             if arm.tier != nil && arm.name != nil {
-                self.set.text = "T\(arm.tier!): \(arm.name!)"
+                set.text = "T\(arm.tier!): \(arm.name!)"
             } else {
-                self.set.text = ""
+                set.text = ""
             }
             
             if arm.tier == nil && wp.tier == nil {
-                self.showItemsView.isHidden = true
-                self.showItemsHeightConstraint.constant = 0.0
-                self.showItemsView.layoutIfNeeded()
+                showItemsView.isHidden = true
+                showItemsHeightConstraint.constant = 0.0
+                showItemsView.layoutIfNeeded()
             }
         }
     }
     
     func strFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.str {
-                    self.strField.text = String(self.totalPoint + self.str)
-                    self.updateStats(self.strField.text, stat: .str)
+        if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
+            if Int(textField.text!)! > totalPoint && totalPoint != 0 {
+                if Int(textField.text!)! > totalPoint + str {
+                    strField.text = String(totalPoint + str)
+                    updateStats(strField.text, stat: .str)
                 } else {
-                    self.updateStats(textField.text, stat: .str)
+                    updateStats(textField.text, stat: .str)
                 }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.str {
-                    self.totalPoint = 0
-                    self.strField.text = String(self.str)
+            } else if Int(textField.text!)! > totalPoint && totalPoint == 0 {
+                if Int(textField.text!)! > str {
+                    totalPoint = 0
+                    strField.text = String(str)
                 } else {
-                    self.updateStats(textField.text, stat: .str)
+                    updateStats(textField.text, stat: .str)
                 }
             } else {
-                self.updateStats(self.strField.text, stat: .str)
+                updateStats(strField.text, stat: .str)
             }
         } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .str)
+            updateStats("0", stat: .str)
         }
     }
     
     func agiFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.agi {
-                    self.agiField.text = String(self.totalPoint + self.agi)
-                    self.updateStats(self.agiField.text, stat: .agi)
+        if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
+            if Int(textField.text!)! > totalPoint && totalPoint != 0 {
+                if Int(textField.text!)! > totalPoint + agi {
+                    agiField.text = String(totalPoint + agi)
+                    updateStats(agiField.text, stat: .agi)
                 } else {
-                    self.updateStats(textField.text, stat: .agi)
+                    updateStats(textField.text, stat: .agi)
                 }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.agi {
-                    self.totalPoint = 0
-                    self.agiField.text = String(self.agi)
+            } else if Int(textField.text!)! > totalPoint && totalPoint == 0 {
+                if Int(textField.text!)! > agi {
+                    totalPoint = 0
+                    agiField.text = String(agi)
                 } else {
-                    self.updateStats(textField.text, stat: .agi)
+                    updateStats(textField.text, stat: .agi)
                 }
             } else {
-                self.updateStats(self.agiField.text, stat: .agi)
+                updateStats(agiField.text, stat: .agi)
             }
         } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .agi)
+            updateStats("0", stat: .agi)
         }
     }
     
     func engFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.eng {
-                    self.engField.text = String(self.totalPoint + self.eng)
-                    self.updateStats(self.engField.text, stat: .eng)
+        if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
+            if Int(textField.text!)! > totalPoint && totalPoint != 0 {
+                if Int(textField.text!)! > totalPoint + eng {
+                    engField.text = String(totalPoint + eng)
+                    updateStats(engField.text, stat: .eng)
                 } else {
-                    self.updateStats(textField.text, stat: .eng)
+                    updateStats(textField.text, stat: .eng)
                 }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.eng {
-                    self.totalPoint = 0
-                    self.engField.text = String(self.eng)
+            } else if Int(textField.text!)! > totalPoint && totalPoint == 0 {
+                if Int(textField.text!)! > eng {
+                    totalPoint = 0
+                    engField.text = String(eng)
                 } else {
-                    self.updateStats(textField.text, stat: .eng)
+                    updateStats(textField.text, stat: .eng)
                 }
             } else {
-                self.updateStats(self.engField.text, stat: .eng)
+                updateStats(engField.text, stat: .eng)
             }
         } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .eng)
+            updateStats("0", stat: .eng)
         }
     }
     
     func staFieldDidChange(textField: UITextField) {
-        if !((textField.text?.isEmpty)!) && validationForCreatons(textField.text) {
-            if Int(textField.text!)! > self.totalPoint && self.totalPoint != 0 {
-                if Int(textField.text!)! > self.totalPoint + self.sta {
-                    self.staField.text = String(self.totalPoint + self.sta)
-                    self.updateStats(self.staField.text, stat: .sta)
+        if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
+            if Int(textField.text!)! > totalPoint && totalPoint != 0 {
+                if Int(textField.text!)! > totalPoint + sta {
+                    staField.text = String(totalPoint + sta)
+                    updateStats(staField.text, stat: .sta)
                 } else {
-                    self.updateStats(textField.text, stat: .sta)
+                    updateStats(textField.text, stat: .sta)
                 }
-            } else if Int(textField.text!)! > self.totalPoint && self.totalPoint == 0 {
-                if Int(textField.text!)! > self.sta {
-                    self.totalPoint = 0
-                    self.staField.text = String(self.sta)
+            } else if Int(textField.text!)! > totalPoint && totalPoint == 0 {
+                if Int(textField.text!)! > sta {
+                    totalPoint = 0
+                    staField.text = String(sta)
                 } else {
-                    self.updateStats(textField.text, stat: .sta)
+                    updateStats(textField.text, stat: .sta)
                 }
             } else {
-                self.updateStats(self.staField.text, stat: .sta)
+                updateStats(staField.text, stat: .sta)
             }
         } else if (textField.text?.isEmpty)! || textField.text == "0" {
-            self.updateStats("0", stat: .sta)
+            updateStats("0", stat: .sta)
         }
     }
     
     /// Reset all objects in this view to its inital state
     func resetView(){
-        self.resignFirstResponder()
-        self.closekeyboard()
+        resignFirstResponder()
+        closekeyboard()
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        self.rebirthInput.keyboardType = .numberPad
-        self.levelInput.keyboardType = .numberPad
-        self.fruitStatsInput.keyboardType = .numberPad
-        self.strField.keyboardType = .numberPad
-        self.engField.keyboardType = .numberPad
-        self.agiField.keyboardType = .numberPad
-        self.staField.keyboardType = .numberPad
+        rebirthInput.keyboardType = .numberPad
+        levelInput.keyboardType = .numberPad
+        fruitStatsInput.keyboardType = .numberPad
+        strField.keyboardType = .numberPad
+        engField.keyboardType = .numberPad
+        agiField.keyboardType = .numberPad
+        staField.keyboardType = .numberPad
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.rebirthInput.resignFirstResponder()
-        self.levelInput.resignFirstResponder()
-        self.fruitStatsInput.resignFirstResponder()
-        self.strField.resignFirstResponder()
-        self.engField.resignFirstResponder()
-        self.agiField.resignFirstResponder()
-        self.staField.resignFirstResponder()
+        rebirthInput.resignFirstResponder()
+        levelInput.resignFirstResponder()
+        fruitStatsInput.resignFirstResponder()
+        strField.resignFirstResponder()
+        engField.resignFirstResponder()
+        agiField.resignFirstResponder()
+        staField.resignFirstResponder()
         return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        if !(self.rebirthInput.text?.isEmpty)! && !(self.levelInput.text?.isEmpty)! {
-            self.calculateButtonOutlet.isEnabled = true
+        if !(rebirthInput.text?.isEmpty)! && !(levelInput.text?.isEmpty)! {
+            calculateButtonOutlet.isEnabled = true
         } else {
-            self.calculateButtonOutlet.isEnabled = false
-            self.showStatsView.isHidden = true
-            self.inputStatsView.isHidden = true
-            self.showItemsView.isHidden = true
-            self.isCalculated = false
+            calculateButtonOutlet.isEnabled = false
+            showStatsView.isHidden = true
+            inputStatsView.isHidden = true
+            showItemsView.isHidden = true
+            isCalculated = false
         }
         
-        if !(self.validationForRebirth(self.rebirthInput.text)) && !(self.rebirthInput.text?.isEmpty == true) {
-            self.rebirthInput.text = rebirthMinValue
+        if !(StatsValidation.forRebirth(rebirthInput.text)) && !(rebirthInput.text?.isEmpty == true) {
+            rebirthInput.text = rebirthMinValue
         }
         
-        if !(self.validationForLevels(self.levelInput.text)) && !(self.levelInput.text?.isEmpty == true) {
-            self.levelInput.text = levelMinValue
+        if !(StatsValidation.forLevels(levelInput.text)) && !(levelInput.text?.isEmpty == true) {
+            levelInput.text = levelMinValue
         }
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
-        self.rebirthInput.text = ""
-        self.rebirthInput.resignFirstResponder()
-        self.levelInput.text = ""
-        self.levelInput.resignFirstResponder()
-        self.fruitStatsInput.text = ""
-        self.fruitStatsInput.resignFirstResponder()
-        self.strField.text = ""
-        self.strField.resignFirstResponder()
-        self.engField.text = ""
-        self.engField.resignFirstResponder()
-        self.agiField.text = ""
-        self.agiField.resignFirstResponder()
-        self.staField.text = ""
-        self.staField.resignFirstResponder()
+        rebirthInput.text = ""
+        rebirthInput.resignFirstResponder()
+        levelInput.text = ""
+        levelInput.resignFirstResponder()
+        fruitStatsInput.text = ""
+        fruitStatsInput.resignFirstResponder()
+        strField.text = ""
+        strField.resignFirstResponder()
+        engField.text = ""
+        engField.resignFirstResponder()
+        agiField.text = ""
+        agiField.resignFirstResponder()
+        staField.text = ""
+        staField.resignFirstResponder()
         return false
     }
     
     // MARK: Helper Methods
     func closekeyboard() {
-        self.view.endEditing(true)
+        view.endEditing(true)
     }
     
     // MARK: Touch Events
@@ -648,37 +641,24 @@ class MagicKnightViewController: UIViewController, UITextFieldDelegate, saveData
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         return true
     }
-    
-    func validationForRebirth(_ enteredData: String?) -> Bool {
-        
-        guard let enteredData = enteredData else {
-            return false
+}
+
+// MARK: - saveDataDelegate
+
+extension MagicKnightViewController: SaveDataDelegate {
+    func saveData(_ isActive: Bool, clas: Classes) {
+        if calculateButtonOutlet.isEnabled == true && clas == Classes.mg {
+            saveStats.saveData(rebirthInput.text, key: InputStats.rebirth.key)
+            saveStats.saveData(levelInput.text, key: InputStats.level.key)
+            saveStats.saveData(fruitStatsInput.text, key: InputStats.creaton.key)
+            saveStats.saveData(goldenSwordPoints, key: InputStats.goldenSword.key)
+            saveStats.saveData(goldenCrownPoints, key: InputStats.goldenCrown.key)
+            saveStats.saveData(goldenScripturePoints, key: InputStats.goldenScripture.key)
+            saveStats.saveData(goldenGrailPoints, key: InputStats.goldenGrail.key)
         }
         
-        let format = "[0-9]{1}|10|11|12|13|14|15"
-        let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
-        return formatPredicate.evaluate(with: enteredData)
-    }
-    
-    func validationForLevels(_ enteredData: String?) -> Bool {
-        
-        guard let enteredData = enteredData else {
-            return false
+        if isActive && clas == Classes.mg {
+            resetViewControllerContent()
         }
-        
-        let format = "(?:(?!0)[0-9]{1,2}|100)"
-        let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
-        return formatPredicate.evaluate(with: enteredData)
-    }
-    
-    func validationForCreatons(_ enteredData: String?) -> Bool {
-        
-        guard let enteredData = enteredData else {
-            return false
-        }
-        
-        let format = "[0-9]{1,5}"
-        let formatPredicate = NSPredicate(format:"SELF MATCHES %@", format)
-        return formatPredicate.evaluate(with: enteredData)
     }
 }

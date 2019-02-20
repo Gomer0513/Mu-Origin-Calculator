@@ -8,9 +8,9 @@
 
 import UIKit
 
-class IPadViewController: UIViewController, MenuViewControllerDelegate {
+class IPadViewController: UIViewController {
 
-    // MARK: - Outlets
+    // MARK: - IBOutlets
     @IBOutlet weak var leftContainer: UIView!
     @IBOutlet weak var rightContainer: UIView!
     @IBOutlet weak var darkWizardContainer: UIView!
@@ -20,242 +20,242 @@ class IPadViewController: UIViewController, MenuViewControllerDelegate {
     @IBOutlet weak var extraMenuContainer: UIView!
     
     // MARK: - Variables
-    private weak var mainMenuVC: MainMenuViewController?
-    private weak var darkKnightVC: DarkKnightViewController?
-    private weak var darkWizardVC: DarkWizardViewController?
-    private weak var elfVC: ElfViewController?
-    private weak var magicKnightVC: MagicKnightViewController?
-    private weak var summonerVC: SummonerViewController?
-    private weak var extraMenuVC: ExtraStatsViewController?
-    private var index: Int?
-    private var navigationControllerForCharacters: UINavigationController?
-    var delegateDK : saveDataDelegate?
-    var delegateDW : saveDataDelegate?
-    var delegateELF : saveDataDelegate?
-    var delegateMG : saveDataDelegate?
-    var delegameSumm: saveDataDelegate?
-    var extraStatsDelegate: saveDataDelegate?
+    fileprivate weak var mainMenuVC: MainMenuViewController?
+    fileprivate weak var darkKnightVC: DarkKnightViewController?
+    fileprivate weak var darkWizardVC: DarkWizardViewController?
+    fileprivate weak var elfVC: ElfViewController?
+    fileprivate weak var magicKnightVC: MagicKnightViewController?
+    fileprivate weak var summonerVC: SummonerViewController?
+    fileprivate weak var extraMenuVC: ExtraStatsViewController?
+    fileprivate var index: Int?
+    fileprivate var navigationControllerForCharacters: UINavigationController?
+    var delegateDK : SaveDataDelegate?
+    var delegateDW : SaveDataDelegate?
+    var delegateELF : SaveDataDelegate?
+    var delegateMG : SaveDataDelegate?
+    var delegameSumm: SaveDataDelegate?
+    var extraStatsDelegate: SaveDataDelegate?
+  
+    //MARK: - Lifecycle
     
-    // MARK: - Properties
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6)
-        self.navigationController?.navigationBar.tintColor = .orange
-        self.rightContainer.isHidden = true
-        self.darkWizardContainer.isHidden = true
-        self.elfContainer.isHidden = true
-        self.magicKnightContainer.isHidden = true
-        self.summonerContainer.isHidden = true
-        self.extraMenuContainer.isHidden = true
+        view.backgroundColor = UIColor.darkGray.withAlphaComponent(0.6)
+        navigationController?.navigationBar.tintColor = .orange
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = true
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        self.delegateDK?.saveData(false, clas: Classes.dk)
-        self.delegateDW?.saveData(false, clas: Classes.dw)
-        self.delegateELF?.saveData(false, clas: Classes.elf)
-        self.delegateMG?.saveData(false, clas: Classes.mg)
-        self.delegameSumm?.saveData(false, clas: Classes.sum)
-        self.extraStatsDelegate?.saveData(false, clas: .extra)
+        delegateDK?.saveData(false, clas: Classes.dk)
+        delegateDW?.saveData(false, clas: Classes.dw)
+        delegateELF?.saveData(false, clas: Classes.elf)
+        delegateMG?.saveData(false, clas: Classes.mg)
+        delegameSumm?.saveData(false, clas: Classes.sum)
+        extraStatsDelegate?.saveData(false, clas: .extra)
     }
     
-    /**
-     Protocol which indetifies which classes is selected.
-     
-     - Parameter index: index of selected class.
-     
-     */
-    func segue(_ index: Classes) {
-        
-        switch index {
-        case .dk:
-            self.rightContainer.isHidden = false
-            self.darkWizardContainer.isHidden = true
-            self.elfContainer.isHidden = true
-            self.magicKnightContainer.isHidden = true
-            self.summonerContainer.isHidden = true
-            self.extraMenuContainer.isHidden = true
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.extraMenuVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = true
-            self.mainMenuVC?.darkWizardButton.isSelected = false
-            self.mainMenuVC?.elfButton.isSelected = false
-            self.mainMenuVC?.magicKnightButton.isSelected = false
-            self.mainMenuVC?.summonerButton.isSelected = false
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = false
-            
-            self.delegateDK?.saveData(true, clas: Classes.dk)
-        case .dw:
-            self.rightContainer.isHidden = true
-            self.darkWizardContainer.isHidden = false
-            self.elfContainer.isHidden = true
-            self.magicKnightContainer.isHidden = true
-            self.summonerContainer.isHidden = true
-            self.extraMenuContainer.isHidden = true
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.extraMenuVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = false
-            self.mainMenuVC?.darkWizardButton.isSelected = true
-            self.mainMenuVC?.elfButton.isSelected = false
-            self.mainMenuVC?.magicKnightButton.isSelected = false
-            self.mainMenuVC?.summonerButton.isSelected = false
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = false
-            
-            self.delegateDW?.saveData(true, clas: Classes.dw)
-        case .elf:
-            self.rightContainer.isHidden = true
-            self.darkWizardContainer.isHidden = true
-            self.elfContainer.isHidden = false
-            self.magicKnightContainer.isHidden = true
-            self.summonerContainer.isHidden = true
-            self.extraMenuContainer.isHidden = true
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.extraMenuVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = false
-            self.mainMenuVC?.darkWizardButton.isSelected = false
-            self.mainMenuVC?.elfButton.isSelected = true
-            self.mainMenuVC?.magicKnightButton.isSelected = false
-            self.mainMenuVC?.summonerButton.isSelected = false
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = false
-            
-            self.delegateELF?.saveData(true, clas: Classes.elf)
-        case .mg:
-            self.rightContainer.isHidden = true
-            self.darkWizardContainer.isHidden = true
-            self.elfContainer.isHidden = true
-            self.magicKnightContainer.isHidden = false
-            self.summonerContainer.isHidden = true
-            self.extraMenuContainer.isHidden = true
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.extraMenuVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = false
-            self.mainMenuVC?.darkWizardButton.isSelected = false
-            self.mainMenuVC?.elfButton.isSelected = false
-            self.mainMenuVC?.magicKnightButton.isSelected = true
-            self.mainMenuVC?.summonerButton.isSelected = false
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = false
-            
-            self.delegateMG?.saveData(true, clas: Classes.mg)
-        case .sum:
-            self.rightContainer.isHidden = true
-            self.darkWizardContainer.isHidden = true
-            self.elfContainer.isHidden = true
-            self.magicKnightContainer.isHidden = true
-            self.summonerContainer.isHidden = false
-            self.extraMenuContainer.isHidden = true
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.extraMenuVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = false
-            self.mainMenuVC?.darkWizardButton.isSelected = false
-            self.mainMenuVC?.elfButton.isSelected = false
-            self.mainMenuVC?.magicKnightButton.isSelected = false
-            self.mainMenuVC?.summonerButton.isSelected = true
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = false
-            
-            self.delegameSumm?.saveData(true, clas: Classes.sum)
-        case .extra:
-            self.rightContainer.isHidden = true
-            self.darkWizardContainer.isHidden = true
-            self.elfContainer.isHidden = true
-            self.magicKnightContainer.isHidden = true
-            self.summonerContainer.isHidden = true
-            self.extraMenuContainer.isHidden = false
-            self.navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
-            
-            self.darkKnightVC?.view.endEditing(true)
-            self.darkWizardVC?.view.endEditing(true)
-            self.elfVC?.view.endEditing(true)
-            self.magicKnightVC?.view.endEditing(true)
-            self.summonerVC?.view.endEditing(true)
-            
-            self.mainMenuVC?.darkKnightButton.isSelected = false
-            self.mainMenuVC?.darkWizardButton.isSelected = false
-            self.mainMenuVC?.elfButton.isSelected = false
-            self.mainMenuVC?.magicKnightButton.isSelected = false
-            self.mainMenuVC?.summonerButton.isSelected = false
-            self.mainMenuVC?.AdditionalCalculationButton.isSelected = true
-            
-            self.extraStatsDelegate?.saveData(true, clas: .extra)
-        }
-    }
+    // MARK: - Methods
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "menusForIpad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.mainMenuVC = navigationController.viewControllers.first as? MainMenuViewController
-                self.mainMenuVC?.delegate = self
-                self.mainMenuVC?.view.backgroundColor = backgroundColor.withAlphaComponent(0.1)
+                mainMenuVC = navigationController.viewControllers.first as? MainMenuViewController
+                mainMenuVC?.delegate = self
+                mainMenuVC?.view.backgroundColor = backgroundColor.withAlphaComponent(0.1)
             }
         } else if segue.identifier == "DarkKnightIPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.darkKnightVC = navigationController.viewControllers.first as? DarkKnightViewController
-                self.darkKnightVC?.subject = Classes.dk.rawValue
-                self.darkKnightVC?.iPadViewController = self
+                darkKnightVC = navigationController.viewControllers.first as? DarkKnightViewController
+                darkKnightVC?.subject = Classes.dk.rawValue
+                darkKnightVC?.iPadViewController = self
             }
         } else if segue.identifier == "DarkWizardIPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.darkWizardVC = navigationController.viewControllers.first as? DarkWizardViewController
-                self.darkWizardVC?.subject = Classes.dw.rawValue
-                self.darkWizardVC?.iPadViewController = self
+                darkWizardVC = navigationController.viewControllers.first as? DarkWizardViewController
+                darkWizardVC?.subject = Classes.dw.rawValue
+                darkWizardVC?.iPadViewController = self
             }
         } else if segue.identifier == "ElfIPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.elfVC = navigationController.viewControllers.first as? ElfViewController
-                self.elfVC?.subject = Classes.elf.rawValue
-                self.elfVC?.iPadViewController = self
+                elfVC = navigationController.viewControllers.first as? ElfViewController
+                elfVC?.subject = Classes.elf.rawValue
+                elfVC?.iPadViewController = self
             }
         } else if segue.identifier == "MagicKnightIPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.magicKnightVC = navigationController.viewControllers.first as? MagicKnightViewController
-                self.magicKnightVC?.subject = Classes.mg.rawValue
-                self.magicKnightVC?.iPadViewController = self
+                magicKnightVC = navigationController.viewControllers.first as? MagicKnightViewController
+                magicKnightVC?.subject = Classes.mg.rawValue
+                magicKnightVC?.iPadViewController = self
             }
         } else if segue.identifier == "SummonerIPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.summonerVC = navigationController.viewControllers.first as? SummonerViewController
-                self.summonerVC?.subject = Classes.sum.rawValue
-                self.summonerVC?.iPadViewController = self
+                summonerVC = navigationController.viewControllers.first as? SummonerViewController
+                summonerVC?.subject = Classes.sum.rawValue
+                summonerVC?.iPadViewController = self
             }
         } else if segue.identifier == "ExtraStatsiPad" {
             if let navigationController = segue.destination as? UINavigationController {
-                self.extraMenuVC = navigationController.viewControllers.first as? ExtraStatsViewController
-                self.extraMenuVC?.subject = Classes.extra.rawValue
-                self.extraMenuVC?.iPadViewController = self
+                extraMenuVC = navigationController.viewControllers.first as? ExtraStatsViewController
+                extraMenuVC?.subject = Classes.extra.rawValue
+                extraMenuVC?.iPadViewController = self
             }
         }
     }
 }
 
-protocol saveDataDelegate {
-    func saveData(_ isActive: Bool, clas: Classes)
+extension IPadViewController: MenuViewControllerDelegate {
+  /**
+   Protocol which indetifies which classes is selected.
+   
+   - Parameter index: index of selected class.
+   
+   */
+  func segue(_ index: Classes) {
+    switch index {
+    case .dk:
+        rightContainer.isHidden = false
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = true
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        extraMenuVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = true
+        mainMenuVC?.darkWizardButton.isSelected = false
+        mainMenuVC?.elfButton.isSelected = false
+        mainMenuVC?.magicKnightButton.isSelected = false
+        mainMenuVC?.summonerButton.isSelected = false
+        mainMenuVC?.AdditionalCalculationButton.isSelected = false
+        
+        delegateDK?.saveData(true, clas: Classes.dk)
+    case .dw:
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = false
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = true
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        extraMenuVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = false
+        mainMenuVC?.darkWizardButton.isSelected = true
+        mainMenuVC?.elfButton.isSelected = false
+        mainMenuVC?.magicKnightButton.isSelected = false
+        mainMenuVC?.summonerButton.isSelected = false
+        mainMenuVC?.AdditionalCalculationButton.isSelected = false
+        
+        delegateDW?.saveData(true, clas: Classes.dw)
+    case .elf:
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = false
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = true
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        extraMenuVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = false
+        mainMenuVC?.darkWizardButton.isSelected = false
+        mainMenuVC?.elfButton.isSelected = true
+        mainMenuVC?.magicKnightButton.isSelected = false
+        mainMenuVC?.summonerButton.isSelected = false
+        mainMenuVC?.AdditionalCalculationButton.isSelected = false
+        
+        delegateELF?.saveData(true, clas: Classes.elf)
+    case .mg:
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = false
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = true
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        extraMenuVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = false
+        mainMenuVC?.darkWizardButton.isSelected = false
+        mainMenuVC?.elfButton.isSelected = false
+        mainMenuVC?.magicKnightButton.isSelected = true
+        mainMenuVC?.summonerButton.isSelected = false
+        mainMenuVC?.AdditionalCalculationButton.isSelected = false
+        
+        delegateMG?.saveData(true, clas: Classes.mg)
+    case .sum:
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = false
+        extraMenuContainer.isHidden = true
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        extraMenuVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = false
+        mainMenuVC?.darkWizardButton.isSelected = false
+        mainMenuVC?.elfButton.isSelected = false
+        mainMenuVC?.magicKnightButton.isSelected = false
+        mainMenuVC?.summonerButton.isSelected = true
+        mainMenuVC?.AdditionalCalculationButton.isSelected = false
+        
+        delegameSumm?.saveData(true, clas: Classes.sum)
+    case .extra:
+        rightContainer.isHidden = true
+        darkWizardContainer.isHidden = true
+        elfContainer.isHidden = true
+        magicKnightContainer.isHidden = true
+        summonerContainer.isHidden = true
+        extraMenuContainer.isHidden = false
+        navigationControllerForCharacters?.viewControllers.first?.resignFirstResponder()
+        
+        darkKnightVC?.view.endEditing(true)
+        darkWizardVC?.view.endEditing(true)
+        elfVC?.view.endEditing(true)
+        magicKnightVC?.view.endEditing(true)
+        summonerVC?.view.endEditing(true)
+        
+        mainMenuVC?.darkKnightButton.isSelected = false
+        mainMenuVC?.darkWizardButton.isSelected = false
+        mainMenuVC?.elfButton.isSelected = false
+        mainMenuVC?.magicKnightButton.isSelected = false
+        mainMenuVC?.summonerButton.isSelected = false
+        mainMenuVC?.AdditionalCalculationButton.isSelected = true
+        
+        extraStatsDelegate?.saveData(true, clas: .extra)
+    }
+  }
 }

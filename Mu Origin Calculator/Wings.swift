@@ -19,9 +19,12 @@ enum Wings: CondorFlame {
     case tier6 = 2670
     case tier7 = 4660
     case tier8 = 7660
+    case tier9 = 7540
+    
+    // MARK: - Variables
     
     var value: CondorFlame {
-        return self.rawValue
+        return rawValue
     }
     var name: String {
         switch self {
@@ -41,13 +44,21 @@ enum Wings: CondorFlame {
             return "T7"
         case .tier8:
             return "T8"
+        case .tier9:
+            return "T9"
         }
     }
-    static let valuesArray = [Wing.t1, Wing.t2, Wing.t3, Wing.t4, Wing.t5, Wing.t6, Wing.t7, Wing.t8]
-    static let titlesArray = [Wings.tier1.name, Wings.tier2.name, Wings.tier3.name, Wings.tier4.name, Wings.tier5.name, Wings.tier6.name, Wings.tier7.name, Wings.tier8.name]
+    
+    // MARK: - Constants
+    
+    static let valuesArray = [Wing.t1, Wing.t2, Wing.t3, Wing.t4, Wing.t5, Wing.t6, Wing.t7, Wing.t8, Wing.t9]
+    static let titlesArray = [Wings.tier1.name, Wings.tier2.name, Wings.tier3.name, Wings.tier4.name, Wings.tier5.name, Wings.tier6.name, Wings.tier7.name, Wings.tier8.name, Wings.tier9.name]
 }
 
 struct Wing {
+    
+    // MARK: - Variables
+    
     static var t1: CondorFlame = Wings.tier1.value
     static var t2: CondorFlame = Wings.tier1.value + Wings.tier2.value
     static var t3: CondorFlame = Wings.tier1.value + Wings.tier2.value + Wings.tier3.value
@@ -56,6 +67,9 @@ struct Wing {
     static var t6: CondorFlame = Wings.tier1.value + Wings.tier2.value + Wings.tier3.value + Wings.tier4.value + Wings.tier5.value + Wings.tier6.value
     static var t7: CondorFlame = Wings.tier1.value + Wings.tier2.value + Wings.tier3.value + Wings.tier4.value + Wings.tier5.value + Wings.tier6.value + Wings.tier7.value
     static var t8: CondorFlame = Wings.tier1.value + Wings.tier2.value + Wings.tier3.value + Wings.tier4.value + Wings.tier5.value + Wings.tier6.value + Wings.tier7.value + Wings.tier8.value
+    static var t9: CondorFlame = Wings.tier1.value + Wings.tier2.value + Wings.tier3.value + Wings.tier4.value + Wings.tier5.value + Wings.tier6.value + Wings.tier7.value + Wings.tier8.value + Wings.tier9.value
+    
+    // MARK: - Methods
     
     func recalculatePoints(currentTitle: String, currentPoints: CondorFlame) -> Array<(key:String,value:CondorFlame)> {
         var showTitleValues: [String:CondorFlame] = [:]

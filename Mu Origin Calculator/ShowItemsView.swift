@@ -12,10 +12,10 @@ import Foundation
 class ShowItemsView: UIView {
 
     override func awakeFromNib() {
-        self.layer.borderColor = UIColor.orange.cgColor
-        self.layer.borderWidth = 2
-        self.layer.cornerRadius = 5
-        self.backgroundColor = backgroundColor?.withAlphaComponent(0)
+        layer.borderColor = UIColor.orange.cgColor
+        layer.borderWidth = 2
+        layer.cornerRadius = 5
+        backgroundColor = backgroundColor?.withAlphaComponent(0)
     }
     
 }

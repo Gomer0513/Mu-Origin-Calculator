@@ -39,19 +39,7 @@ enum InputStats: String {
     
     var key: String {
         get {
-            return self.rawValue
-        }
-    }
-}
-
-extension Float {
-    func roundToInt() -> Int {
-        let value = Int(self)
-        let f = self - Float(value)
-        if f >= 0.00000000001 {
-            return value + 1
-        } else {
-            return value
+            return rawValue
         }
     }
 }

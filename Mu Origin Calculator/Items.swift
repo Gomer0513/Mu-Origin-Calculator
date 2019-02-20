@@ -25,12 +25,19 @@ protocol Items {
 }
 
 class Weapon: Items {
+    
+    // MARK: - Variables
+    
     var belongsTo: Classes
     var item = Item()
+    
+    // MARK: - Init
     
     init(belongsTo: Classes) {
         self.belongsTo = belongsTo
     }
+    
+    // MARK: - Methods
     
     func getItem(str: Point? = nil ?? 0, agi: Point? = nil ?? 0, eng: Point? = nil ?? 0, sta: Point? = nil ?? 0) -> (tier: Int?, name: String?) {
         if str != nil {
@@ -349,12 +356,19 @@ class Weapon: Items {
 }
 
 class Armor: Items {
+    
+    // MARK: - Variables
+    
     var belongsTo: Classes
     var item = Item()
+    
+    // MARK: - Init
     
     init(belongsTo: Classes) {
         self.belongsTo = belongsTo
     }
+    
+    // MARK: - Methods
     
     func getItem(str: Point? = nil ?? 0, agi: Point? = nil ?? 0, eng: Point? = nil ?? 0, sta: Point? = nil ?? 0) -> (tier: Int?, name: String?) {
         if str != nil {

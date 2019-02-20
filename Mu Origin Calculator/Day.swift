@@ -13,15 +13,22 @@ enum Types {
 }
 
 class Day {
+    
+    // MARK: - Variables
+    
     private var diamonds: Diamond
     private var points = Int()
     private var type: Types
+    
+    // MARK: - Init
     
     init(type: Types, points: Int?, diamondsPerDay: Diamond) {
         self.points = points ?? 0
         diamonds = diamondsPerDay
         self.type = type
     }
+    
+    // MARK: - Variables
     
     private func diamondsEvaluate() -> Diamond {
         switch type {

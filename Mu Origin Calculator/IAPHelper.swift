@@ -11,10 +11,10 @@ import StoreKit
 
 class IAPHelper: NSObject {
     
-    // MARK:- Constants
+    // MARK: - Constants
     static let singletonHelper = IAPHelper()
     
-    // MARK:- Variables
+    // MARK: - Variables
     internal var product: SKProduct!
     var delegate: IAPHelperDelegate?
     
@@ -23,6 +23,8 @@ class IAPHelper: NSObject {
         SKPaymentQueue.default().add(self)
     }
 }
+
+// MARK: - SKPaymentTransactionObserver
 
 extension IAPHelper: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
@@ -72,12 +74,14 @@ extension IAPHelper: SKPaymentTransactionObserver {
     }
 }
 
+// MARK: - SKProductsRequestDelegate
+
 extension IAPHelper: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         if response.products.count != 0 {
             for product in response.products {
                 self.product = product
-                self.purchaseMyProduct(product: self.product)
+                purchaseMyProduct(product: product)
             }
         } else {
             print("there are no products!")
@@ -110,9 +114,4 @@ extension IAPHelper: SKProductsRequestDelegate {
     func restoreProducts() {
         SKPaymentQueue.default().restoreCompletedTransactions()
     }
-}
-
-protocol IAPHelperDelegate {
-    func sendInformation(message: String, success: Bool)
-    func isPaymentSuccessful(_ success: Bool)
 }

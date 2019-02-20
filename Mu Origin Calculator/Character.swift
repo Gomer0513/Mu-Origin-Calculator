@@ -27,6 +27,9 @@ enum Classes: String {
 }
 
 class Character {
+  
+    // MARK: - Variables
+    
     private var level: Int = 1
     private var rebirth: Int = 0
     private var fruits: Point = 0
@@ -37,6 +40,8 @@ class Character {
     
     private var relictSum: Point = 0
     
+    // MARK: - Inits
+    
     init (rebirth: Int?, level: Int?, fruits: Point?) {
         self.rebirth = rebirth ?? 0
         self.level = level ?? 1
@@ -45,12 +50,14 @@ class Character {
     
     required init () {}
     
+    // MARK: - Methods
+    
     func calculateStats() -> Point {
       var overalStats = 0
 
-      for currentRebirth in 0...self.rebirth {
-        if currentRebirth == self.rebirth {
-          overalStats = overalStats + (self.level - 1)*(5+currentRebirth)
+      for currentRebirth in 0...rebirth {
+        if currentRebirth == rebirth {
+          overalStats = overalStats + (level - 1)*(5+currentRebirth)
         } else {
           overalStats = overalStats + 99*(5 + currentRebirth)
         }
@@ -73,11 +80,11 @@ class Character {
             self.goldenGrail = goldenGrail!
         }
         
-        self.relictSum = self.goldenSword + self.goldenCrown + self.goldenScripture + self.goldenGrail
+        relictSum = self.goldenSword + self.goldenCrown + self.goldenScripture + self.goldenGrail
     }
     
     func calculateFullStats() -> Point {
-        return self.calculateStats() + self.fruits
+        return calculateStats() + fruits
     }
     
 }
