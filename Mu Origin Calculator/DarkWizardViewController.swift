@@ -313,8 +313,8 @@ class DarkWizardViewController: UIViewController {
     private func initialSetup() {
         navigationController?.navigationBar.tintColor = .orange
         navigationItem.title = subject
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white, NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!]
-        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!], for: .normal)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white, NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!]
+        navigationItem.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font: UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!], for: .normal)
         scrollView.backgroundColor = backgroundColor.withAlphaComponent(0.90)
         containerView.backgroundColor = backgroundColor.withAlphaComponent(0)
         enterStatsView.backgroundColor = backgroundColor.withAlphaComponent(0)
@@ -324,7 +324,7 @@ class DarkWizardViewController: UIViewController {
         calculateButtonOutlet.setTitle(NSLocalizedString("Calculate", comment: "Calculate Button"), for: .normal)
         
         levelInput.placeholder = levelMinValue
-        levelInput.attributedPlaceholder = NSAttributedString(string: levelMinValue, attributes: [NSForegroundColorAttributeName: UIColor.orange.withAlphaComponent(0.3)])
+        levelInput.attributedPlaceholder = NSAttributedString(string: levelMinValue, attributes: [NSAttributedString.Key.foregroundColor: UIColor.orange.withAlphaComponent(0.3)])
         
         showStatsView.isHidden = true
         inputStatsView.isHidden = true
@@ -337,24 +337,24 @@ class DarkWizardViewController: UIViewController {
         return totalHeight
     }
     
-    func endEdit(_ sedner: UIGestureRecognizer) {
+    @objc func endEdit(_ sedner: UIGestureRecognizer) {
         enterStatsView.endEditing(true)
         inputStatsView.endEditing(true)
     }
     
     private func registerForNotifications() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: UIResponder.keyboardWillShowNotification, object: nil)
     }
     
     private func deregisterFromNotifications() {
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(notification: NSNotification) {
+    @objc func keyboardWillShow(notification: NSNotification) {
         if let userInfo = notification.userInfo {
-            if let keyboardSize = (userInfo[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-                let contentInset = UIEdgeInsetsMake(0.0, 0.0, keyboardSize.height,  0.0)
+            if let keyboardSize = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+                let contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: keyboardSize.height,  right: 0.0)
                 
                 scrollView.contentInset = contentInset
                 scrollView.scrollIndicatorInsets = contentInset
@@ -362,14 +362,14 @@ class DarkWizardViewController: UIViewController {
         }
     }
     
-    func keyboardWillHide(notification: NSNotification) {
+    @objc func keyboardWillHide(notification: NSNotification) {
         if UIDevice.current.userInterfaceIdiom == .phone {
-            scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+            scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0,  right: 0.0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         }
         if UIDevice.current.userInterfaceIdiom == .pad {
-            scrollView.contentInset = UIEdgeInsetsMake(0.0, 0.0, 0.0,  0.0)
-            scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 0.0, 0.0, 0.0)
+            scrollView.contentInset = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0,  right: 0.0)
+            scrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 0.0, bottom: 0.0, right: 0.0)
         }
     }
 }
@@ -429,7 +429,7 @@ extension DarkWizardViewController: UITextFieldDelegate {
         }
     }
     
-    func engFieldDidChange(textField: UITextField) {
+    @objc func engFieldDidChange(textField: UITextField) {
         if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
             if Int(textField.text!)! > totalPoint && totalPoint != 0 {
                 if Int(textField.text!)! > totalPoint + eng {
@@ -453,7 +453,7 @@ extension DarkWizardViewController: UITextFieldDelegate {
         }
     }
     
-    func agiFieldDidChange(textField: UITextField) {
+    @objc func agiFieldDidChange(textField: UITextField) {
         if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
             if Int(textField.text!)! > totalPoint && totalPoint != 0 {
                 if Int(textField.text!)! > totalPoint + agi {
@@ -477,7 +477,7 @@ extension DarkWizardViewController: UITextFieldDelegate {
         }
     }
     
-    func staFieldDidChange(textField: UITextField) {
+    @objc func staFieldDidChange(textField: UITextField) {
         if !((textField.text?.isEmpty)!) && StatsValidation.forCreatons(textField.text) {
             if Int(textField.text!)! > totalPoint && totalPoint != 0 {
                 if Int(textField.text!)! > totalPoint + sta {

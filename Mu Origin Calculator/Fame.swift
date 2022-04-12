@@ -101,7 +101,7 @@ struct Fame {
     
     func recalculatePoints(currentTitle: String, currentPoints: FameBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:FameBadge] = [:]
-        let startWith = Fames.titlesArray.index(of: currentTitle)!
+        let startWith = Fames.titlesArray.firstIndex(of: currentTitle)!
         
         for index in startWith+1..<Fames.valuesArray.count {
             showTitleValues[Fames.titlesArray[index]] = Fames.valuesArray[index] - currentPoints - Fames.valuesArray[startWith]
@@ -112,7 +112,7 @@ struct Fame {
     }
     
     func evaluatePointsForTitle(currentTitle: String) -> FameBadge {
-        let index = Fames.titlesArray.index(of: currentTitle)!
+        let index = Fames.titlesArray.firstIndex(of: currentTitle)!
         if index != 0 {
             return Fames.valuesArray[index] - Fames.valuesArray[index-1]
         } else {

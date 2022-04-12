@@ -103,7 +103,7 @@ struct Achievement {
     
     func recalculatePoints(currentTitle: String, currentPoints: AchievementBadge) -> Array<(key:String, value:Int)> {
         var showTitleValues: [String:AchievementBadge] = [:]
-        let startWith = Achievements.titlesArray.index(of: currentTitle)!
+        let startWith = Achievements.titlesArray.firstIndex(of: currentTitle)!
         
         for index in startWith+1..<Achievements.valuesArray.count {
             showTitleValues[Achievements.titlesArray[index]] = Achievements.valuesArray[index] - currentPoints - Achievements.valuesArray[startWith]
@@ -114,7 +114,7 @@ struct Achievement {
     }
     
     func evaluatePointsForTitle(currentTitle: String) -> AchievementBadge {
-        let index = Achievements.titlesArray.index(of: currentTitle)!
+        let index = Achievements.titlesArray.firstIndex(of: currentTitle)!
         if index != 0 {
             return Achievements.valuesArray[index] - Achievements.valuesArray[index-1]
         } else {
