@@ -1,0 +1,13 @@
+language:
+  - swift
+osx_image:
+  - xcode13.3
+xcode_project:
+  - Mu\ Origin\ Calculator.xcodeproj
+xcode_scheme:
+  - Mu\ Origin\ Calculator
+xcode_sdk:
+  - iphonesimulator12.5
+branches:
+only:
+  - master

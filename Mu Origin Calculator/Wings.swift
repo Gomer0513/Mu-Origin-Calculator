@@ -73,7 +73,7 @@ struct Wing {
     
     func recalculatePoints(currentTitle: String, currentPoints: CondorFlame) -> Array<(key:String,value:CondorFlame)> {
         var showTitleValues: [String:CondorFlame] = [:]
-        let startWith = Wings.titlesArray.index(of: currentTitle)!
+        let startWith = Wings.titlesArray.firstIndex(of: currentTitle)!
         
         for index in startWith+1..<Wings.valuesArray.count {
             showTitleValues[Wings.titlesArray[index]] = Wings.valuesArray[index] - currentPoints - Wings.valuesArray[startWith]
@@ -84,7 +84,7 @@ struct Wing {
     }
     
     func evaluatePointsForTitle(currentTitle: String) -> CondorFlame {
-        let index = Wings.titlesArray.index(of: currentTitle)!
+        let index = Wings.titlesArray.firstIndex(of: currentTitle)!
         if index != 0 {
             return Wings.valuesArray[index] - Wings.valuesArray[index-1]
         } else {

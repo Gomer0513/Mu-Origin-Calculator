@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var rootViewController: UIViewController?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
             UINavigationBar.appearance().barTintColor = backgroundColor
         if UIDevice.current.userInterfaceIdiom == .pad {
             UINavigationBar.appearance().backgroundColor = UIColor.gray

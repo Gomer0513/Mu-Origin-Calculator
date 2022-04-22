@@ -84,7 +84,7 @@ class MainMenuViewController: UIViewController {
         }
     }
     
-    func performSegueForExtraButton(_ sender: Any) {
+    @objc func performSegueForExtraButton(_ sender: Any) {
         if UIDevice.current.userInterfaceIdiom == .phone{
             performSegue(withIdentifier: "ExtraStats", sender: self)
         }
@@ -129,14 +129,14 @@ class MainMenuViewController: UIViewController {
         navigationController?.navigationBar.isUserInteractionEnabled = true
     }
     
-    func requestPurchase(sender: UIButton) {
+    @objc func requestPurchase(sender: UIButton) {
         iapHelper.requestProductInfo()
         iapHelper.delegate = self
         view.isUserInteractionEnabled = false
         navigationController?.navigationBar.isUserInteractionEnabled = false
     }
     
-    func restorePurchases(_ sender: Any) {
+    @objc func restorePurchases(_ sender: Any) {
         iapHelper.restoreProducts()
         iapHelper.delegate = self
         view.isUserInteractionEnabled = false

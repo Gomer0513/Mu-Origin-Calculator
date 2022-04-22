@@ -20,12 +20,12 @@ class Alert {
     func errorAlert(title: String, message: String, viewController: UIViewController) {
         let alert = UIAlertController(title: title, message: NSLocalizedString(message, comment: ""), preferredStyle: .alert)
         let attributedTitle = NSAttributedString(string: title, attributes: [
-            NSFontAttributeName : UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!,
-            NSForegroundColorAttributeName : UIColor.orange
+            NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Regular", size: 20.0)!,
+            NSAttributedString.Key.foregroundColor : UIColor.orange
             ])
         let attributedMessage = NSAttributedString(string: message, attributes: [
-            NSFontAttributeName : UIFont(name: "AppleSDGothicNeo-Regular", size: 15.0)!,
-            NSForegroundColorAttributeName : UIColor.darkGray
+            NSAttributedString.Key.font : UIFont(name: "AppleSDGothicNeo-Regular", size: 15.0)!,
+            NSAttributedString.Key.foregroundColor : UIColor.darkGray
             ])
         alert.setValue(attributedTitle, forKey: "attributedTitle")
         alert.setValue(attributedMessage, forKey: "attributedMessage")
