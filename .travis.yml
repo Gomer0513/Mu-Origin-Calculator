@@ -2,12 +2,14 @@ language:
   - swift
 osx_image:
   - xcode13.3
-xcode_project:
-  - Mu Origin Calculator.xcodeproj
-xcode_scheme:
-  - Mu Origin Calculator
-xcode_sdk:
-  - iphonesimulator15.4
+#xcode_project:
+#  - Mu Origin Calculator.xcodeproj
+#xcode_scheme:
+#  - Mu Origin Calculator
+#xcode_sdk:
+#  - iphonesimulator15.4
+script:
+  - xcodebuild -scheme Mu Origin Calculator -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone X,OS=15.4' build test
 branches:
 only:
   - master
