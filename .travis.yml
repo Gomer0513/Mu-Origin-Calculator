@@ -3,9 +3,9 @@ language:
 osx_image:
   - xcode13.3
 xcode_project:
-  - Mu\ Origin\ Calculator.xcodeproj
+  - Mu Origin Calculator.xcodeproj
 xcode_scheme:
-  - Mu\ Origin\ Calculator
+  - Mu Origin Calculator
 xcode_sdk:
   - iphonesimulator12.5
 branches:
