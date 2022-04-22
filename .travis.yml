@@ -3,11 +3,13 @@ language:
 osx_image:
   - xcode13.3
 xcode_project:
-  - Mu\ Origin\ Calculator.xcodeproj
+  - Mu Origin Calculator.xcodeproj
 xcode_scheme:
-  - Mu\ Origin\ Calculator
+  - Mu Origin Calculator
 xcode_sdk:
-  - iphonesimulator12.5
+  - iphonesimulator15.4
+script:
+  - xcodebuild clean build -scheme "$TRAVIS_XCODE_SCHEME" -project "$TRAVIS_XCODE_PROJECT" -sdk "$TRAVIS_XCODE_SDK"
 branches:
 only:
   - master
