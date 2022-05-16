@@ -13,20 +13,20 @@ platform :ios do
       versionNumber = get_version_number(target: "Mu Origin Calculator")
       
       # create keychain
-      keychainName = "Travis Keychain"
-      keychainPassword = SecureRandom.base64
+      #keychainName = "Travis Keychain"
+      #keychainPassword = SecureRandom.base64
       
-      ENV["MATCH_KEYCHAIN_NAME"] = keychainName
-      ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
+      #ENV["MATCH_KEYCHAIN_NAME"] = keychainName
+      #ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
 
-      create_keychain(
-        name: keychainName,
-        default_keychain: true,
-        unlock: true,
-        timeout: 3600,
-        lock_when_sleeps: true,
-        password: keychainPassword
-      )
+      #create_keychain(
+      #  name: keychainName,
+      #  default_keychain: true,
+      #  unlock: true,
+      #  timeout: 3600,
+      #  lock_when_sleeps: true,
+      #  password: keychainPassword
+      #)
       
       # fetch provisioning profile
       match(
