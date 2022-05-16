@@ -11,5 +11,7 @@ xcode_sdk:
 script:
   - xcodebuild clean build -scheme "$TRAVIS_XCODE_SCHEME" -project "$TRAVIS_XCODE_PROJECT" -sdk "$TRAVIS_XCODE_SDK"
 branches:
-only:
-  - master
+  only:
+    - master
+before_install:
+ - bundle install
