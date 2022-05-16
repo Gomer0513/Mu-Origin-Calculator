@@ -24,14 +24,16 @@ platform :ios do
         default_keychain: true,
         unlock: true,
         timeout: 3600,
-        password: keychainPassword
+        password: keychainPassword,
+	verbose: true
       )
       
       # fetch provisioning profile
       match(
         type: "development",
         readonly: true,
-        app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"    
+        app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
+	verbose: true
       )
       
       # archive build
