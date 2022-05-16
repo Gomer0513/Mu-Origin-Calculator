@@ -29,7 +29,7 @@ platform :ios do
       
       # fetch provisioning profile
       match(
-        type: "appstore",
+        type: "development",
         readonly: true,
         app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"    
       )
@@ -39,7 +39,7 @@ platform :ios do
         configuration: "Development",
         scheme: "Mu Origin Calculator",
         clean: true,
-        export_method: "app-store",
+        export_method: "development",
         output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
         output_name: "ios_fastlane_integration.ipa"
       )
