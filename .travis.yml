@@ -2,16 +2,21 @@ language:
   - swift
 osx_image:
   - xcode13.3
-xcode_project:
-  - Mu Origin Calculator.xcodeproj
-xcode_scheme:
-  - Mu Origin Calculator
-xcode_sdk:
-  - iphonesimulator15.4
+#xcode_project:
+#  - Mu Origin Calculator.xcodeproj
+#xcode_scheme:
+#  - Mu Origin Calculator
+#xcode_sdk:
+#  - iphonesimulator15.4
 script:
-  - xcodebuild clean build -scheme "$TRAVIS_XCODE_SCHEME" -project "$TRAVIS_XCODE_PROJECT" -sdk "$TRAVIS_XCODE_SDK"
+ - travis_wait 90 fastlane local_appstore
+#  - xcodebuild clean build -scheme "$TRAVIS_XCODE_SCHEME" -project "$TRAVIS_XCODE_PROJECT" -sdk "$TRAVIS_XCODE_SDK"
 branches:
   only:
     - master
 before_install:
- - bundle install
+- openssl aes-256-cbc -K $encrypted_abcdef_key -iv $encrypted_abcdef_iv
+  -in .autodeployment.sh.enc -out .autodeployment.sh -d
+- chmod +x .autodeployment.sh
+- ". ./.autodeployment.sh"
+- bundle install

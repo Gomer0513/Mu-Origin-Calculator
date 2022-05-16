@@ -1,0 +1,77 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Local Machine - create TestFlight build."
+  lane :local_appstore do
+    begin
+      # retrieve build number
+      buildNumber = get_info_plist_value(
+        path: "Mu Origin Calculator/Info.plist",
+        key: "CFBundleVersion"
+      )
+
+      versionNumber = get_version_number(target: "Mu Origin Calculator")
+      
+      # create keychain
+      keychainName = "Travis Keychain"
+      keychainPassword = SecureRandom.base64
+      
+      ENV["MATCH_KEYCHAIN_NAME"] = keychainName
+      ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
+
+      create_keychain(
+        name: keychainName,
+        default_keychain: true,
+        unlock: true,
+        timeout: 3600,
+        lock_when_sleeps: true,
+        password: keychainPassword
+      )
+      
+      # fetch provisioning profile
+      match(
+        type: "development",
+        readonly: true,
+        app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"    
+      )
+      
+      # archive build
+      build_ios_app(
+        configuration: "Development",
+        scheme: "Mu Origin Calculator",
+        clean: true,
+        export_method: "app-store",
+        output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
+        output_name: "ios_fastlane_integration.ipa"
+      )
+      
+      # submit to App Center
+      #appcenter_upload(
+      #  api_token: "#{ENV["APP_CENTER_API_TOKEN"]}",
+      #  owner_name: "{{owner_name}}}",
+      #  app_name: "{{app_name}}",
+      #  ipa: "./builds/dev/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
+      #  destinations: "*",
+      #  notify_testers: true,
+      #  release_notes: "BuildNumber: #{buildNumber}"
+      #)
+      
+      # upload to Testflight
+      upload_to_testflight(
+        apple_id: "1305862853",
+        ipa: "./builds/appstore/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
+        skip_waiting_for_build_processing: true,
+        skip_submission: true
+      )
+      
+      # delete keychain
+      delete_keychain(
+        name: keychainName
+      )
+      
+      rescue => exception
+        puts exception
+      end
+
+  end
+end
