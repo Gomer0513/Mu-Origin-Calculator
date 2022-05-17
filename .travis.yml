@@ -8,9 +8,9 @@ branches:
   only:
   - master
 before_install:
-- openssl aes-256-cbc -K $encrypted_0565cb21f477_key -iv $encrypted_0565cb21f477_iv
-  -in .autodeployment.sh.enc -out .autodeployment.sh -d
-- chmod +x .autodeployment.sh
-- cat .autodeployment.sh
-- ". ./.autodeployment.sh"
+#- openssl aes-256-cbc -K $encrypted_0565cb21f477_key -iv $encrypted_0565cb21f477_iv
+#  -in .autodeployment.sh.enc -out .autodeployment.sh -d
+#- chmod +x .autodeployment.sh
+#- cat .autodeployment.sh
+#- ". ./.autodeployment.sh"
 - bundle install

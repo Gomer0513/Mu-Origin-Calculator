@@ -1,78 +1,131 @@
 default_platform(:ios)
 
+def setEnvironmentVariable
+#using local deployment need to provide the passphrase to decrypt deployment secret.
+if !File.exist?("../.manualdeployment.txt")
+    sh("openssl enc -d -aes-256-cbc -in ../.manualdeployment.enc -out ../.manualdeployment.txt")
+  end
+File.readlines("../.manualdeployment.txt").each do |line|
+  key,value = line.chomp.split("=")
+  ENV["#{key}"] = value
+ end
+end
+
 platform :ios do
-  desc "Local Machine - create TestFlight build."
-  lane :local_appstore do
-    begin
-      # retrieve build number
-      buildNumber = get_info_plist_value(
-        path: "Mu Origin Calculator/Info.plist",
-        key: "CFBundleVersion"
-      )
+  # desc "Local Machine - create TestFlight build."
+  # lane :local_appstore do
+  #   begin
+  #     # retrieve build number
+  #     buildNumber = get_info_plist_value(
+  #       path: "Mu Origin Calculator/Info.plist",
+  #       key: "CFBundleVersion"
+  #     )
+  #
+  #     versionNumber = get_version_number(target: "Mu Origin Calculator")
+  #
+  #     # create keychain
+  #     keychainName = "Travis Keychain"
+  #     keychainPassword = SecureRandom.base64
+  #
+  #     ENV["MATCH_KEYCHAIN_NAME"] = keychainName
+  #     ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
+  #
+  #     create_keychain(
+  #       name: keychainName,
+  #       default_keychain: true,
+  #       unlock: true,
+  #       timeout: 3600,
+  #       password: keychainPassword,
+  #         verbose: true
+  #     )
+  #
+  #     # fetch provisioning profile
+  #     match(
+  #       type: "development",
+  #       readonly: true,
+  #       app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
+  #         verbose: true
+  #     )
+  #
+  #     # archive build
+  #     build_ios_app(
+  #       configuration: "Development",
+  #       scheme: "Mu Origin Calculator",
+  #       clean: true,
+  #       export_method: "development",
+  #       output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
+  #       output_name: "ios_fastlane_integration.ipa"
+  #     )
+  #
+  #     # submit to App Center
+  #     appcenter_upload(
+  #       api_token: "#{ENV["APP_CENTER_API_TOKEN"]}",
+  #       owner_name: "{{owner_name}}}",
+  #       app_name: "{{app_name}}",
+  #       ipa: "./builds/dev/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
+  #       destinations: "*",
+  #       notify_testers: true,
+  #       release_notes: "BuildNumber: #{buildNumber}"
+  #     )
+  #
+  #     # upload to Testflight
+  #     upload_to_testflight(
+  #       apple_id: "1305862853",
+  #       ipa: "./builds/appstore/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
+  #       skip_waiting_for_build_processing: true,
+  #       skip_submission: true
+  #     )
+  #
+  #     # delete keychain
+  #     delete_keychain(
+  #       name: keychainName
+  #     )
+  #
+  #     rescue => exception
+  #       puts exception
+  #     end
+  # end
+  
+  desc "Local Machine - create inhouse QA build using local machine."
+    lane :local_appstore do
+      begin
+        # retrieve build number
 
-      versionNumber = get_version_number(target: "Mu Origin Calculator")
-      
-      # create keychain
-      keychainName = "Travis Keychain"
-      keychainPassword = SecureRandom.base64
-      
-      ENV["MATCH_KEYCHAIN_NAME"] = keychainName
-      ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
+        buildNumber = get_info_plist_value(
+          path: "Mu Origin Calculator/Info.plis",
+          key: "CFBundleVersion"
+        )
 
-      create_keychain(
-        name: keychainName,
-        default_keychain: true,
-        unlock: true,
-        timeout: 3600,
-        password: keychainPassword,
-	verbose: true
-      )
-      
-      # fetch provisioning profile
-      match(
-        type: "development",
-        readonly: true,
-        app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
-	verbose: true
-      )
-      
-      # archive build
-      build_ios_app(
-        configuration: "Development",
-        scheme: "Mu Origin Calculator",
-        clean: true,
-        export_method: "development",
-        output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
-        output_name: "ios_fastlane_integration.ipa"
-      )
-      
-      # submit to App Center
-      #appcenter_upload(
-      #  api_token: "#{ENV["APP_CENTER_API_TOKEN"]}",
-      #  owner_name: "{{owner_name}}}",
-      #  app_name: "{{app_name}}",
-      #  ipa: "./builds/dev/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
-      #  destinations: "*",
-      #  notify_testers: true,
-      #  release_notes: "BuildNumber: #{buildNumber}"
-      #)
-      
-      # upload to Testflight
-      upload_to_testflight(
-        apple_id: "1305862853",
-        ipa: "./builds/appstore/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
-        skip_waiting_for_build_processing: true,
-        skip_submission: true
-      )
-      
-      # delete keychain
-      delete_keychain(
-        name: keychainName
-      )
-      
+        versionNumber = get_version_number(target: "Mu Origin Calculator")
+
+        # fetch provisioning profile
+        match(
+          type: "development",
+          readonly: true,
+          app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"  
+        )
+
+        # archive build
+        build_ios_app(
+          configuration: "Development",
+          scheme: "Mu Origin Calculator",
+          clean: true,
+          export_method: "development",
+          output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
+          output_name: "ios_fastlane_integration.ipa"
+        )
+
+        # upload to Testflight
+        upload_to_testflight(
+          apple_id: "1305862853",
+          ipa: "./builds/appstore/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
+          skip_waiting_for_build_processing: true,
+          skip_submission: true
+        )
+
       rescue => exception
         puts exception
       end
 
-  end
+    end
 end
