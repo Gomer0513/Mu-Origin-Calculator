@@ -87,6 +87,10 @@ platform :ios do
   # end
   
   desc "Local Machine - create inhouse QA build using local machine."
+    before_all do
+      setEnvironmentVariable
+    end
+  
     lane :local_appstore do
       begin
         # retrieve build number
