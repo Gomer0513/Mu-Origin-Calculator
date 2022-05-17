@@ -92,7 +92,7 @@ platform :ios do
         # retrieve build number
 
         buildNumber = get_info_plist_value(
-          path: "Mu Origin Calculator/Info.plis",
+          path: "Mu Origin Calculator/Info.plist",
           key: "CFBundleVersion"
         )
 
