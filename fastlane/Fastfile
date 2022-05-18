@@ -3,6 +3,13 @@ default_platform(:ios)
 platform :ios do
   desc "Installs the certificates locally"
   private_lane :install_certificates do
+    
+    app_store_connect_api_key(
+      key_id: "A8M54HVDX6",
+      issuer_id: "69a6de95-920e-47e3-e053-5b8c7c11a4d1",
+      key_content: "-----BEGIN EC PRIVATE KEY-----\nMIGTAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBHkwdwIBAQQgh9k7fIvZY/zrUiLR\nuKo1lRRreBIzEWbQkTTwcrZHtrSgCgYIKoZIzj0DAQehRANCAAR6H8WyJiqNFXGq\nH3kwNEwDbMvY0yHOt5bKnQuKj3D0q5TNkr96ti0lp3BOiZXh+34BVT6jbsHlN2Lh\nV5OdpN+5\n-----END EC PRIVATE KEY-----"
+    )
+    
     tmp_keychain = "temporary_keychain"
     
     create_keychain(
