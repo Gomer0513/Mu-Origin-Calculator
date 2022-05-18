@@ -3,16 +3,11 @@ default_platform(:ios)
 platform :ios do
   desc "Installs the certificates locally"
   private_lane :install_certificates do
-    
-  	keychainName = "Travis Keychain"
-  	keychainPassword = SecureRandom.base64
-
-    ENV["MATCH_KEYCHAIN_NAME"] = keychainName
-    ENV["MATCH_KEYCHAIN_PASSWORD"] = keychainPassword
+    tmp_keychain = "temporary_keychain"
     
     create_keychain(
-      name: keychainName,
-      password: keychainPassword,
+      name: tmp_keychain,
+      password: tmp_keychain,
       default_keychain: true,
       lock_when_sleeps: true,
       timeout: 3600,
@@ -21,21 +16,19 @@ platform :ios do
     )
     
     unlock_keychain(
-      path: keychainName,
-      password: keychainPassword,
-      add_to_search_list: :replace,
-      verbose: true
+      path: tmp_keychain,
+      password: tmp_keychain,
+      add_to_search_list: :replace
     )
     
     match(
       type: "appstore",
-      keychain_name: keychainName,
-      keychain_password: keychainPassword,
+      keychain_name: tmp_keychain,
+      keychain_password: tmp_keychain,
       app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
-      readonly: true,
+      readonly: false,
       verbose: true
     )
-    
   end
   # desc "Local Machine - create TestFlight build."
   # lane :local_appstore do
