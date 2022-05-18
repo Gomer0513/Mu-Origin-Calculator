@@ -11,6 +11,8 @@ File.readlines("../.manualdeployment.txt").each do |line|
  end
 end
 
+setup_travis
+
 platform :ios do
   desc "Installs the certificates locally"
   private_lane :install_certificates do
@@ -24,11 +26,11 @@ platform :ios do
       unlock: true,
     )
     
-    unlock_keychain(
-      path: tmp_keychain,
-      password: tmp_keychain,
-      add_to_search_list: :replace
-    )
+    # unlock_keychain(
+    #   path: tmp_keychain,
+    #   password: tmp_keychain,
+    #   add_to_search_list: :replace
+    # )
     
     match(
       type: "appstore",
