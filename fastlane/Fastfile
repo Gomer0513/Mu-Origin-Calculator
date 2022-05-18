@@ -24,7 +24,6 @@ platform :ios do
     
     import_certificate(
       keychain_name: tmp_keychain,
-      certificate_path: File.absolute_path("2246DR75W2.cer")
     )
     
     # match(
