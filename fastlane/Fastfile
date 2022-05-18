@@ -9,10 +9,11 @@ platform :ios do
     create_keychain(
       name: tmp_keychain,
       password: tmp_keychain,
-      default_keychain: false,
+      default_keychain: true,
       lock_when_sleeps: true,
       timeout: 3600,
       unlock: true,
+      generate_apple_certs: true,
       verbose: true
     )
     
@@ -22,6 +23,7 @@ platform :ios do
       keychain_password: tmp_keychain,
       app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
       readonly: true,
+      generate_apple_certs: true,
       verbose: true
     )
   end
