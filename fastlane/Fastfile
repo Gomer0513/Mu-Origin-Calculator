@@ -24,6 +24,12 @@ platform :ios do
       unlock: true,
     )
     
+    unlock_keychain(
+      path: tmp_keychain
+      password: tmp_keychain,
+      add_to_search_list: :replace
+    )
+    
     match(
       type: "appstore",
       keychain_name: tmp_keychain,
