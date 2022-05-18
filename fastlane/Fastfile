@@ -9,31 +9,21 @@ platform :ios do
     create_keychain(
       name: tmp_keychain,
       password: tmp_keychain,
-      default_keychain: true,
+      default_keychain: false,
       lock_when_sleeps: true,
       timeout: 3600,
       unlock: true,
       verbose: true
     )
     
-    # unlock_keychain(
-    #   path: tmp_keychain,
-    #   password: tmp_keychain,
-    #   add_to_search_list: :replace
-    # )
-    
-    import_certificate(
+    match(
+      type: "appstore",
       keychain_name: tmp_keychain,
+      keychain_password: tmp_keychain,
+      app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
+      readonly: true,
+      verbose: true
     )
-    
-    # match(
-    #   type: "appstore",
-    #   keychain_name: tmp_keychain,
-    #   keychain_password: tmp_keychain,
-    #   app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
-    #   readonly: true,
-    #   verbose: true
-    # )
   end
   # desc "Local Machine - create TestFlight build."
   # lane :local_appstore do
@@ -155,6 +145,11 @@ platform :ios do
           ipa: "./builds/appstore/#{versionNumber}.#{buildNumber}/ios_fastlane_integration.ipa",
           skip_waiting_for_build_processing: true,
           skip_submission: true
+        )
+        
+        # delete keychain
+        delete_keychain(
+          name: "temporary_keychain"
         )
 
       rescue => exception
