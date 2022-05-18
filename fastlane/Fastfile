@@ -13,7 +13,6 @@ platform :ios do
       lock_when_sleeps: true,
       timeout: 3600,
       unlock: true,
-      generate_apple_certs: true,
       verbose: true
     )
     
