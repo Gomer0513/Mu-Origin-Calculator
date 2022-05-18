@@ -25,7 +25,7 @@ platform :ios do
     )
     
     unlock_keychain(
-      path: tmp_keychain
+      path: tmp_keychain,
       password: tmp_keychain,
       add_to_search_list: :replace
     )
