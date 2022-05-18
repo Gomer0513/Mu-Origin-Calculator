@@ -1,16 +1,5 @@
 default_platform(:ios)
 
-def setEnvironmentVariable
-#using local deployment need to provide the passphrase to decrypt deployment secret.
-if !File.exist?("../.manualdeployment.txt")
-    sh("openssl enc -d -aes-256-cbc -in ../.manualdeployment.enc -out ../.manualdeployment.txt")
-  end
-File.readlines("../.manualdeployment.txt").each do |line|
-  key,value = line.chomp.split("=")
-  ENV["#{key}"] = value
- end
-end
-
 platform :ios do
   desc "Installs the certificates locally"
   private_lane :install_certificates do
@@ -20,8 +9,10 @@ platform :ios do
       name: tmp_keychain,
       password: tmp_keychain,
       default_keychain: true,
+      lock_when_sleeps: true,
       timeout: 3600,
       unlock: true,
+      verbose: true
     )
     
     # unlock_keychain(
@@ -34,7 +25,9 @@ platform :ios do
       type: "appstore",
       keychain_name: tmp_keychain,
       keychain_password: tmp_keychain,
-      readonly: true
+      app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
+      readonly: true,
+      verbose: true
     )
   end
   # desc "Local Machine - create TestFlight build."
@@ -119,14 +112,7 @@ platform :ios do
     lane :local_appstore do
       begin
         
-        # install_certificates
-        
-        setup_ci
-
-        sync_code_signing(  
-          type: "appstore",
-          readonly: true
-        )
+        install_certificates
 
         buildNumber = get_info_plist_value(
           path: "Mu Origin Calculator/Info.plist",
