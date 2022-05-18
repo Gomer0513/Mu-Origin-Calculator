@@ -12,6 +12,19 @@ File.readlines("../.manualdeployment.txt").each do |line|
 end
 
 platform :ios do
+  desc "Install certificates and provisioning profiles".black.bold
+  lane :install_certs_profiles do
+    match(
+      type: "development",
+      readonly: true,
+      app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"
+    )
+    match(
+      type: "appstore",
+      readonly: true,
+      app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"
+    )
+  end
   # desc "Local Machine - create TestFlight build."
   # lane :local_appstore do
   #   begin
@@ -87,34 +100,41 @@ platform :ios do
   # end
   
   desc "Local Machine - create inhouse QA build using local machine."
-    before_all do
-      setEnvironmentVariable
-    end
+    # before_all do
+    #   setEnvironmentVariable
+    # end
   
     lane :local_appstore do
       begin
-        # retrieve build number
+        
+        install_certs_profiles
 
         buildNumber = get_info_plist_value(
           path: "Mu Origin Calculator/Info.plist",
           key: "CFBundleVersion"
         )
 
-        versionNumber = get_version_number(target: "Mu Origin Calculator")
-
         # fetch provisioning profile
         match(
-          type: "development",
+          type: "appstore",
           readonly: true,
-          app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"  
+          app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
+          verbose: true
         )
+        
+        versionNumber = get_version_number()
+        increment_version_number(version_number: versionNumber)
+        increment_version_number()
+        versionNumber = get_version_number()
+        
+        increment_build_number(build_number: buildNumber.to_i + 1)
 
         # archive build
         build_ios_app(
-          configuration: "Development",
+          configuration: "App Store",
           scheme: "Mu Origin Calculator",
           clean: true,
-          export_method: "development",
+          export_method: "app-store",
           output_directory: "./builds/appstore/#{versionNumber}.#{buildNumber}",
           output_name: "ios_fastlane_integration.ipa"
         )
@@ -130,6 +150,11 @@ platform :ios do
       rescue => exception
         puts exception
       end
-
+      
+      # Commit version
+      after_all do
+        commit_version_bump
+      end
+      
     end
 end
