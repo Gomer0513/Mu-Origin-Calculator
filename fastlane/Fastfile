@@ -6,15 +6,15 @@ platform :ios do
     
     tmp_keychain = "temporary_keychain"
     
-    # create_keychain(
-    #   name: tmp_keychain,
-    #   password: tmp_keychain,
-    #   default_keychain: true,
-    #   lock_when_sleeps: true,
-    #   timeout: 3600,
-    #   unlock: true,
-    #   verbose: true
-    # )
+    create_keychain(
+      name: tmp_keychain,
+      password: tmp_keychain,
+      default_keychain: true,
+      lock_when_sleeps: true,
+      timeout: 3600,
+      unlock: true,
+      verbose: true
+    )
     
     unlock_keychain(
       path: tmp_keychain,
