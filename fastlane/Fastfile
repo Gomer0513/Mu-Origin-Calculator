@@ -12,17 +12,23 @@ File.readlines("../.manualdeployment.txt").each do |line|
 end
 
 platform :ios do
-  desc "Install certificates and provisioning profiles".black.bold
-  lane :install_certs_profiles do
-    match(
-      type: "development",
-      readonly: true,
-      app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"
+  desc "Installs the certificates locally"
+  private_lane :install_certificates do
+    tmp_keychain = "temporary_keychain"
+    
+    create_keychain(
+      name: tmp_keychain,
+      password: tmp_keychain,
+      default_keychain: true,
+      timeout: 3600,
+      unlock: true,
     )
+    
     match(
       type: "appstore",
-      readonly: true,
-      app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator"
+      keychain_name: tmp_keychain,
+      keychain_password: tmp_keychain,
+      readonly: true
     )
   end
   # desc "Local Machine - create TestFlight build."
@@ -99,7 +105,7 @@ platform :ios do
   #     end
   # end
   
-  desc "Local Machine - create inhouse QA build using local machine."
+  desc "Local Machine - create TestFlight build."
     # before_all do
     #   setEnvironmentVariable
     # end
@@ -107,7 +113,7 @@ platform :ios do
     lane :local_appstore do
       begin
         
-        install_certs_profiles
+        install_certificates
 
         buildNumber = get_info_plist_value(
           path: "Mu Origin Calculator/Info.plist",
@@ -115,17 +121,17 @@ platform :ios do
         )
 
         # fetch provisioning profile
-        match(
-          type: "appstore",
-          readonly: true,
-          app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
-          verbose: true
-        )
+        # match(
+        #   type: "appstore",
+        #   readonly: true,
+        #   app_identifier: "Oleksandr-Kysil.Mu-Origin-Calculator",
+        #   verbose: true
+        # )
         
         versionNumber = get_version_number()
-        increment_version_number(version_number: versionNumber)
-        increment_version_number()
-        versionNumber = get_version_number()
+        # increment_version_number(version_number: versionNumber)
+        # increment_version_number()
+        # versionNumber = get_version_number()
         
         increment_build_number(build_number: buildNumber.to_i + 1)
 
