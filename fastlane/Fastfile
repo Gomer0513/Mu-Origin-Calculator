@@ -16,20 +16,25 @@ platform :ios do
       verbose: true
     )
     
-    unlock_keychain(
-      path: tmp_keychain,
-      password: tmp_keychain,
-      add_to_search_list: :replace
+    # unlock_keychain(
+    #   path: tmp_keychain,
+    #   password: tmp_keychain,
+    #   add_to_search_list: :replace
+    # )
+    
+    import_certificate(
+      keychain_name: tmp_keychain,
+      certificate_path: File.absolute_path("2246DR75W2.cer")
     )
     
-    match(
-      type: "appstore",
-      keychain_name: tmp_keychain,
-      keychain_password: tmp_keychain,
-      app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
-      readonly: true,
-      verbose: true
-    )
+    # match(
+    #   type: "appstore",
+    #   keychain_name: tmp_keychain,
+    #   keychain_password: tmp_keychain,
+    #   app_identifier:  "Oleksandr-Kysil.Mu-Origin-Calculator",
+    #   readonly: true,
+    #   verbose: true
+    # )
   end
   # desc "Local Machine - create TestFlight build."
   # lane :local_appstore do
