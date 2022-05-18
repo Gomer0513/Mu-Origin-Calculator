@@ -11,8 +11,6 @@ File.readlines("../.manualdeployment.txt").each do |line|
  end
 end
 
-setup_travis
-
 platform :ios do
   desc "Installs the certificates locally"
   private_lane :install_certificates do
@@ -121,7 +119,14 @@ platform :ios do
     lane :local_appstore do
       begin
         
-        install_certificates
+        # install_certificates
+        
+        setup_ci
+
+        sync_code_signing(  
+          type: "appstore",
+          readonly: true
+        )
 
         buildNumber = get_info_plist_value(
           path: "Mu Origin Calculator/Info.plist",
