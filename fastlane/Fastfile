@@ -16,6 +16,9 @@ platform :ios do
       verbose: true
     )
     
+    sh("wget https://www.apple.com/certificateauthority/AppleWWDRCAG3.cer")
+    sh("sudo security add-trusted-cert -d -r unspecified -k ~/Library/Keychains/#{tmp_keychain} AppleWWDRCAG3.cer")
+    
     match(
       type: "appstore",
       keychain_name: tmp_keychain,
